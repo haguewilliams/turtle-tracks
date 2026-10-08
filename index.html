@@ -1,6 +1,10 @@
-<!-- TURTLE TRACKS v1.2 — SQUARESPACE TEST BUILD SQ1
-     Same v1.2 app. Duplicate JavaScript removed; Squarespace isolation added. -->
-<div id="turtle-tracks-embed">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f5eedb">
+<title>Turtle Tracks — A Field Guide to the Eastern Box Turtle</title>
 <style>
 :root{--paper:#f5eedb;--paper2:#efe5cb;--ink:#173d2b;--ink2:#315a42;--muted:#657365;--line:#d7ccb0;--card:#fbf7ea;--green:#1e4b34;--green2:#2e6548;--warn:#7a4b25;--danger:#7d3b2f;--shadow:0 5px 18px rgba(45,55,35,.11);--radius:18px}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#d8d1be;color:var(--ink);font-family:Georgia,'Times New Roman',serif}body{display:flex;justify-content:center}.app{width:100%;max-width:440px;min-height:100vh;background:var(--paper);position:relative;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.16)}button,input,select,textarea{font:inherit}button{cursor:pointer}.screen{display:none;min-height:100vh;padding-bottom:92px;background:var(--paper)}.screen.active{display:block}.content{padding:18px 18px 24px}.topbar{height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 17px;border-bottom:1px solid var(--line);background:rgba(245,238,219,.96);position:sticky;top:0;z-index:10}.topbar h1{font-size:22px;margin:0;text-align:center;flex:1}.iconbtn{border:0;background:none;color:var(--ink);font-size:25px;width:42px;height:42px;border-radius:50%}.iconbtn:hover,.iconbtn:focus{background:var(--paper2);outline:2px solid var(--ink2);outline-offset:1px}.spacer{width:42px}.brand{padding:25px 18px 10px;text-align:center}.brand h1{font-size:46px;line-height:.84;margin:0 0 12px;letter-spacing:-2px}.brand .sub{font-size:19px;line-height:1.12}.tag{display:inline-block;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 14px;margin-top:14px;font-style:italic;font-size:17px}.botanical{font-size:38px;opacity:.65;position:absolute;pointer-events:none}.b1{left:6px;top:8px;transform:rotate(-18deg)}.b2{right:4px;top:150px;transform:rotate(18deg)}.hero{height:220px;background-size:cover;background-position:center;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);margin:10px 0 15px}.hero img{width:100%;height:100%;object-fit:cover;display:block}.card-list{display:grid;gap:9px}.card{width:100%;border:1px solid var(--line);background:rgba(251,247,234,.92);border-radius:15px;min-height:68px;padding:12px 13px;display:flex;align-items:center;text-align:left;color:var(--ink);box-shadow:0 2px 7px rgba(45,55,35,.06)}.card:hover,.card:focus{transform:translateY(-1px);box-shadow:var(--shadow);outline:2px solid var(--ink2);outline-offset:1px}.card .glyph{font-size:27px;width:44px;text-align:center;margin-right:8px}.card h3{font-size:17px;margin:0 0 2px}.card p{font-size:12px;color:var(--muted);margin:0;line-height:1.25}.arrow{margin-left:auto;font-size:23px}.emergency-strip{margin:12px 0 0;background:#efe1cf;border:1px solid #d6b99e;border-radius:15px;padding:12px 14px;display:flex;align-items:center;gap:10px;color:#5e3825}.emergency-strip button{margin-left:auto;border:1px solid #b78f70;background:#fbf2e7;color:#5e3825;border-radius:20px;padding:8px 11px}.section-title{font-size:26px;margin:6px 0 8px}.lead{font-size:15px;line-height:1.5;color:#3e5144}.find-content{padding:0 0 24px}.find-mode .bottom-nav{display:none}.find-hero{height:248px;overflow:hidden}.find-hero img{width:100%;height:100%;object-fit:cover;display:block}.find-copy{padding:18px 18px 24px}.find-copy .section-title{margin-top:0}.find-copy .lead{font-size:16px;line-height:1.52}.find-copy .divider{margin:20px 0}.find-copy .check-list{gap:7px}.find-copy .check{background:transparent;border:0;border-radius:0;padding:6px 0}.find-copy .check>span:first-child{flex:0 0 18px;width:18px;height:18px;border-radius:50%;background:var(--green2);color:#fff;font-size:11px;display:grid;place-items:center;line-height:1;margin-top:2px}.find-copy .check b{font-weight:normal;font-size:15px}.find-copy .check small{font-size:12px;color:var(--muted)}.find-copy .info-card{background:transparent;border:0;border-radius:0;box-shadow:none;padding:14px 0 0;margin:0}.find-copy .info-card h3{font-style:italic;font-weight:normal;font-size:19px}.find-copy .info-card p{font-size:14px}.find-detail{display:flex;gap:10px;align-items:flex-end;margin-top:10px;padding:4px 0 0;border-top:1px solid var(--line)}.find-detail img{width:52%;max-height:92px;object-fit:cover;object-position:center top;mix-blend-mode:multiply}.find-detail>div{flex:1;padding-bottom:4px}.find-detail em{font-size:17px;line-height:1.1;color:var(--ink2)}.find-detail p{font-size:13px;line-height:1.4;margin:10px 0 0}.find-copy .info-card:last-child{padding-bottom:8px}.find-copy .info-card:last-child h3{display:flex;justify-content:space-between;align-items:flex-start}.find-copy .info-card:last-child h3:after{content:'Look for the little details.';font-size:15px;max-width:130px;text-align:right;line-height:1.15;margin-left:12px}.find-copy .info-card:last-child h3{font-size:0}.find-copy .info-card:last-child h3:before{content:'🌿';font-size:22px;font-style:normal}.find-copy .info-card:last-child h3:after{font-style:italic;color:var(--ink2)}
@@ -128,7 +132,8 @@
 #turtle-tracks-embed input,#turtle-tracks-embed select,#turtle-tracks-embed textarea,#turtle-tracks-embed button{font-family:Georgia,'Times New Roman',serif;}
 @media(min-width:700px){#turtle-tracks-embed .app{min-height:850px;}#turtle-tracks-embed .screen{min-height:850px;}}
 </style>
-
+</head>
+<body>
 <div class="app" id="app">
 <!-- HOME -->
 <section aria-label="Turtle Tracks home" class="screen active home-screen" id="home">
@@ -394,3 +399,6 @@ window.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();closeModa
 prepareObservation();go('home');
 </script>
 </div>
+
+</body>
+</html>
