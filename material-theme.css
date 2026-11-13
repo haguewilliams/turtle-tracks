@@ -1,5 +1,5 @@
-/* Keep the approved Turtle Tracks design. Shared Material roles are available
-   for incremental improvements; this file does not replace its typography or layout. */
+/* Material Design 3 role tokens, adapted to the Turtle Tracks field-guide identity.
+   This is the app's CSS theme, not a dependency on Google's Web Components. */
 :root{
  --md-sys-color-primary:#285039;--md-sys-color-on-primary:#ffffff;
  --md-sys-color-primary-container:#dde8d5;--md-sys-color-on-primary-container:#173d2b;
@@ -12,7 +12,67 @@
  --md-sys-typescale-body-large-size:16px;--md-sys-typescale-body-large-line-height:24px;
  --md-sys-typescale-label-large-size:14px;--md-sys-typescale-title-large-size:22px;
 }
+#turtle-tracks-embed button,#turtle-tracks-embed input,#turtle-tracks-embed select,#turtle-tracks-embed textarea{font-family:var(--md-ref-typeface-plain)}
+#turtle-tracks-embed .btn{font-size:var(--md-sys-typescale-label-large-size);font-weight:600;line-height:20px;min-height:48px;padding:12px 20px;border-radius:24px;background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);box-shadow:none}
+#turtle-tracks-embed .btn.alt{background:transparent;color:var(--md-sys-color-primary);border:1px solid var(--md-sys-color-outline)}
+#turtle-tracks-embed .btn.danger{background:var(--md-sys-color-error)}
+#turtle-tracks-embed .screen:not(#home) .btn{font:600 14px/20px var(--md-ref-typeface-plain);font-family:var(--md-ref-typeface-plain)!important;min-height:48px;border-radius:24px;box-shadow:none}
+#turtle-tracks-embed #identify .tt-id-intro p{font:400 16px/24px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed #identify .sighting-photo-card p{font:400 14px/22px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed .iconbtn,#turtle-tracks-embed .close,#turtle-tracks-embed .text-button{min-width:48px;min-height:48px}
 #turtle-tracks-embed :is(button,a,input,select,textarea,summary):focus-visible{outline:3px solid #4e7957;outline-offset:3px}
-#turtle-tracks-embed .emergency-btn .field-icon{display:block;width:25px;height:25px;margin-bottom:5px;color:#36533e}
+#turtle-tracks-embed .field :is(input,select,textarea){font-size:16px;line-height:24px;min-height:48px;background:var(--md-sys-color-surface-container);border:1px solid var(--md-sys-color-outline);border-radius:var(--md-sys-shape-corner-small)}
+#turtle-tracks-embed .screen:not(#home) .lead,#turtle-tracks-embed .screen:not(#home) .info-card p{font-family:var(--md-ref-typeface-plain);font-size:16px;line-height:24px}
+#turtle-tracks-embed .screen:not(#home) .learn-item{min-height:88px;padding:16px;gap:12px}
+#turtle-tracks-embed .learn-item .glyph{flex:0 0 32px;width:32px}
+#turtle-tracks-embed .screen:not(#home) .learn-item small{font:400 15px/22px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed #emergency .local-help-card h3{font:700 22px/28px var(--md-ref-typeface-brand)}
+#turtle-tracks-embed #emergency .local-help-card p{font:400 16px/24px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed #emergency .local-help-card .btn{font:600 14px/20px var(--md-ref-typeface-plain);min-height:48px;background:var(--md-sys-color-primary)}
+#turtle-tracks-embed #emergency .local-help-card .maplink{display:inline-block;font:500 14px/22px var(--md-ref-typeface-plain);padding:8px 0}
 #turtle-tracks-embed .quest-badge .field-icon{width:18px;height:18px;vertical-align:middle;margin-right:4px}
+#turtle-tracks-embed .emergency-btn{background:var(--md-sys-color-error-container);border:1px solid #d6b99e;color:#643f2d;border-radius:var(--md-sys-shape-corner-medium);padding:16px;text-align:left;min-height:142px;display:flex;flex-direction:column;gap:8px}
+#turtle-tracks-embed .emergency-btn .field-icon{width:28px;height:28px;flex:0 0 28px;color:#4b6146}
+#turtle-tracks-embed .emergency-btn strong{font:700 19px/24px var(--md-ref-typeface-brand)}
+#turtle-tracks-embed .emergency-btn small{font:14px/20px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed .bottom-nav{height:80px;padding:8px 4px max(8px,env(safe-area-inset-bottom))}
+#turtle-tracks-embed .bottom-nav button{min-height:56px;font-size:12px;line-height:16px;gap:5px}
+#turtle-tracks-embed .bottom-nav button.active{background:var(--md-sys-color-primary-container);border-radius:16px}
+#turtle-tracks-embed .field-home-nav button,#turtle-tracks-embed .tt29-nav button{min-height:56px;font:12px/16px var(--md-ref-typeface-plain)}
 @media(prefers-reduced-motion:reduce){#turtle-tracks-embed *{scroll-behavior:auto!important;transition:none!important}}
+@media(max-width:350px){#turtle-tracks-embed .emergency-grid{grid-template-columns:1fr}}
+
+/* Phone layout: let content scroll naturally and keep navigation reachable. */
+#turtle-tracks-embed,#turtle-tracks-embed .app,#turtle-tracks-embed .screen{min-height:100svh}
+#turtle-tracks-embed #home{padding:0!important;background:var(--md-sys-color-surface)!important}
+#home .cover-switch{padding:4px 8px;gap:8px}
+#home .cover-switch button{min-height:44px;padding:10px 16px}
+#home .field-cover{padding:0 20px calc(86px + env(safe-area-inset-bottom));min-height:calc(100svh - 53px)}
+#home .field-cover header{min-height:44px}
+#home .field-edition{font-size:10px;letter-spacing:1.6px}
+#home .field-brand{font-size:clamp(36px,10.5vw,44px);line-height:1.02;margin:4px 0 6px}
+#home .field-latin{margin:0;padding-bottom:10px;font-size:12px;line-height:18px}
+#home .field-cover figure{margin:12px 0 0}
+#home .field-cover figure img{display:block;height:clamp(140px,22svh,192px);border-radius:72px 72px 5px 5px}
+#home .field-cover figcaption{gap:8px;flex-wrap:wrap;font-size:10px;line-height:14px;margin-top:7px;letter-spacing:.5px}
+#home .field-cover-copy h1{font-size:clamp(29px,8vw,35px);line-height:1.04;margin:14px 0 8px}
+#home .field-cover-copy p{font-size:16px;line-height:1.45;margin:0 0 14px}
+#home .field-cover-actions .btn{min-height:48px;padding:12px 18px}
+#home .field-cover-actions .text-button{min-height:44px;padding:10px 6px}
+#home .field-home-nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:40;width:min(100%,440px);margin:0;padding:7px 5px max(7px,env(safe-area-inset-bottom));min-height:72px;background:#f8f3e7;border-top:1px solid #c7bca1}
+#home .field-home-nav button{min-height:56px;gap:5px}
+#home .field-home-nav button[aria-current=page]{background:var(--md-sys-color-primary-container);border-radius:16px}
+#turtle-tracks-embed .bottom-nav{height:auto;min-height:72px}
+#identify .tt-id-photo-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#identify .tt-id-photo-actions .btn{padding-left:10px;padding-right:10px;min-width:0}
+@media(max-height:740px){
+ #home .field-cover figure img{height:clamp(110px,18svh,132px)}
+ #home .field-brand{font-size:36px}
+ #home .field-cover-copy h1{font-size:29px;margin-top:12px}
+}
+@media(max-width:350px){
+ #home .field-cover{padding-left:16px;padding-right:16px}
+ #home .field-cover figcaption{font-size:9px;letter-spacing:.2px}
+ #home .field-edition{font-size:9px;letter-spacing:1px}
+}
+

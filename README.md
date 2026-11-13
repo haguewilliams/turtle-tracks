@@ -1,6 +1,6 @@
 # Turtle Tracks
 
-An Eastern Box Turtle field guide and personal observation journal. The cream and forest-green field-guide identity remains the foundation. The approved Tilly home, artwork, typography, and navigation styling are the visual baseline. The alternative cover and global restyling were rejected and removed. The simplified sighting workflow and functional improvements remain.
+An Eastern Box Turtle field guide and personal observation journal. The cream and forest-green field-guide identity remains the foundation. The photographic Field Guide home is the selected default, with Tilly available through the cover switch. The layout adapts to phone width and height while preserving the cream/forest-green palette, simplified sighting workflow, and functional improvements.
 
 Production: https://turtletracks.haguewilliams.com/
 
@@ -17,7 +17,7 @@ Run checks with `npm test` (25 checks), and run the same-origin app/API with `np
 
 ## Review changes
 
-The photograph is attached directly to the sighting. Field-guide comparison and additional details are optional; a user can save without identification or a turtle ID. The save confirmation offers Citizen Scientist. Learn, Help, journal, and quest controls share outline icons. `material-theme.css` retains Material Design 3 role tokens and focused accessibility/icon support without overriding the approved typography, buttons, cards, or navigation. Future changes should refine the established design one small area at a time.
+The photograph is attached directly to the sighting. Field-guide comparison and additional details are optional; a user can save without identification or a turtle ID. The save confirmation offers Citizen Scientist. Learn, Help, journal, and quest controls share outline icons. `material-theme.css` applies the shared Material Design 3 role theme and responsive phone layout. Home uses a height-aware photo, compact spacing, and fixed navigation with safe-area padding; smaller screens can scroll naturally.
 
 `server.mjs`, `photo-analysis-core.js`, and `photo-analysis.js` implement real photo analysis through OpenAI image inputs and structured output. No API credential is configured, so the service is not active. Tests use controlled provider responses; they are not a live accuracy evaluation. See `DEPLOYMENT.md` for secure activation and `PRODUCT_BRIEF.md` for the App Store release mandate.
 
