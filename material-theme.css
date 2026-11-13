@@ -45,34 +45,16 @@
 /* Phone layout: let content scroll naturally and keep navigation reachable. */
 #turtle-tracks-embed,#turtle-tracks-embed .app,#turtle-tracks-embed .screen{min-height:100svh}
 #turtle-tracks-embed #home{padding:0!important;background:var(--md-sys-color-surface)!important}
-#home .cover-switch{padding:4px 8px;gap:8px}
-#home .cover-switch button{min-height:44px;padding:10px 16px}
-#home .field-cover{padding:0 20px calc(86px + env(safe-area-inset-bottom));min-height:calc(100svh - 53px)}
-#home .field-cover header{min-height:44px}
-#home .field-edition{font-size:10px;letter-spacing:1.6px}
-#home .field-brand{font-size:clamp(36px,10.5vw,44px);line-height:1.02;margin:4px 0 6px}
-#home .field-latin{margin:0;padding-bottom:10px;font-size:12px;line-height:18px}
-#home .field-cover figure{margin:12px 0 0}
-#home .field-cover figure img{display:block;height:clamp(140px,22svh,192px);border-radius:72px 72px 5px 5px}
-#home .field-cover figcaption{gap:8px;flex-wrap:wrap;font-size:10px;line-height:14px;margin-top:7px;letter-spacing:.5px}
-#home .field-cover-copy h1{font-size:clamp(29px,8vw,35px);line-height:1.04;margin:14px 0 8px}
-#home .field-cover-copy p{font-size:16px;line-height:1.45;margin:0 0 14px}
-#home .field-cover-actions .btn{min-height:48px;padding:12px 18px}
-#home .field-cover-actions .text-button{min-height:44px;padding:10px 6px}
-#home .field-home-nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:40;width:min(100%,440px);margin:0;padding:7px 5px max(7px,env(safe-area-inset-bottom));min-height:72px;background:#f8f3e7;border-top:1px solid #c7bca1}
-#home .field-home-nav button{min-height:56px;gap:5px}
-#home .field-home-nav button[aria-current=page]{background:var(--md-sys-color-primary-container);border-radius:16px}
 #turtle-tracks-embed .bottom-nav{height:auto;min-height:72px}
 #identify .tt-id-photo-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 #identify .tt-id-photo-actions .btn{padding-left:10px;padding-right:10px;min-width:0}
-@media(max-height:740px){
- #home .field-cover figure img{height:clamp(110px,18svh,132px)}
- #home .field-brand{font-size:36px}
- #home .field-cover-copy h1{font-size:29px;margin-top:12px}
-}
-@media(max-width:350px){
- #home .field-cover{padding-left:16px;padding-right:16px}
- #home .field-cover figcaption{font-size:9px;letter-spacing:.2px}
- #home .field-edition{font-size:9px;letter-spacing:1px}
-}
 
+
+/* Original front cover: Tilly overlaps Learn at every width. */
+#home .tt29-home{min-height:100svh}
+#home .tt29-cover{--cover-type:clamp(52px,14.8vw,68px);height:auto;min-height:0;padding:15px 0 16px;display:grid;grid-template-columns:minmax(0,1fr);align-items:start}
+#home .tt29-title{grid-area:1/1;z-index:2;padding:0 clamp(24px,6.8vw,30px)}
+#home .tt29-title h1{font-size:var(--cover-type)!important}
+#home .tt29-tilly{position:relative!important;grid-area:1/1;top:auto!important;bottom:auto!important;left:-6%!important;margin:calc(var(--cover-type)*1.25) 0 0!important;z-index:3}
+#home .tt29-cover-actions{position:relative;grid-area:2/1;left:auto;right:auto;bottom:auto;margin:14px 20px 0}
+#home .tt29-nav{position:sticky;bottom:0;margin-top:auto}

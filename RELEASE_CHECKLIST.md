@@ -4,7 +4,7 @@ Status: development review, November 13, 2026. Production is unchanged.
 
 ## Implemented and checked
 
-- [x] Preserve cream/green styling and the merged encounter workflow; use the selected photographic home with Tilly as an option.
+- [x] Preserve cream/green styling and the merged encounter workflow; use the original overlapping Tilly front cover.
 - [x] Keep the selected turtle ID when leaving and returning to the encounter page. Browser check: two sightings remain attached to Turtle 001.
 - [x] Reset photo and estimate fields before editing a different observation. Browser check: a photo-free observation does not inherit another record's photograph.
 - [x] Wait for photo processing before saving; discard stale photo/GPS responses after switching observations.
@@ -31,7 +31,7 @@ Cloud sync, cross-device journals, and automatic individual-turtle recognition a
 
 ## November 13 functional improvements
 
-- [x] Restore the selected photographic Field Guide home and Tilly switch; adapt spacing, image height, and navigation for phones.
+- [x] Restore only the original Tilly front cover with Learn partly behind her; remove the photographic cover and switch while preserving other pages and improved icons.
 - [x] Use one photo area and optional field-guide/additional-detail panels.
 - [x] Remove mandatory anatomy scoring and leave unknown turtle identity unassigned.
 - [x] Add the photo-analysis endpoint, disclosure/consent, review-before-save results, server-side validation, and rate controls.
@@ -40,4 +40,4 @@ Cloud sync, cross-device journals, and automatic individual-turtle recognition a
 - [ ] Test native camera/GPS, VoiceOver, text enlargement, offline data durability, and supported phones.
 - [ ] Build the native iOS package and complete TestFlight and App Store preparation described in PRODUCT_BRIEF.md.
 
-- [x] Browser-check responsive layouts at 390 × 844, 375 × 667, 320 × 568, and landscape. No horizontal overflow; narrow-screen photo controls work and scrolling exposes the home actions above fixed navigation. These checks do not replace real-device testing.
+- [x] Browser-check the retained responsive recording controls at narrow widths. The earlier photographic-cover viewport checks do not establish the restored Tilly cover’s phone behavior; complete that device check before release.
