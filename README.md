@@ -4,7 +4,7 @@ An Eastern Box Turtle field guide and personal observation journal. The cream an
 
 Production: https://turtletracks.haguewilliams.com/
 
-`main` is the single working version and source of truth. Make approved incremental updates there and verify them at the production link above. Use Git history for rollback; do not ask Hague to choose between branches or alternate preview URLs. Photo analysis and direct iNaturalist submission remain inactive until their separate activation checks pass.
+`main` is the single working version and source of truth. Make approved incremental updates there and verify them at the production link above. Use Git history for rollback; do not ask Hague to choose between branches or alternate preview URLs. The first release uses the existing manual iNaturalist uploader handoff. Direct submission is deferred and does not block release. Photo analysis remains an active priority and is not yet activated.
 
 ## Files
 
@@ -27,9 +27,11 @@ The photograph is attached directly to the sighting. Field-guide comparison and 
 
 Observations remain in the browser's local storage under the existing `turtleTracksMasterV2` key. Export a backup before switching browsers/devices or clearing browser data. Version 2 backups and legacy record arrays remain accepted; new backups use version 3. Imports are validated before review, merge preserves existing records, and replacing the journal requires a separate confirmation. Failed storage writes do not commit changes in memory or clear the encounter form.
 
-Citizen Scientist checks for a photo, observation date, and GPS before preparing an observation. It provides a downloadable photo and separate date/location/notes fields for the official iNaturalist uploader. This manual path remains available while direct submission is inactive. Turtle Tracks does not claim a submission succeeded, grant Research Grade, or submit anything without the contributor's review.
+Citizen Scientist checks for a photo, observation date, and GPS before preparing an observation. It provides a downloadable photo and separate date/location/notes fields for the official iNaturalist uploader. This manual path is the selected first-release contribution experience; no Turtle Tracks API application approval is needed to link users to the official uploader. Turtle Tracks does not claim a submission succeeded, grant Research Grade, or submit anything without the contributor's review.
 
-## Direct iNaturalist submission
+## Direct iNaturalist submission — later release
+
+Hague chose to defer this integration on November 13, 2026. Keep the existing code disabled; it is not a first-release acceptance requirement. The account participation and approval process can proceed independently on iNaturalist’s own website.
 
 The code is implemented and tested with controlled provider responses, but no live account or application is connected. Contributors authorize their own account, review the photo/date/GPS and public notes, choose obscured or private visibility, and consent before sending. Credentials stay in encrypted HttpOnly cookies; client secrets stay on the backend. A saved UUID and persistent server ledger prevent blind duplicate retries. Only a verified observation-plus-photo response becomes a saved contribution receipt. Local journal edits do not edit iNaturalist.
 
@@ -44,3 +46,5 @@ Official references:
 - https://www.herpmapper.org/content/pdf/herpmapper-announcement.pdf
 
 See `RELEASE_CHECKLIST.md` for verified work and outstanding release checks.
+
+See [INATURALIST_PLAN.md](INATURALIST_PLAN.md) for the parallel account-approval plan and the prepared app-owner application description.

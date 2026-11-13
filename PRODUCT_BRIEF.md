@@ -4,7 +4,7 @@ Owner: Hague Williams. Updated November 13, 2026. This is the development and re
 
 ## Assignment
 
-Finish Turtle Tracks as a dependable, inviting field companion for observing turtles, recording encounters over time, learning how to protect them, and contributing reviewed sightings to the scientific community. Use the original Tilly front cover with part of Learn behind Tilly. This is a cover-only correction; keep the improved icons, other pages, and functional work. Improve recording for someone who cannot identify the animal while preserving the app's cream/forest-green identity. Develop and validate on `work/final-stages`; preserve the live version until review. Continue authorized code, design, documentation, and testing independently. Ask Hague only when credentials, account ownership, spending, binding terms, or a consequential product choice is required. Never claim background work, successful publication, AI accuracy, or scientific submission without evidence.
+Finish Turtle Tracks as a dependable, inviting field companion for observing turtles, recording encounters over time, learning how to protect them, and contributing reviewed sightings to the scientific community. Use the original Tilly front cover with part of Learn behind Tilly. This is a cover-only correction; keep the improved icons, other pages, and functional work. Improve recording for someone who cannot identify the animal while preserving the app's cream/forest-green identity. Develop and validate incremental changes on GitHub `main`, the single working version. Have Hague review only https://turtletracks.haguewilliams.com/. Continue authorized code, design, documentation, and testing independently. Ask Hague only when credentials, account ownership, spending, binding terms, or a consequential product choice is required. Never claim background work, successful publication, AI accuracy, or scientific submission without evidence.
 
 ## Product direction
 
@@ -26,7 +26,9 @@ An explicit action sends only the resized photo to the server/provider after dis
 
 ### Citizen Scientist
 
-Register a Turtle Tracks iNaturalist application and implement each contributor's authorization. Review photo/date/location before explicit submission. Default submitted location to obscured, preserve exact coordinates only in the appropriate private location fields, and avoid copying them into public notes. Save the provider observation ID and receipt link. Separate Prepared, Submitted, and provider identification/research status. Retry partial failures without duplicate observations. Test only with an approved test process; never send synthetic wildlife observations to production scientific datasets. Linking iNaturalist does not automatically grant access to its computer-vision service.
+For the first release, keep the existing manual iNaturalist handoff: choose a saved sighting, prepare the photograph/date/GPS, open the official uploader, and have the visitor review and submit there under their own account. Explain that downloading or opening the uploader does not send the observation. Provide location-privacy guidance; do not claim a submission or Research Grade result that Turtle Tracks cannot verify. Test only locally with synthetic records; never send them to scientific datasets.
+
+Direct iNaturalist authorization and submission are deferred to a later release and must not block this experience. Retain the implemented code in the same GitHub version with `INAT_ENABLED=false`. Later activation needs an approved application, each contributor’s authorization, explicit consent, obscured/private location review, verified receipts, and safe retry handling. Hague can build owner-account eligibility on iNaturalist’s ordinary website while Turtle Tracks proceeds. Linking iNaturalist does not automatically grant access to its computer-vision service.
 
 ### Learn and Help
 
@@ -38,16 +40,16 @@ Check VoiceOver, keyboard navigation, contrast, text enlargement, focus return, 
 
 ## Release stages
 
-1. Verify and save the original overlapping Tilly front cover, then focus on photo-analysis activation and direct iNaturalist submission.
+1. Retain the verified original overlapping Tilly cover and matching icons. Use the manual iNaturalist uploader handoff for the first release.
 2. Activate a protected backend, API credential, owner-approved usage budget, and durable abuse/rate controls. Validate photo analysis on real turtle photographs; retain unknown when needed.
-3. Create/sign into Hague's iNaturalist account, register the app, implement and validate authorization and reviewed submissions.
+3. Verify the first-release manual Citizen Scientist handoff and finish recording, backup, accessibility, and phone usability checks. Build iNaturalist account eligibility separately; direct API integration is a later update and does not block the remaining release stages.
 4. Package for iOS with appropriate native camera/photo-library/location support and durable local storage. Evaluate a maintained native container versus a native implementation; do not assume a web URL alone meets App Store requirements. Provide meaningful field functionality, offline journal behavior, and safe data migration.
 5. Complete device testing and TestFlight beta. Prepare privacy policy, support page, third-party data disclosures, consent screens, data deletion/export behavior, age rating, app icon, screenshots, description, accessibility review, and reviewer instructions.
 6. Hague completes Apple Developer ownership, agreements, credentials, and any payments. Configure signing and App Store Connect, upload the verified build, and submit for review with accurate capability disclosures. Address review feedback. Publication is complete only when Apple's approved release is verified; approval is not guaranteed.
 
 ## Current status and account dependencies
 
-The original overlapping Tilly front cover is restored; the improved line icons and other page work remain. The simplified recording flow and server photo-analysis code remain implemented for review. Automated tests use controlled provider responses; no live model accuracy evaluation has been completed. No OpenAI API credential is configured, so analysis is not activated. The current public hosting is static; it cannot run the new server endpoint. A server host and secure environment configuration are required. Citizen Scientist currently prepares a manual iNaturalist upload, and signup has been opened but no account has been created or connected. Native packaging, TestFlight, and App Store submission have not started.
+The original overlapping Tilly front cover is restored; the improved line icons and other page work remain. The simplified recording flow and server photo-analysis code remain implemented for review. Automated tests use controlled provider responses; no live model accuracy evaluation has been completed. No OpenAI API credential is configured, so analysis is not activated. The current public hosting is static; it cannot run the new server endpoint. A server host and secure environment configuration are required. Citizen Scientist’s manual iNaturalist upload is the selected first-release path. Direct-submission code is saved and tested with controlled responses but remains disabled and deferred. Signup has been opened; no owner account or approved API application has been confirmed. Native packaging, TestFlight, and App Store submission have not started.
 
 OpenAI Developers and Render connections have been suggested to support API activation and hosting. GitHub is already connected. Apple Developer enrollment can wait until the app is ready for native testing. Never place API keys, passwords, or user access tokens in source code, a Page, or ordinary chat.
 

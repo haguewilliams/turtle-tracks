@@ -31,11 +31,25 @@ Do not run multiple processes or replicas against these files. The locks are pro
 
 Production analysis stays off without an API key, positive limit, exact HTTPS origin, and an explicitly configured persistent data directory. Corrupt or unwritable usage records fail closed.
 
-## iNaturalist owner and application approval
+## Later release: iNaturalist owner and application approval
+
+First-release decision: keep the existing official-uploader handoff and `INAT_ENABLED=false`. Direct submission is deferred and must not block photo analysis, phone testing, or app release. The existing direct-submission code is retained for a later update.
 
 Each contributor authorizes their own account. Do not use a shared group account for everyone's sightings.
 
 The normal app-owner application is restricted to an account older than two months with at least ten improving identifications of OTHER users' observations in the past month. Staff approval is required before application registration. These requirements were checked against iNaturalist's current official application controller on November 13, 2026. A new signup alone cannot activate direct submission immediately. Use genuine, competent identifications; do not manufacture activity to meet the requirement.
+
+### Building eligibility without a Turtle Tracks integration
+
+1. Create or sign into Hague’s ordinary iNaturalist account on the official website. An existing account may already satisfy the account-age condition; check its actual creation date before estimating a wait.
+2. Use iNaturalist’s own Identify page: https://www.inaturalist.org/observations/identify. Filter for organisms and places Hague knows, inspect the evidence, and add only identifications he can independently justify. This does not require Turtle Tracks or API access.
+3. Understand what counts: an “improving” ID is the first suggestion of a taxon that the community later agrees with. Uploading ten personal observations or adding ten agreements does not establish this requirement. The current eligibility check counts improving IDs on other users’ observations created within the preceding month, so activity must be recent when applying; future community agreement is not guaranteed.
+4. Once the account is older than two months and the recent qualifying count reaches ten, submit the app-owner request explaining the real Turtle Tracks use case. Keep normal use and development moving meanwhile.
+5. If the eligibility path is impractical, ask iNaturalist staff at help@inaturalist.org for guidance and whether an earlier review is possible for this educational field-guide project. Describe the existing app, contributor consent, location protection, and lack of automated identifications. An exception is not promised. No inquiry has been sent.
+
+The two-month condition belongs to the user account, not the age of Turtle Tracks or its API code. The public app can direct visitors to the normal uploader now. These developer requirements do not apply to ordinary visitors uploading their own sightings through iNaturalist.
+
+Sources: https://help.inaturalist.org/en/support/solutions/articles/151000171681 and https://help.inaturalist.org/en/support/solutions/articles/151000170241
 
 Prepared registration details, once eligible and approved:
 
@@ -79,3 +93,5 @@ Before enabling publicly, verify OAuth, revocation, and the full user flow with 
 - https://github.com/inaturalist/inaturalist/blob/main/app/controllers/oauth_applications_controller.rb
 - https://github.com/inaturalist/iNaturalistAPI/blob/main/lib/views/swagger_v1.yml.ejs
 - https://render.com/docs/blueprint-spec
+
+See [INATURALIST_PLAN.md](INATURALIST_PLAN.md) for the parallel account-approval plan and the prepared app-owner application description.
