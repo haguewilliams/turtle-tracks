@@ -29,13 +29,13 @@ Status: development review, November 13, 2026. Production is unchanged.
 
 Cloud sync, cross-device journals, and automatic individual-turtle recognition are not implemented. Existing science-data handoff is manual and labeled accordingly. No scheduled/background development task has been created.
 
-## November 13 redesign
+## November 13 functional improvements
 
-- [x] Add a naturalist cover and preserve Tilly behind a reversible cover switch.
+- [x] Restore the approved Tilly home after Hague rejected the alternative cover; remove the cover switch and global restyling.
 - [x] Use one photo area and optional field-guide/additional-detail panels.
 - [x] Remove mandatory anatomy scoring and leave unknown turtle identity unassigned.
 - [x] Add the photo-analysis endpoint, disclosure/consent, review-before-save results, server-side validation, and rate controls.
-- [x] Replace Learn and Help emoji with matching line icons and add a Material 3 token theme.
-- [x] Verify photo saving, cover switching, post-save science readiness, and Help navigation in the browser.
+- [x] Keep matching Learn and Help line icons and Material role tokens while preserving the established page styling.
+- [x] Verify photo saving, post-save science readiness, and Help navigation in the browser.
 - [ ] Test native camera/GPS, VoiceOver, text enlargement, offline data durability, and supported phones.
 - [ ] Build the native iOS package and complete TestFlight and App Store preparation described in PRODUCT_BRIEF.md.

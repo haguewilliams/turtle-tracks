@@ -4,12 +4,12 @@ Owner: Hague Williams. Updated November 13, 2026. This is the development and re
 
 ## Assignment
 
-Finish Turtle Tracks as a dependable, inviting field companion for observing turtles, recording encounters over time, learning how to protect them, and contributing reviewed sightings to the scientific community. Lead with a naturalist's field guide, keep Tilly available as an optional cover and learning companion, and make recording a sighting easy for someone who cannot identify the animal. Develop and validate on `work/final-stages`; preserve the live version until review. Continue authorized code, design, documentation, and testing independently. Ask Hague only when credentials, account ownership, spending, binding terms, or a consequential product choice is required. Never claim background work, successful publication, AI accuracy, or scientific submission without evidence.
+Finish Turtle Tracks as a dependable, inviting field companion for observing turtles, recording encounters over time, learning how to protect them, and contributing reviewed sightings to the scientific community. Keep the approved Turtle Tracks/Tilly home and established field-guide design. Improve recording for someone who cannot identify the animal without replacing the app's visual identity. Develop and validate on `work/final-stages`; preserve the live version until review. Continue authorized code, design, documentation, and testing independently. Ask Hague only when credentials, account ownership, spending, binding terms, or a consequential product choice is required. Never claim background work, successful publication, AI accuracy, or scientific submission without evidence.
 
 ## Product direction
 
-- Adults and families can use the main app without a cartoon-first presentation. Preserve the cream, forest-green, editorial field-guide character.
-- Apply Material Design 3 roles consistently in CSS: readable sans-serif controls and body text, expressive serif headings, restrained outline icons, consistent spacing, visible focus, large touch targets, and clear selected navigation. Respect iOS platform conventions in the native release.
+- Hague rejected the November 13 alternative cover and broad restyling. Restore and build on the approved Tilly home, artwork, cream/forest-green palette, typography, cards, and navigation. Do not reintroduce the rejected alternative.
+- Use Material Design principles for usability within the established visual design: visible focus, readable labels, touch targets, and consistent interactions. Make small reviewable refinements, not another wholesale redesign. Respect iOS platform conventions in the native release.
 - Use one primary path: photograph, confirm time/place, optionally review an identification, save. Do not require anatomy checkboxes, a species, sex, age, or individual turtle identity.
 - Make Home, Record, My Tracks, Learn, and Help predictable. Citizen Scientist is available after saving and through the journal, Learn, and menu.
 - Keep local recording useful without an account. Explain browser/device storage and backups until native durable storage is implemented.
@@ -38,7 +38,7 @@ Check VoiceOver, keyboard navigation, contrast, text enlargement, focus return, 
 
 ## Release stages
 
-1. Review the redesigned web prototype and preserve the Tilly alternative.
+1. Review incremental functional improvements within the restored original design.
 2. Activate a protected backend, API credential, owner-approved usage budget, and durable abuse/rate controls. Validate photo analysis on real turtle photographs; retain unknown when needed.
 3. Create/sign into Hague's iNaturalist account, register the app, implement and validate authorization and reviewed submissions.
 4. Package for iOS with appropriate native camera/photo-library/location support and durable local storage. Evaluate a maintained native container versus a native implementation; do not assume a web URL alone meets App Store requirements. Provide meaningful field functionality, offline journal behavior, and safe data migration.
@@ -47,7 +47,7 @@ Check VoiceOver, keyboard navigation, contrast, text enlargement, focus return, 
 
 ## Current status and account dependencies
 
-The redesigned web flow and server photo-analysis code are implemented for review. Automated tests use controlled provider responses; no live model accuracy evaluation has been completed. No OpenAI API credential is configured, so analysis is not activated. The current public hosting is static; it cannot run the new server endpoint. A server host and secure environment configuration are required. Citizen Scientist currently prepares a manual iNaturalist upload, and signup has been opened but no account has been created or connected. Native packaging, TestFlight, and App Store submission have not started.
+The original visual design has been restored after the alternative redesign was rejected. The simplified recording flow and server photo-analysis code remain implemented for review. Automated tests use controlled provider responses; no live model accuracy evaluation has been completed. No OpenAI API credential is configured, so analysis is not activated. The current public hosting is static; it cannot run the new server endpoint. A server host and secure environment configuration are required. Citizen Scientist currently prepares a manual iNaturalist upload, and signup has been opened but no account has been created or connected. Native packaging, TestFlight, and App Store submission have not started.
 
 OpenAI Developers and Render connections have been suggested to support API activation and hosting. GitHub is already connected. Apple Developer enrollment can wait until the app is ready for native testing. Never place API keys, passwords, or user access tokens in source code, a Page, or ordinary chat.
 
