@@ -2,11 +2,11 @@
 # Analysis stays disabled until the owner configures credentials and a usage limit.
 services:
   - type: web
-    name: turtle-tracks-review
+    name: turtle-tracks
     runtime: node
     plan: free
     repo: https://github.com/haguewilliams/turtle-tracks
-    branch: work/final-stages
+    branch: main
     autoDeployTrigger: "off"
     buildCommand: npm test
     startCommand: node server.mjs

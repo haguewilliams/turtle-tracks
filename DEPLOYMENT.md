@@ -2,7 +2,7 @@
 
 The service is implemented but not activated. GitHub Pages serves static files and cannot execute `server.mjs`. Run the app and API together on a Node 22+ host behind HTTPS. The browser uses same-origin `/api/status` and `/api/analyze`; a separate API hostname requires a deliberate CORS/auth design and is not configured by this build.
 
-1. Connect a server host to the review branch. Build command: none. Start command: `node server.mjs`. The host supplies `PORT`.
+1. Connect a server host to `main`, the single working source. Build command: none. Start command: `node server.mjs`. The host supplies `PORT`.
 2. In the host's secure environment settings, add `OPENAI_API_KEY`. Do not paste it into chat, source, frontend config, or a command line.
 3. Set `APP_ORIGIN` to the exact HTTPS app origin. Optionally set `OPENAI_MODEL` (default `gpt-4.1-mini`) and `ANALYSIS_DAILY_LIMIT` (default 50 request attempts per UTC day for this running instance).
 4. Set an owner-approved provider budget and alerts. Current in-memory controls allow up to 10 analysis attempts/hour per connecting IP and two simultaneous requests. Counters reset on restart and are not a billing cap. Before public release, add durable shared quotas and abuse protection appropriate to the chosen hosting proxy. Do not trust arbitrary forwarded-IP headers.
@@ -17,7 +17,7 @@ No paid service, subscription, billing method, API credential, or live model cal
 
 ## Prepared Render setup
 
-`render.yaml` defines a free staging service from `work/final-stages`, runs the existing checks before building, disables automatic deployments, and prompts for the API key in Render's secure dashboard. It deliberately sets `ANALYSIS_DAILY_LIMIT=0`, keeping analysis off during setup. The file has not been deployed.
+`render.yaml` defines a free staging service from `main`, runs the existing checks before building, disables automatic deployments, and prompts for the API key in Render's secure dashboard. It deliberately sets `ANALYSIS_DAILY_LIMIT=0`, keeping analysis off during setup. The file has not been deployed.
 
 After Render returns the staging address, set `APP_ORIGIN` to that exact HTTPS origin. Configure the provider's usage budget, then enable a small evaluation limit in Render. Do not change the public custom domain during staging. The current per-instance counters are not durable; public activation still requires production usage controls.
 
@@ -39,3 +39,7 @@ Prepared registration details:
 Direct submission is not implemented or connected yet. The existing official-uploader handoff remains available. No account has been created and no observations have been submitted by this setup.
 
 References: https://www.inaturalist.org/pages/api+reference and https://www.inaturalist.org/pages/api+recommended+practices
+
+## One-version workflow
+
+`main` and https://turtletracks.haguewilliams.com/ are the canonical source and user-facing app. All approved tweaks go into this version. A technical staging host may be used to validate API credentials, but it is not a second design or a replacement review link. Keep the same public domain when the backend is ready.

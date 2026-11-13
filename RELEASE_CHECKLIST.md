@@ -1,6 +1,6 @@
 # Turtle Tracks final stages
 
-Status: development review, November 13, 2026. Production is unchanged.
+Status: November 13, 2026. Hague requested consolidation into one working version on `main`. The current web app can be published with photo analysis and direct iNaturalist submission inactive. The checks below still apply before enabling those integrations or submitting to the App Store.
 
 ## Implemented and checked
 
@@ -17,15 +17,15 @@ Status: development review, November 13, 2026. Production is unchanged.
 - [x] Browser-check contribution readiness and preparation using clearly labeled synthetic data; download a real photo file. No test data sent to external databases.
 - [x] Run 25 automated journal/photo-service checks and JavaScript syntax checks.
 
-## Before release
+## Before API activation and App Store release
 
-- [ ] Review the working experience with Hague and approve the development changes.
+- [x] Confirm the original overlapping Tilly cover, matching icons, and one-version workflow with Hague.
 - [ ] Test real iPhone and Android camera uploads, GPS permission allowed/denied, and small-screen keyboard behavior.
 - [ ] Complete accessibility and all-page content review, including external wildlife-help links. SCDNR registry verified; NWRA page could not be verified by the research tool.
 - [ ] Register the iNaturalist application and confirm authorization/callback configuration.
 - [ ] Implement and test direct submission: photo upload, observation create, obscured location, error handling, duplicate prevention, and saved receipt URL.
 - [ ] Activate and evaluate the implemented photo-analysis service with a server-held API key, HTTPS backend, owner-approved budget, and reviewed real photos. The service is not yet activated.
-- [ ] Merge the approved changes and verify production deployment.
+- [ ] Complete the one-time consolidation into `main` and verify production deployment.
 
 Cloud sync, cross-device journals, and automatic individual-turtle recognition are not implemented. Existing science-data handoff is manual and labeled accordingly. No scheduled/background development task has been created.
 

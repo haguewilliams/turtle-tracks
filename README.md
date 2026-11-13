@@ -4,7 +4,7 @@ An Eastern Box Turtle field guide and personal observation journal. The cream an
 
 Production: https://turtletracks.haguewilliams.com/
 
-Development branch: `work/final-stages`. Changes on this branch are for review; do not merge or deploy until the remaining release checks are complete.
+`main` is the single working version and source of truth. Make approved incremental updates there and verify them at the production link above. Use Git history for rollback; do not ask Hague to choose between branches or alternate preview URLs. Photo analysis and direct iNaturalist submission remain inactive until their separate activation checks pass.
 
 ## Files
 
@@ -15,7 +15,7 @@ Development branch: `work/final-stages`. Changes on this branch are for review; 
 
 Run checks with `npm test` (25 checks), and run the same-origin app/API with `npm start` on Node 22+. The frontend can still be served statically, with photo analysis unavailable. GPS on a deployed site requires HTTPS and visitor permission.
 
-## Review changes
+## Current experience
 
 The photograph is attached directly to the sighting. Field-guide comparison and additional details are optional; a user can save without identification or a turtle ID. The save confirmation offers Citizen Scientist. Learn, Help, journal, and quest controls share outline icons. `material-theme.css` retains the shared Material Design 3 role theme and responsive controls. The original Tilly cover uses a shared layout for the headline and illustration so their overlap does not depend on screen height.
 
