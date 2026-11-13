@@ -15,11 +15,11 @@ Production: https://turtletracks.haguewilliams.com/
 - `private-state.mjs`: persistent request allowances and submission recovery records for one backend process.
 - `journal-core.test.cjs`: regression tests using Node's built-in test runner.
 
-Run checks with `npm test` (43 checks), and run the same-origin app/API with `npm start` on Node 22+. The frontend can still be served statically, with photo analysis unavailable. GPS on a deployed site requires HTTPS and visitor permission.
+Run checks with `npm test` (49 checks), and run the same-origin app/API with `npm start` on Node 22+. The frontend can still be served statically, with photo analysis unavailable. GPS on a deployed site requires HTTPS and visitor permission.
 
 ## Current experience
 
-The photograph is attached directly to the sighting. Field-guide comparison and additional details are optional; a user can save without identification or a turtle ID. The save confirmation offers Citizen Scientist. Learn, Help, journal, and quest controls share outline icons. `material-theme.css` retains the shared Material Design 3 role theme and responsive controls. The original Tilly cover uses a shared layout for the headline and illustration so their overlap does not depend on screen height.
+The photograph is attached directly to the sighting. Field-guide comparison and additional details are optional; a user can save without identification or a turtle ID. The save confirmation offers Citizen Scientist. Learn, Help, journal, and quest controls share outline icons. `material-theme.css` retains the shared Material Design 3 role theme and responsive controls. Learn and habitat guidance carry the theme “Make room for turtles. Make room to thrive,” connecting care for wildlife with time outdoors and attention to home. The original Tilly cover uses a shared layout for the headline and illustration so their overlap does not depend on screen height.
 
 `server.mjs`, `photo-analysis-core.js`, and `photo-analysis.js` implement real photo analysis through OpenAI image inputs and structured output. No API credential is configured, so the service is not active. Tests use controlled provider responses; they are not a live accuracy evaluation. See `DEPLOYMENT.md` for secure activation and `PRODUCT_BRIEF.md` for the App Store release mandate.
 
@@ -27,7 +27,7 @@ The photograph is attached directly to the sighting. Field-guide comparison and 
 
 Observations remain in the browser's local storage under the existing `turtleTracksMasterV2` key. Export a backup before switching browsers/devices or clearing browser data. Version 2 backups and legacy record arrays remain accepted; new backups use version 3. Imports are validated before review, merge preserves existing records, and replacing the journal requires a separate confirmation. Failed storage writes do not commit changes in memory or clear the encounter form.
 
-Citizen Scientist checks for a photo, observation date, and GPS before preparing an observation. It provides a downloadable photo and separate date/location/notes fields for the official iNaturalist uploader. This manual path is the selected first-release contribution experience; no Turtle Tracks API application approval is needed to link users to the official uploader. Turtle Tracks does not claim a submission succeeded, grant Research Grade, or submit anything without the contributor's review.
+Citizen Scientist requires a photo and observation date to prepare a sighting. Saved GPS remains available with Copy coordinates; missing GPS does not block preparation and is clearly flagged for the contributor to add on iNaturalist’s map. A three-step panel provides a photo download, separate date/location/public-note copy controls, and the official uploader link. Private journal notes are excluded by default. Photo and details are not transferred automatically. This manual path is the selected first-release contribution experience; no Turtle Tracks API application approval is needed to link users to the official uploader. Turtle Tracks does not claim a submission succeeded, grant Research Grade, or submit anything without the contributor's review.
 
 ## Direct iNaturalist submission — later release
 

@@ -9,3 +9,4 @@
 - Keep API keys and OAuth secrets on the backend, never in GitHub files or browser code.
 - Do not submit synthetic wildlife observations.
 - Run appropriate existing checks before a functional update. Current checks: `npm test`.
+- Keep a gentle shared-habitat theme: making room for wild turtles can invite people to slow down, spend time outside, and care for home. Avoid medical promises or implying a turtle sighting proves ecosystem health.

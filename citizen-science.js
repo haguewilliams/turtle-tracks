@@ -3,38 +3,40 @@ let scienceRecordId = '';
 function renderCitizenScience(selectedId) {
   const choices = TurtleJournalCore.sorted(records);
   const select = $('scienceObservation');
-  const keep = selectedId || scienceRecordId;
-  select.innerHTML = '<option value="">Choose a saved observation</option>' + choices.map(r => '<option value="'+esc(r.id)+'">'+esc(r.turtleId||'Unassigned sighting')+' · '+esc(r.date)+' · '+esc(r.location || 'No location')+'</option>').join('');
+  const keep = selectedId || scienceRecordId || choices[0]?.id;
+  select.innerHTML = '<option value="">Choose a saved observation</option>' + choices.map(r => '<option value="'+esc(r.id)+'">'+esc(r.turtleId||'Unassigned sighting')+' · '+esc(r.date)+' · '+esc(r.location || (r.gps?'GPS saved':'Location to add'))+'</option>').join('');
   select.value = choices.some(r => r.id === keep) ? keep : '';
   scienceRecordId = select.value;
   const r = choices.find(r => r.id === scienceRecordId);
-  const checks = [{label:'Photo attached',ok:Boolean(r?.photo)},{label:'Observation date',ok:Boolean(r?.date)},{label:'GPS coordinates',ok:Boolean(r?.gps)}];
-  $('scienceChecklist').innerHTML = checks.map(c => '<div class="check"><span aria-hidden="true">'+(c.ok?'✓':'○')+'</span><span>'+c.label+' · '+(c.ok?'ready':'needed')+'</span></div>').join('');
-  $('sciencePrepare').disabled = !r || !checks.every(c => c.ok);
+  const checks = [{label:'Photo',ok:Boolean(r?.photo),detail:r?.photo?'ready':'add to your sighting'}, {label:'Date',ok:Boolean(r?.date),detail:r?.date?'ready':'add to your sighting'}, {label:'Location',ok:Boolean(r?.gps),detail:r?.gps?'GPS saved':r?.location?'place saved · confirm on iNaturalist’s map':'add on iNaturalist’s map'}];
+  $('scienceChecklist').hidden = !r;
+  $('scienceChecklist').innerHTML = checks.map(c => '<div class="check"><span aria-hidden="true">'+(c.ok?'✓':'○')+'</span><span>'+c.label+' · '+c.detail+'</span></div>').join('');
+  $('sciencePrepare').disabled = !r?.photo || !r?.date;
   $('scienceEdit').disabled = !r;
+  $('scienceEdit').hidden = !r;
   $('scienceEmpty').hidden = choices.length > 0;
-  $('scienceStatus').textContent = !r ? 'Select a saved sighting to prepare your contribution.' : checks.every(c=>c.ok) ? 'Ready to prepare. This observation has not been submitted.' : 'Add the missing items to this observation before preparing it.';
+  $('scienceStatus').textContent = !r ? 'Choose a sighting, or use the iNaturalist link below.' : !r.photo || !r.date ? 'Add a photo and observation date to prepare this sighting.' : !r.gps ? 'You can prepare this sighting now. Add the place you actually saw the turtle on iNaturalist’s map.' : 'Your photo and details are ready to prepare. You’ll review and submit them on iNaturalist.';
   renderScienceConnection();
 }
 function openCitizenScience(id) {go('citizen-science');renderCitizenScience(id)}
 function editScienceObservation() {if(scienceRecordId)editRecord(scienceRecordId)}
 function prepareManualScienceContribution() {
   const r = records.find(r => r.id === scienceRecordId);
-  if (!r?.photo || !r.gps || !r.date) {toast('Choose a sighting with a photo, date, and GPS.');return}
-  openModal('Your science contribution',
-    '<p><b>'+esc(r.turtleId||'Unassigned sighting')+' · '+esc(r.date)+'</b></p><p>Finish sharing on iNaturalist. You will review and submit the observation there.</p>'+
-    '<ol><li>Save the photo below, then open the iNaturalist uploader and sign in.</li><li>Add the photo, date, and the location shown below. Use the actual place and time you saw the turtle.</li><li>Check the identification. If unsure, choose a broader turtle identification and let the community help.</li><li>Set <b>Geoprivacy → Obscured</b> before submitting. Review notes and photos for location clues.</li></ol>'+
-    '<div class="notice">Photo downloads from this journal do not contain GPS or date metadata. Enter those fields on iNaturalist before submitting.</div>'+
-    '<div class="field"><label for="scienceDate">Observed date and time</label><input id="scienceDate" readonly value="'+esc(r.date+' '+r.time)+'"></div>'+
-    '<div class="field"><label for="scienceGPS">GPS for the location field only</label><input id="scienceGPS" readonly value="'+r.gps.lat.toFixed(6)+', '+r.gps.lon.toFixed(6)+'"></div>'+
-    '<p>Location accuracy: '+(r.gps.accuracy==null?'not recorded':Math.round(r.gps.accuracy)+' meters')+'. Do not paste precise coordinates into public notes.</p>'+
-    '<div class="field"><label for="scienceNotes">Notes to review and copy</label><textarea id="scienceNotes" readonly></textarea></div>'+
-    '<div class="actions"><button class="btn" id="scienceDownload">Save observation photo</button><a class="btn alt" href="https://www.inaturalist.org/observations/upload" target="_blank" rel="noopener noreferrer">Open iNaturalist uploader ↗</a><button class="btn alt" id="scienceCopyGPS">Copy GPS</button><button class="btn alt" id="scienceCopyNotes">Copy notes</button></div>'+
-    '<p class="notice">Nothing has been sent by Turtle Tracks. Opening the uploader or downloading a photo does not submit an observation. Your photo and observation remain yours to review and share.</p>'+
-    '<p><a class="maplink" href="https://help.inaturalist.org/en/support/solutions/articles/151000169938" target="_blank" rel="noopener noreferrer">About location privacy ↗</a></p>');
-  $('scienceNotes').value = 'Observed using Turtle Tracks.\nBehavior: '+r.behavior+'\nHabitat: '+r.habitat+'\nField notes: '+r.notes;
+  if (!r?.photo || !r.date) {toast('Choose a saved sighting with a photo and date.');return}
+  const locationFields = r.gps ?
+    '<div class="field"><label for="scienceGPS">Coordinates for the location field</label><input id="scienceGPS" readonly value="'+r.gps.lat.toFixed(6)+', '+r.gps.lon.toFixed(6)+'"><button class="btn alt small" id="scienceCopyGPS">Copy coordinates</button></div><p>Location accuracy: '+(r.gps.accuracy==null?'not recorded':Math.round(r.gps.accuracy)+' meters')+'. Keep coordinates out of public notes.</p>' :
+    '<div class="notice"><b>Add the location on iNaturalist.</b> Search for the actual sighting place and position the pin on its map. Do not use today’s location for an older sighting.</div>'+(r.location?'<div class="field"><label for="sciencePlace">Saved place — confirm on the map</label><input id="sciencePlace" readonly value="'+esc(r.location)+'"><button class="btn alt small" id="scienceCopyPlace">Copy place</button></div>':'');
+  openModal('Prepare for iNaturalist',
+    '<div class="science-prep"><p>'+esc(r.turtleId||'Unassigned sighting')+' · '+esc(r.date)+'</p>'+
+    '<h3>1. Save your photo</h3><img class="science-photo" alt="Photo from your selected sighting" src="'+esc(r.photo)+'"><button class="btn" id="scienceDownload">Save photo to this device</button><p class="notice">The saved photo does not include date or GPS metadata. Use the details below when uploading it.</p>'+
+    '<h3>2. Review your field details</h3><div class="field"><label for="scienceDate">Date and time you saw the turtle</label><input id="scienceDate" readonly value="'+esc(r.date+(r.time?' '+r.time:''))+'"><button class="btn alt small" id="scienceCopyDate">Copy date and time</button></div>'+locationFields+
+    '<div class="field"><label for="scienceNotes">Public notes — review before copying</label><textarea id="scienceNotes"></textarea><button class="btn alt small" id="scienceCopyNotes">Copy public notes</button></div><p class="notice">Your private journal notes are left out. Add only details you want to make public.</p>'+
+    '<div class="science-finish"><h3>3. Finish on iNaturalist</h3><p>Sign in or create your own account. Upload the saved photo, enter the date and location, and review the identification. If unsure, choose a broader turtle identification.</p><p>Choose <b>Obscured</b> or <b>Private</b> location visibility and check your photo and notes for landmarks before submitting.</p><a class="btn" href="https://www.inaturalist.org/observations/upload" target="_blank" rel="noopener noreferrer">Continue on iNaturalist ↗</a><p class="notice">This opens iNaturalist in a new tab. Your photo and details are not transferred automatically. Nothing has been submitted by Turtle Tracks.</p></div></div>');
+  $('scienceNotes').value = ['Observed using Turtle Tracks.',r.behavior?'Behavior: '+r.behavior:'',r.habitat?'Habitat: '+r.habitat:''].filter(Boolean).join('\n');
   $('scienceDownload').addEventListener('click',()=>downloadSciencePhoto(r));
-  $('scienceCopyGPS').addEventListener('click',()=>copyScienceField('scienceGPS'));
+  $('scienceCopyDate').addEventListener('click',()=>copyScienceField('scienceDate'));
+  $('scienceCopyGPS')?.addEventListener('click',()=>copyScienceField('scienceGPS'));
+  $('scienceCopyPlace')?.addEventListener('click',()=>copyScienceField('sciencePlace'));
   $('scienceCopyNotes').addEventListener('click',()=>copyScienceField('scienceNotes'));
 }
 function copyScienceField(id) {
@@ -73,7 +75,7 @@ function renderScienceConnection(){
   }
   if($('scienceManualNotice'))$('scienceManualNotice').hidden=scienceConnection.connected===true;
   const r=records.find(r=>r.id===scienceRecordId),c=r?.citizenScience;
-  $('sciencePrepare').textContent=c?.state==='submitted'?'View contribution':scienceConnection.connected?'Review and submit':'Prepare contribution';
+  $('sciencePrepare').textContent=c?.state==='submitted'?'View contribution':scienceConnection.connected&&r?.gps?'Review and submit':'Prepare for iNaturalist';
   if(c?.state==='submitted'){$('sciencePrepare').disabled=false;status.textContent='Shared on iNaturalist. Changes to your local journal do not change that contribution.'}
   else if(c)status.textContent=c.state==='partial'?'Your observation was created, but its photo still needs confirmation. Review to check its status.':'A submission is awaiting confirmation. Review to check its status before sending anything again.';
 }
@@ -82,6 +84,7 @@ function prepareScienceContribution(){
   if(c?.state==='submitted'){openModal('Your science contribution','<p>This sighting was shared on iNaturalist. Its identification and quality grade are determined there.</p><a class="btn" href="'+scienceReceiptLink(c)+'" target="_blank" rel="noopener noreferrer">View on iNaturalist ↗</a><p class="notice">Local journal edits do not update this contribution.</p>');return}
   if(!scienceConnection.connected){if(c){openModal('Check your pending contribution','<p>Reconnect the same iNaturalist account to check this submission before creating another.</p>'+(scienceReceiptLink(c)?'<a class="btn" href="'+scienceReceiptLink(c)+'" target="_blank" rel="noopener noreferrer">Check on iNaturalist ↗</a>':''));return}prepareManualScienceContribution();return}
   if(c&&c.userId!==scienceConnection.user.id){statusScience('Reconnect the account originally used for this sighting.');return}
+  if(!r?.gps&&!c){prepareManualScienceContribution();return}
   if(!r?.photo||!r.gps||!r.date){statusScience('Choose a sighting with a photo, date, and GPS.');return}
   openModal('Review your science contribution','<img alt="Your turtle observation" src="'+esc(r.photo)+'" style="width:100%;max-height:260px;object-fit:contain"><p><b>Observed:</b> '+esc(r.date)+'</p><p><b>Location:</b> '+r.gps.lat.toFixed(6)+', '+r.gps.lon.toFixed(6)+'</p><p>Date only will be shared. You can add an exact time on iNaturalist. The species will remain unconfirmed for community identification.</p><div class="field"><label for="sciencePrivacy">Location visibility</label><select id="sciencePrivacy"><option value="obscured">Obscured — approximate public location</option><option value="private">Private — no public location</option></select></div><p class="notice">iNaturalist receives the exact coordinates. Review your photo and public notes for landmarks or other location clues. Your journal’s private notes are not included.</p><div class="field"><label for="sciencePublicNotes">Public field notes (optional)</label><textarea id="sciencePublicNotes" maxlength="3000"></textarea></div><label class="check"><input id="scienceConsent" type="checkbox"> I observed this turtle, have permission to share this photo, and agree to send the photo, date, location, and public notes to iNaturalist as '+esc(scienceConnection.user.login)+'.</label><p id="scienceSubmitStatus" role="status" aria-live="polite"></p><div class="actions"><button class="btn" id="scienceSubmit" disabled>'+ (c?'Check submission / resume':'Submit to iNaturalist')+'</button><button class="btn alt" id="scienceManual">Use the website uploader</button></div>');
   $('sciencePrivacy').value=c?.geoprivacy||'obscured';$('sciencePublicNotes').value=c?.publicNotes||'';

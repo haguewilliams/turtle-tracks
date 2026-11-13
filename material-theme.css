@@ -58,3 +58,40 @@
 #home .tt29-tilly{position:relative!important;grid-area:1/1;top:auto!important;bottom:auto!important;left:-6%!important;margin:calc(var(--cover-type)*1.25) 0 0!important;z-index:3}
 #home .tt29-cover-actions{position:relative;grid-area:2/1;left:auto;right:auto;bottom:auto;margin:14px 20px 0}
 #home .tt29-nav{position:sticky;bottom:0;margin-top:auto}
+
+/* Keep the original overlap, with more of Learn visible above Tilly. */
+#home .tt29-title{transform:translateY(-12px)}
+
+/* Contribution preparation comes first; background reading stays optional. */
+#turtle-tracks-embed #citizen-science .content{padding-bottom:32px}
+#turtle-tracks-embed #citizen-science :is(p,small,.check,summary){font-family:var(--md-ref-typeface-plain);font-weight:400;line-height:1.5}
+#turtle-tracks-embed #citizen-science p{font-size:16px}
+#turtle-tracks-embed #citizen-science .lead{margin:0 0 16px}
+#citizen-science .science-workflow{margin:22px 0 10px}
+#citizen-science .science-workflow h3{font:700 22px/1.2 var(--md-ref-typeface-brand);margin:0 0 14px}
+#citizen-science #scienceChecklist{gap:0;margin:8px 0}
+#turtle-tracks-embed #citizen-science #scienceChecklist .check{border:0;border-radius:0;background:transparent;padding:5px 0;font-size:14px;align-items:baseline}
+#citizen-science #scienceChecklist .check>span:first-child{width:18px;flex:0 0 18px}
+#citizen-science .science-actions{display:grid;gap:10px;margin-top:12px}
+#citizen-science .science-actions .btn{width:100%;text-align:center}
+#citizen-science .text-button{background:transparent;border:0;color:var(--ink);text-decoration:underline;font:14px/1.5 var(--md-ref-typeface-plain);padding:8px}
+#citizen-science .science-direct{border-top:1px solid var(--line);padding-top:16px;margin:18px 0 22px}
+#citizen-science .science-direct .maplink{display:inline-block;padding:10px 0;min-height:44px}
+#citizen-science .science-direct small{font-size:14px;color:var(--muted)}
+#citizen-science .science-about{border-top:1px solid var(--line);margin-top:20px;padding-top:6px}
+#citizen-science .science-about summary{padding:14px 0;cursor:pointer;font-size:16px}
+.science-prep{font:16px/1.5 var(--md-ref-typeface-plain);font-weight:400}
+.science-prep h3{font:700 21px/1.25 var(--md-ref-typeface-brand);margin:22px 0 12px}
+.science-prep .science-photo{display:block;width:100%;max-height:180px;object-fit:contain;background:var(--card);border:1px solid var(--line);border-radius:12px;margin:12px 0}
+.science-prep .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.science-prep .field label{font:600 14px/1.4 var(--md-ref-typeface-plain)}
+.science-prep .field .btn{margin-top:8px}
+.science-prep .science-finish{border-top:1px solid var(--line);margin-top:24px;padding-top:2px}
+.science-prep .science-finish .btn{width:100%}
+.science-prep .notice{font:14px/1.5 var(--md-ref-typeface-plain)}
+#turtle-tracks-embed .sheet{padding-bottom:max(24px,env(safe-area-inset-bottom));overscroll-behavior:contain}
+
+#turtle-tracks-embed .bottom-nav{background:#f8f3e7}
+
+#turtle-tracks-embed #citizen-science :is(#scienceManualNotice,#scienceStatus){font-size:14px;line-height:1.5}
+#turtle-tracks-embed #citizen-science #scienceStatus{margin:10px 0}

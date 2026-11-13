@@ -1,6 +1,6 @@
 # Turtle Tracks final stages
 
-Status: November 13, 2026. Hague requested consolidation into one working version on `main`. The selected first-release Citizen Scientist experience prepares a photo/date/GPS handoff to the official iNaturalist uploader. Direct submission is deferred and is not a release gate. Photo-analysis activation, device testing, and native release preparation remain active priorities.
+Status: November 13, 2026. Hague requested consolidation into one working version on `main`. The selected first-release Citizen Scientist experience prepares a photo/date handoff, including saved GPS when available, to the official iNaturalist uploader. Direct submission is deferred and is not a release gate. Photo-analysis activation, device testing, and native release preparation remain active priorities.
 
 ## Implemented and checked
 
@@ -15,7 +15,7 @@ Status: November 13, 2026. Hague requested consolidation into one working versio
 - [x] Share the selected record with location text omitted by default and honest identification language.
 - [x] Add Citizen Scientist to My Tracks, Learn, and the navigation menu.
 - [x] Browser-check contribution readiness and preparation using clearly labeled synthetic data; download a real photo file. No test data sent to external databases.
-- [x] Run 43 automated journal/photo-service/iNaturalist checks and JavaScript syntax checks.
+- [x] Run 49 automated journal/photo-service/iNaturalist checks and JavaScript syntax checks.
 
 ## Before photo-analysis activation and App Store release
 
@@ -39,7 +39,7 @@ Cloud sync, cross-device journals, and automatic individual-turtle recognition a
 - [ ] Test native camera/GPS, VoiceOver, text enlargement, offline data durability, and supported phones.
 - [ ] Build the native iOS package and complete TestFlight and App Store preparation described in PRODUCT_BRIEF.md.
 
-- [x] Browser-check the retained responsive recording controls at narrow widths. The earlier photographic-cover viewport checks do not establish the restored Tilly cover’s phone behavior; complete that device check before release.
+- [x] Browser-check the retained responsive recording controls at narrow widths. The current Tilly cover and manual contribution panel also passed browser layout checks at 390 and 320 pixel widths; real-device testing remains required before release.
 
 ## Later release: direct iNaturalist submission
 
@@ -49,3 +49,13 @@ These items do not block the first release. Account participation happens on iNa
 - [x] Implement direct authorization and submission with consent, obscured/private location, durable duplicate protection, and saved receipts; verify using controlled provider responses.
 - [ ] Verify OAuth, revocation, and an explicitly authorized genuine contribution against the approved live iNaturalist application. No synthetic wildlife records.
 - [ ] Complete iNaturalist owner eligibility and staff approval. Normal application eligibility: account older than two months and ten improving identifications of other users’ observations in the past month.
+
+## Cover and Citizen Scientist polish
+
+- [x] Raise the cover headline 12 pixels, preserving Tilly’s overlap and the original design.
+- [x] Correct malformed bold markup affecting later-page text.
+- [x] Make preparation available with photo/date even when GPS is missing; retain saved GPS capture and copying.
+- [x] Separate photo download, field copying, and the official uploader into three steps, with explicit manual-transfer guidance.
+- [x] Keep private journal notes out of the public notes by default.
+- [x] Browser-check the downloaded JPEG and copy/paste of saved coordinates using synthetic data only.
+- [x] Add a light shared-habitat theme to Learn, Habitat, and Citizen Scientist.
