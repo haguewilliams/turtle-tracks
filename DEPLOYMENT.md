@@ -13,4 +13,29 @@ No paid service, subscription, billing method, API credential, or live model cal
 
 ## Checks
 
-`npm test` runs journal and endpoint tests with mocked model responses. These check implementation behavior, not biological prediction accuracy. Manual browser checks cover the photo workflow, saving, the optional field guide, cover switch, and navigation. Real phone tests and a reviewed image evaluation set are release requirements.
+`npm test` runs journal and endpoint tests with mocked model responses. These check implementation behavior, not biological prediction accuracy. Manual browser checks cover the photo workflow, saving, the optional field guide, and navigation. Real phone tests and a reviewed image evaluation set are release requirements.
+
+## Prepared Render setup
+
+`render.yaml` defines a free staging service from `work/final-stages`, runs the existing checks before building, disables automatic deployments, and prompts for the API key in Render's secure dashboard. It deliberately sets `ANALYSIS_DAILY_LIMIT=0`, keeping analysis off during setup. The file has not been deployed.
+
+After Render returns the staging address, set `APP_ORIGIN` to that exact HTTPS origin. Configure the provider's usage budget, then enable a small evaluation limit in Render. Do not change the public custom domain during staging. The current per-instance counters are not durable; public activation still requires production usage controls.
+
+Reference: https://render.com/docs/blueprint-spec
+
+## iNaturalist account and application setup
+
+Each contributor must authorize their own iNaturalist account; a shared group account must not be used to submit everyone's observations. The owner account must first be created or signed in, then register Turtle Tracks through the official application page. Any provider approval requirement must be completed before credentials exist.
+
+Prepared registration details:
+
+- Application name: Turtle Tracks
+- Website: https://turtletracks.haguewilliams.com/
+- Purpose: A turtle field guide and personal sighting journal. Contributors review their photo, observation time, location, and privacy before choosing to submit under their own iNaturalist account.
+- Authorization: OAuth authorization code with PKCE. Keep any server secret out of the browser.
+- Callback: select the exact HTTPS callback only after the backend origin is confirmed and the callback handler exists; do not register a guessed address.
+- Required implementation: account authorization, token handling, authenticated photo/observation submission, obscured location by default, recovery without duplicate submissions, and returned observation receipt links.
+
+Direct submission is not implemented or connected yet. The existing official-uploader handoff remains available. No account has been created and no observations have been submitted by this setup.
+
+References: https://www.inaturalist.org/pages/api+reference and https://www.inaturalist.org/pages/api+recommended+practices

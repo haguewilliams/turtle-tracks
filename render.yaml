@@ -1,0 +1,24 @@
+# Staging setup only. Creating this file does not create or activate a service.
+# Analysis stays disabled until the owner configures credentials and a usage limit.
+services:
+  - type: web
+    name: turtle-tracks-review
+    runtime: node
+    plan: free
+    repo: https://github.com/haguewilliams/turtle-tracks
+    branch: work/final-stages
+    autoDeployTrigger: "off"
+    buildCommand: npm test
+    startCommand: node server.mjs
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: ANALYSIS_DAILY_LIMIT
+        value: "0"
