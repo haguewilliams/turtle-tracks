@@ -48,7 +48,15 @@
         const photoCore=typeof module==='object'&&module.exports?require('./photo-analysis-core.js'):TurtlePhotoCore;
         photoAnalysis={...photoCore.normalize(item.photoAnalysis),source:'AI photo suggestion',model:field(item.photoAnalysis.model,100,'analysis model'),analyzedAt:field(item.photoAnalysis.analyzedAt,50,'analysis date'),accepted:true};
       }
-      return {id, date:item.date, time, location:field(item.location, 2000, 'location'), behavior:field(item.behavior, 200, 'behavior'), habitat:field(item.habitat, 200, 'habitat'), notes:field(item.notes, 30000, 'notes'), photo, gps, turtleId:field(item.turtleId, 200, 'turtle ID'), assessment, photoAnalysis};
+      let citizenScience=null;
+      if(item.citizenScience!=null){
+        const c=item.citizenScience;
+        if(!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(c.submissionId||'')||!Number.isSafeInteger(c.userId)||c.userId<=0||!['pending','partial','submitted'].includes(c.state)||!['obscured','private'].includes(c.geoprivacy))throw Error('Invalid citizen-science submission.');
+        if(c.observationId!=null&&(!Number.isSafeInteger(c.observationId)||c.observationId<=0))throw Error('Invalid iNaturalist observation ID.');
+        if(c.state==='submitted'&&(!c.observationId||typeof c.submittedAt!=='string'||Number.isNaN(Date.parse(c.submittedAt))))throw Error('A submitted sighting needs a receipt.');
+        citizenScience={submissionId:c.submissionId,userId:c.userId,state:c.state,geoprivacy:c.geoprivacy,publicNotes:field(c.publicNotes,3000,'public science notes'),observationId:c.observationId||null,submittedAt:field(c.submittedAt,50,'submission date')};
+      }
+      return {id, date:item.date, time, location:field(item.location, 2000, 'location'), behavior:field(item.behavior, 200, 'behavior'), habitat:field(item.habitat, 200, 'habitat'), notes:field(item.notes, 30000, 'notes'), photo, gps, turtleId:field(item.turtleId, 200, 'turtle ID'), assessment, photoAnalysis,...(citizenScience?{citizenScience}:{})};
     });
   }
   function parseBackup(text) {

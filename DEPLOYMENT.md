@@ -1,45 +1,81 @@
-# Photo analysis activation
+# Activating Turtle Tracks integrations
 
-The service is implemented but not activated. GitHub Pages serves static files and cannot execute `server.mjs`. Run the app and API together on a Node 22+ host behind HTTPS. The browser uses same-origin `/api/status` and `/api/analyze`; a separate API hostname requires a deliberate CORS/auth design and is not configured by this build.
+Status: November 13, 2026. Both integrations have code and controlled-provider tests. Neither has been activated or verified against a live account. The public app still runs on GitHub Pages, which cannot execute this Node server. No paid service, credential, account, model call, or wildlife submission has been created by this setup.
 
-1. Connect a server host to `main`, the single working source. Build command: none. Start command: `node server.mjs`. The host supplies `PORT`.
-2. In the host's secure environment settings, add `OPENAI_API_KEY`. Do not paste it into chat, source, frontend config, or a command line.
-3. Set `APP_ORIGIN` to the exact HTTPS app origin. Optionally set `OPENAI_MODEL` (default `gpt-4.1-mini`) and `ANALYSIS_DAILY_LIMIT` (default 50 request attempts per UTC day for this running instance).
-4. Set an owner-approved provider budget and alerts. Current in-memory controls allow up to 10 analysis attempts/hour per connecting IP and two simultaneous requests. Counters reset on restart and are not a billing cap. Before public release, add durable shared quotas and abuse protection appropriate to the chosen hosting proxy. Do not trust arbitrary forwarded-IP headers.
-5. Verify `/api/status` reports `photoAnalysis:true`, then test consent, a real photo with known identity, unknown/non-turtle photos, timeout/refusal behavior, and saving reviewed suggestions. Never submit synthetic sightings to iNaturalist.
-6. Keep secrets restricted to the backend. The static allowlist intentionally excludes server files, tests, configuration files, and environment files. The service sends only the resized image to OpenAI, requests `store:false`, and does not write photos or response payloads to its own logs. Provider data policies still apply; `store:false` is not a promise of zero retention.
+## One app, one source
 
-No paid service, subscription, billing method, API credential, or live model call has been created by this implementation. Activation requires a usable owner-controlled account and host. The current browser preview intentionally shows analysis as unavailable until configuration is real.
+Keep `main` in `haguewilliams/turtle-tracks` as the single working version and https://turtletracks.haguewilliams.com/ as the public app. Deploy the app and API together behind HTTPS. Keep the same public origin when moving off GitHub Pages so existing browser journals remain accessible. Export a journal backup before any hosting transition. A technical host address can be used for owner-only checks; it is not a second design or review version.
 
-## Checks
+Use Node 22+; build/check command `npm test`, start command `node server.mjs`. The host supplies `PORT`.
 
-`npm test` runs journal and endpoint tests with mocked model responses. These check implementation behavior, not biological prediction accuracy. Manual browser checks cover the photo workflow, saving, the optional field guide, and navigation. Real phone tests and a reviewed image evaluation set are release requirements.
+## Required backend storage
 
-## Prepared Render setup
+Use ONE running Node process with a persistent Linux filesystem mounted outside the repository and public assets. Set:
 
-`render.yaml` defines a free staging service from `main`, runs the existing checks before building, disables automatic deployments, and prompts for the API key in Render's secure dashboard. It deliberately sets `ANALYSIS_DAILY_LIMIT=0`, keeping analysis off during setup. The file has not been deployed.
+- `NODE_ENV=production`
+- `APP_ORIGIN=https://turtletracks.haguewilliams.com` after that domain points to the backend
+- `TT_DATA_DIR` to the absolute persistent-volume directory
+- `TT_DATA_DURABLE=true` only after confirming the directory survives restarts and deployments
 
-After Render returns the staging address, set `APP_ORIGIN` to that exact HTTPS origin. Configure the provider's usage budget, then enable a small evaluation limit in Render. Do not change the public custom domain during staging. The current per-instance counters are not durable; public activation still requires production usage controls.
+The private store keeps daily request counts and submission recovery receipts. It does not store photographs, GPS coordinates, notes, or OAuth tokens. Files are private, written atomically, and flushed before upstream writes. Back up this volume securely. Losing its ledgers loses duplicate protection and request accounting; do not resume pending contributions after losing or replacing it without reconciliation.
 
-Reference: https://render.com/docs/blueprint-spec
+Do not run multiple processes or replicas against these files. The locks are process-local. Horizontal scaling requires a shared transactional database and distributed request limiter first. Never mark an ephemeral free-host filesystem durable just to enable the buttons.
 
-## iNaturalist account and application setup
+## Photo analysis
 
-Each contributor must authorize their own iNaturalist account; a shared group account must not be used to submit everyone's observations. The owner account must first be created or signed in, then register Turtle Tracks through the official application page. Any provider approval requirement must be completed before credentials exist.
+1. Connect the owner's OpenAI account and backend host. Enter `OPENAI_API_KEY` only through the host's secure environment settings, never chat, a command argument, browser code, or GitHub.
+2. Optionally set `OPENAI_MODEL` (default `gpt-4.1-mini`). Keep `ANALYSIS_DAILY_LIMIT=0` during initial hosting setup; choose a small evaluation allowance with the owner before enabling calls. Default when omitted is 50 attempts per UTC day.
+3. Configure provider spending controls and alerts with the owner. The app's persistent daily request allowance survives restarts and counts attempts before contacting the provider, including failed calls. It is not a monetary billing cap. Two concurrent analyses and ten attempts/hour per connecting socket IP are additional in-memory controls. Behind a proxy, visitors can share that IP bucket; do not trust arbitrary forwarded-IP headers. Add host-level abuse controls appropriate to the actual proxy before public activation.
+4. Verify `/api/status` reports `photoAnalysis:true`, then test explicit consent, reviewed real turtle photos, non-turtles, uncertain results, timeout/refusal behavior, and saving reviewed suggestions. A configuration flag and mocked tests do not establish biological accuracy.
+5. The app sends only the resized photograph, requests `store:false`, and avoids payload logging. Provider data policies still apply; `store:false` does not promise zero retention. Estimates remain cautious suggestions: no exact ages, no sex claim from eye color alone, no individual-turtle recognition.
 
-Prepared registration details:
+Production analysis stays off without an API key, positive limit, exact HTTPS origin, and an explicitly configured persistent data directory. Corrupt or unwritable usage records fail closed.
 
-- Application name: Turtle Tracks
+## iNaturalist owner and application approval
+
+Each contributor authorizes their own account. Do not use a shared group account for everyone's sightings.
+
+The normal app-owner application is restricted to an account older than two months with at least ten improving identifications of OTHER users' observations in the past month. Staff approval is required before application registration. These requirements were checked against iNaturalist's current official application controller on November 13, 2026. A new signup alone cannot activate direct submission immediately. Use genuine, competent identifications; do not manufacture activity to meet the requirement.
+
+Prepared registration details, once eligible and approved:
+
+- Name: Turtle Tracks
 - Website: https://turtletracks.haguewilliams.com/
-- Purpose: A turtle field guide and personal sighting journal. Contributors review their photo, observation time, location, and privacy before choosing to submit under their own iNaturalist account.
-- Authorization: OAuth authorization code with PKCE. Keep any server secret out of the browser.
-- Callback: select the exact HTTPS callback only after the backend origin is confirmed and the callback handler exists; do not register a guessed address.
-- Required implementation: account authorization, token handling, authenticated photo/observation submission, obscured location by default, recovery without duplicate submissions, and returned observation receipt links.
+- Purpose: A turtle field guide and personal sighting journal. Contributors review a real photograph, date, location, public notes, and privacy before submitting under their own iNaturalist account.
+- Authorization: OAuth authorization code with S256 PKCE; scopes `write login`.
+- Production callback implemented in this build: `https://turtletracks.haguewilliams.com/api/inaturalist/callback`. Register it only after the backend serves that exact HTTPS origin. If technical staging is required, register its exact callback separately; do not substitute it for the public app.
 
-Direct submission is not implemented or connected yet. The existing official-uploader handoff remains available. No account has been created and no observations have been submitted by this setup.
+Secure backend environment:
 
-References: https://www.inaturalist.org/pages/api+reference and https://www.inaturalist.org/pages/api+recommended+practices
+- `INAT_CLIENT_ID` and `INAT_CLIENT_SECRET` from the approved application
+- `INAT_SESSION_KEY`: 32 cryptographically random bytes encoded as 64 hex characters, generated and entered through secure hosting tools
+- `INAT_ENABLED=true` only after registration and backend setup are ready
+- The shared persistent storage and exact `APP_ORIGIN` settings above
 
-## One-version workflow
+The authorization cookie is encrypted, HttpOnly, Secure, SameSite=Lax, and expires after 24 hours. OAuth credentials are not returned to frontend JavaScript. Disconnect revokes the provider token and clears the cookie. Restrict host log access and redact callback query strings; OAuth codes must not enter analytics or diagnostics. Rotating the session key signs everyone out.
 
-`main` and https://turtletracks.haguewilliams.com/ are the canonical source and user-facing app. All approved tweaks go into this version. A technical staging host may be used to validate API credentials, but it is not a second design or a replacement review link. Keep the same public domain when the backend is ready.
+## Direct contribution behavior
+
+The implemented flow connects the contributor's account, reviews the photo/date/GPS, defaults to obscured geoprivacy, offers private visibility, and requires explicit sharing consent. The provider receives exact coordinates even when the public location is obscured or private. Only separately reviewed public notes are sent; private journal notes and AI identification/sex suggestions are excluded. Only the observation date is sent because the journal does not capture an observation time zone.
+
+A browser-saved UUID and backend ledger are written before submission. The API creates an observation and attaches its photo, then returns a receipt only after both confirmations are verified. Unknown responses are looked up by UUID instead of blindly repeating writes. A confirmed receipt survives journal backup/import and backend restarts. Local journal edits do not edit iNaturalist.
+
+If a response remains uncertain and lookup never finds the object or photo, the app keeps the contribution pending. It cannot safely assume the first request failed. Check the authenticated iNaturalist account and reconcile the private ledger before resetting the submission. Do not delete the ledger or use the website uploader to resend an uncertain contribution. This conservative behavior prevents automatic duplicate submissions; it does not promise recovery from every provider failure.
+
+Provider requests are serialized at approximately one per second, with a persistent allowance of 9,000 requests per UTC day and a bounded queue. This is a single-instance implementation. No Research Grade status is implied by a successful upload.
+
+Before enabling publicly, verify OAuth, revocation, and the full user flow with the actual approved application. Submit only an explicitly authorized, genuine wildlife observation; do not create synthetic public test observations. Until then, the official-uploader handoff remains available and direct submission stays inactive.
+
+## Prepared Render configuration
+
+`render.yaml` is an inactive free-host starter using `main`; it has NOT created a service. It runs checks before building, disables automatic deployments, sets analysis allowance to zero, and leaves direct submission and durable storage disabled. A persistent volume is not provisioned by this free template. Choose and approve any paid hosting/storage plan before creating it, then mount persistent storage and configure secure credentials. Connecting a plugin alone does not approve a paid plan.
+
+## Verification and references
+
+`npm test` currently runs 43 automated journal, photo-analysis, authorization, privacy, quota, receipt, and retry checks using controlled provider responses. Local browser QA confirms the existing manual contribution path remains usable while integrations are off. Live provider accuracy, real-device testing, accessibility, and native App Store packaging remain release gates.
+
+- https://www.inaturalist.org/pages/api+reference
+- https://www.inaturalist.org/pages/api+recommended+practices
+- https://github.com/inaturalist/inaturalist/blob/main/app/controllers/oauth_applications_controller.rb
+- https://github.com/inaturalist/iNaturalistAPI/blob/main/lib/views/swagger_v1.yml.ejs
+- https://render.com/docs/blueprint-spec

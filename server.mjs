@@ -2,6 +2,8 @@ import http from 'node:http';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import PhotoCore from './photo-analysis-core.js';
+import {PrivateState} from './private-state.mjs';
+import {createINaturalist} from './inaturalist-service.mjs';
 
 const root=new URL('./',import.meta.url);
 const publicFiles=new Map([['/','index.html'],['/index.html','index.html'],['/journal-core.js','journal-core.js'],['/citizen-science.js','citizen-science.js'],['/photo-analysis.js','photo-analysis.js'],['/photo-analysis-core.js','photo-analysis-core.js'],['/app-config.js','app-config.js'],['/material-theme.css','material-theme.css']]);
@@ -23,9 +25,11 @@ export function validatePhoto(data){
   return data;
 }
 async function readBody(req){let size=0,chunks=[];for await(const c of req){size+=c.length;if(size>1_200_000){const e=Error('Photo request too large.');e.status=413;throw e}chunks.push(c)}return JSON.parse(Buffer.concat(chunks).toString('utf8'))}
-export function createServer({apiKey=process.env.OPENAI_API_KEY,model=process.env.OPENAI_MODEL||'gpt-4.1-mini',fetchImpl=fetch,allowedOrigin=process.env.APP_ORIGIN,dailyLimit=Number(process.env.ANALYSIS_DAILY_LIMIT||50)}={}){
+export function createServer({apiKey=process.env.OPENAI_API_KEY,model=process.env.OPENAI_MODEL||'gpt-4.1-mini',fetchImpl=fetch,allowedOrigin=process.env.APP_ORIGIN,dailyLimit=Number(process.env.ANALYSIS_DAILY_LIMIT||50),dataDirectory=process.env.TT_DATA_DIR,durable=process.env.TT_DATA_DURABLE==='true',production=process.env.NODE_ENV==='production',inatOptions={}}={}){
   const quota=new Map();let day='',used=0,active=0;
-  const ready=Boolean(apiKey)&&Number.isInteger(dailyLimit)&&dailyLimit>0;
+  const privateState=dataDirectory&&durable?new PrivateState(dataDirectory):null;
+  const inat=createINaturalist({origin:allowedOrigin,store:privateState,fetchImpl,validatePhoto,...inatOptions});
+  const ready=Boolean(apiKey)&&Number.isInteger(dailyLimit)&&dailyLimit>0&&(!production||(privateState&&/^https:\/\/[^/]+$/.test(allowedOrigin||'')));
   return http.createServer(async(req,res)=>{
     const path=new URL(req.url,'http://localhost').pathname;
     const headers={'X-Content-Type-Options':'nosniff','Referrer-Policy':'same-origin'};
@@ -34,17 +38,24 @@ export function createServer({apiKey=process.env.OPENAI_API_KEY,model=process.en
       const origin=req.headers.origin;
       const expected=allowedOrigin||`http://${req.headers.host}`;
       if(path.startsWith('/api/')&&origin&&origin!==expected)return json(res,403,{error:'This request origin is not allowed.'});
-      if(path==='/api/status'&&req.method==='GET')return json(res,200,{photoAnalysis:ready,provider:'OpenAI',directINaturalist:false});
+      if(path==='/api/status'&&req.method==='GET'){if(privateState)await privateState.ready;return json(res,200,{photoAnalysis:Boolean(ready),provider:'OpenAI',directINaturalist:inat.configured})}
+      if(await inat.handle(req,res,new URL(req.url,'http://localhost'),readBody))return;
       if(path==='/api/analyze'&&req.method==='POST'){
         if(!ready)return json(res,503,{error:'Photo analysis is not activated yet. Your sighting can still be saved.'});
         if(!req.headers['content-type']?.startsWith('application/json'))return json(res,415,{error:'Use a JSON photo request.'});
         const today=new Date().toISOString().slice(0,10);if(day!==today){day=today;used=0;quota.clear()}
-        const ip=req.socket.remoteAddress||'unknown',q=quota.get(ip)||{count:0,start:Date.now()};
+        const ip=req.socket.remoteAddress||'unknown';let q=quota.get(ip)||{count:0,start:Date.now()};
         if(Date.now()-q.start>3600000){q.count=0;q.start=Date.now()}
         if(used>=dailyLimit||q.count>=10||active>=2)return json(res,429,{error:'Photo analysis is busy or has reached its limit. Try later; you can save now.'},{'Retry-After':'60'});
         let body;try{body=await readBody(req);if(body.consent!==true)throw Error('Please agree to send this photo for analysis.');validatePhoto(body.image)}catch(e){return json(res,e.status||400,{error:e instanceof SyntaxError?'Invalid photo request.':e.message})}
-        q.count++;quota.set(ip,q);used++;active++;
+        // Reserve before contacting the model. Corrupt/unwritable ledgers fail closed.
+        // In-flight body reads can overlap, so check concurrency again here.
+        q=quota.get(ip)||q;
+        if(active>=2||used>=dailyLimit||q.count>=10)return json(res,429,{error:'Photo analysis is busy or has reached its limit. Please try later.'});
+        active++;
         try{
+          if(privateState&&!(await privateState.reserveAnalysis(dailyLimit)))return json(res,429,{error:'Today’s photo-analysis limit has been reached. Your sighting can still be saved.'});
+          q.count++;quota.set(ip,q);used++;
           const upstream=await fetchImpl('https://api.openai.com/v1/responses',{method:'POST',headers:{Authorization:`Bearer ${apiKey}`,'Content-Type':'application/json'},signal:AbortSignal.timeout(45000),body:JSON.stringify({model,store:false,max_output_tokens:1500,instructions,input:[{role:'user',content:[{type:'input_text',text:'Suggest what can be established from this photo. Return unknown when evidence is insufficient.'},{type:'input_image',image_url:body.image,detail:'high'}]}],text:{format:{type:'json_schema',name:'turtle_photo_assessment',strict:true,schema:PhotoCore.schema}}})});
           if(!upstream.ok)return json(res,upstream.status===429?429:502,{error:upstream.status===429?'The analysis service is at its limit. Try later.':'The analysis service could not complete this request. Your photo has not been lost.'});
           const reply=await upstream.json();

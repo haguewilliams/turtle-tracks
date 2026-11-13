@@ -1,5 +1,6 @@
 # Staging setup only. Creating this file does not create or activate a service.
-# Analysis stays disabled until the owner configures credentials and a usage limit.
+# This free starter has no persistent volume. Keep integrations off until durable
+# hosting/storage is approved and configured; see DEPLOYMENT.md.
 services:
   - type: web
     name: turtle-tracks
@@ -16,9 +17,11 @@ services:
         value: "22"
       - key: NODE_ENV
         value: production
-      - key: OPENAI_API_KEY
-        sync: false
       - key: OPENAI_MODEL
         value: gpt-4.1-mini
       - key: ANALYSIS_DAILY_LIMIT
         value: "0"
+      - key: INAT_ENABLED
+        value: "false"
+      - key: TT_DATA_DURABLE
+        value: "false"

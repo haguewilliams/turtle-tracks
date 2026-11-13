@@ -1,1 +1,1 @@
-{"name":"turtle-tracks","private":true,"scripts":{"dev":"node server.mjs","start":"node server.mjs","test":"node --test journal-core.test.cjs photo-analysis.test.mjs"},"engines":{"node":">=22"}}
+{"name":"turtle-tracks","private":true,"scripts":{"dev":"node server.mjs","start":"node server.mjs","test":"node --test journal-core.test.cjs photo-analysis.test.mjs inaturalist.test.mjs"},"engines":{"node":">=22"}}

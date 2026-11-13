@@ -10,10 +10,12 @@ Production: https://turtletracks.haguewilliams.com/
 
 - `index.html`: existing field guide, interactions, artwork, and journal UI.
 - `journal-core.js`: validation, backup merging, sorting, and safe share summaries.
-- `citizen-science.js`: contribution preparation, photo download, and manual iNaturalist handoff.
+- `citizen-science.js`: contribution review, account connection, receipt handling, and the manual iNaturalist fallback.
+- `inaturalist-service.mjs`: server-side OAuth/PKCE and privacy-aware, recoverable direct submission.
+- `private-state.mjs`: persistent request allowances and submission recovery records for one backend process.
 - `journal-core.test.cjs`: regression tests using Node's built-in test runner.
 
-Run checks with `npm test` (25 checks), and run the same-origin app/API with `npm start` on Node 22+. The frontend can still be served statically, with photo analysis unavailable. GPS on a deployed site requires HTTPS and visitor permission.
+Run checks with `npm test` (43 checks), and run the same-origin app/API with `npm start` on Node 22+. The frontend can still be served statically, with photo analysis unavailable. GPS on a deployed site requires HTTPS and visitor permission.
 
 ## Current experience
 
@@ -25,13 +27,13 @@ The photograph is attached directly to the sighting. Field-guide comparison and 
 
 Observations remain in the browser's local storage under the existing `turtleTracksMasterV2` key. Export a backup before switching browsers/devices or clearing browser data. Version 2 backups and legacy record arrays remain accepted; new backups use version 3. Imports are validated before review, merge preserves existing records, and replacing the journal requires a separate confirmation. Failed storage writes do not commit changes in memory or clear the encounter form.
 
-Citizen Scientist checks for a photo, observation date, and GPS before preparing an observation. It provides a downloadable photo and separate date/location/notes fields for the official iNaturalist uploader. This is a manual submission path, not an API integration. Turtle Tracks does not claim a submission succeeded, grant Research Grade, or submit anything without the contributor's review.
+Citizen Scientist checks for a photo, observation date, and GPS before preparing an observation. It provides a downloadable photo and separate date/location/notes fields for the official iNaturalist uploader. This manual path remains available while direct submission is inactive. Turtle Tracks does not claim a submission succeeded, grant Research Grade, or submit anything without the contributor's review.
 
 ## Direct iNaturalist submission
 
-The requested direct-submit workflow remains to be connected. Register a Turtle Tracks application with iNaturalist, choose its production callback URL, implement its supported OAuth/PKCE authorization, and use the supported API to create the photo and observation. Do not put a client secret or user's credentials in this repository. Each contributor must authorize their own account.
+The code is implemented and tested with controlled provider responses, but no live account or application is connected. Contributors authorize their own account, review the photo/date/GPS and public notes, choose obscured or private visibility, and consent before sending. Credentials stay in encrypted HttpOnly cookies; client secrets stay on the backend. A saved UUID and persistent server ledger prevent blind duplicate retries. Only a verified observation-plus-photo response becomes a saved contribution receipt. Local journal edits do not edit iNaturalist.
 
-Required behavior: review the photo/date/location, default the app's submitted observation to obscured geoprivacy, request explicit submission consent, preserve returned observation IDs/URLs, handle partial uploads and retry without duplicate observations, and mark submitted only after a successful provider response. Confirm API behavior and platform requirements against current documentation before implementation. No live wildlife observations or test records have been submitted during development.
+Activation requires an approved iNaturalist application and the same-origin Node backend with persistent storage. The normal app-owner application requires an account older than two months and ten improving identifications of other users' observations in the past month, followed by staff approval. A fresh account is not enough to activate immediately. See `DEPLOYMENT.md` for exact configuration, recovery limits, and live verification requirements. No wildlife observations have been submitted during development.
 
 Official references:
 
