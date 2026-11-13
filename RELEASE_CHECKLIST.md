@@ -25,7 +25,7 @@ Status: November 13, 2026. Hague requested consolidation into one working versio
 - [ ] Register the iNaturalist application and confirm authorization/callback configuration.
 - [ ] Implement and test direct submission: photo upload, observation create, obscured location, error handling, duplicate prevention, and saved receipt URL.
 - [ ] Activate and evaluate the implemented photo-analysis service with a server-held API key, HTTPS backend, owner-approved budget, and reviewed real photos. The service is not yet activated.
-- [ ] Complete the one-time consolidation into `main` and verify production deployment.
+- [x] Consolidate into `main`, verify successful GitHub Pages deployment, and visually confirm the live cover plus Learn and Help icons.
 
 Cloud sync, cross-device journals, and automatic individual-turtle recognition are not implemented. Existing science-data handoff is manual and labeled accordingly. No scheduled/background development task has been created.
 
@@ -41,3 +41,4 @@ Cloud sync, cross-device journals, and automatic individual-turtle recognition a
 - [ ] Build the native iOS package and complete TestFlight and App Store preparation described in PRODUCT_BRIEF.md.
 
 - [x] Browser-check the retained responsive recording controls at narrow widths. The earlier photographic-cover viewport checks do not establish the restored Tilly cover’s phone behavior; complete that device check before release.
+
