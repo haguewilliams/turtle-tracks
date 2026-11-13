@@ -15,7 +15,7 @@ Status: development review, November 13, 2026. Production is unchanged.
 - [x] Share the selected record with location text omitted by default and honest identification language.
 - [x] Add Citizen Scientist to My Tracks, Learn, and the navigation menu.
 - [x] Browser-check contribution readiness and preparation using clearly labeled synthetic data; download a real photo file. No test data sent to external databases.
-- [x] Run 12 automated journal regression checks and JavaScript syntax checks.
+- [x] Run 25 automated journal/photo-service checks and JavaScript syntax checks.
 
 ## Before release
 
@@ -24,7 +24,18 @@ Status: development review, November 13, 2026. Production is unchanged.
 - [ ] Complete accessibility and all-page content review, including external wildlife-help links. SCDNR registry verified; NWRA page could not be verified by the research tool.
 - [ ] Register the iNaturalist application and confirm authorization/callback configuration.
 - [ ] Implement and test direct submission: photo upload, observation create, obscured location, error handling, duplicate prevention, and saved receipt URL.
-- [ ] Decide whether automatic photo identification is part of this release. Current identification is a guided comparison; there is no AI identification service connected.
+- [ ] Activate and evaluate the implemented photo-analysis service with a server-held API key, HTTPS backend, owner-approved budget, and reviewed real photos. The service is not yet activated.
 - [ ] Merge the approved changes and verify production deployment.
 
 Cloud sync, cross-device journals, and automatic individual-turtle recognition are not implemented. Existing science-data handoff is manual and labeled accordingly. No scheduled/background development task has been created.
+
+## November 13 redesign
+
+- [x] Add a naturalist cover and preserve Tilly behind a reversible cover switch.
+- [x] Use one photo area and optional field-guide/additional-detail panels.
+- [x] Remove mandatory anatomy scoring and leave unknown turtle identity unassigned.
+- [x] Add the photo-analysis endpoint, disclosure/consent, review-before-save results, server-side validation, and rate controls.
+- [x] Replace Learn and Help emoji with matching line icons and add a Material 3 token theme.
+- [x] Verify photo saving, cover switching, post-save science readiness, and Help navigation in the browser.
+- [ ] Test native camera/GPS, VoiceOver, text enlargement, offline data durability, and supported phones.
+- [ ] Build the native iOS package and complete TestFlight and App Store preparation described in PRODUCT_BRIEF.md.

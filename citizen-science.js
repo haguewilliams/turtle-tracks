@@ -4,7 +4,7 @@ function renderCitizenScience(selectedId) {
   const choices = TurtleJournalCore.sorted(records);
   const select = $('scienceObservation');
   const keep = selectedId || scienceRecordId;
-  select.innerHTML = '<option value="">Choose a saved observation</option>' + choices.map(r => '<option value="'+esc(r.id)+'">'+esc(r.turtleId)+' · '+esc(r.date)+' · '+esc(r.location || 'No location')+'</option>').join('');
+  select.innerHTML = '<option value="">Choose a saved observation</option>' + choices.map(r => '<option value="'+esc(r.id)+'">'+esc(r.turtleId||'Unassigned sighting')+' · '+esc(r.date)+' · '+esc(r.location || 'No location')+'</option>').join('');
   select.value = choices.some(r => r.id === keep) ? keep : '';
   scienceRecordId = select.value;
   const r = choices.find(r => r.id === scienceRecordId);
@@ -21,7 +21,7 @@ function prepareScienceContribution() {
   const r = records.find(r => r.id === scienceRecordId);
   if (!r?.photo || !r.gps || !r.date) {toast('Choose a sighting with a photo, date, and GPS.');return}
   openModal('Your science contribution',
-    '<p><b>'+esc(r.turtleId)+' · '+esc(r.date)+'</b></p><p>Finish sharing on iNaturalist. You will review and submit the observation there.</p>'+
+    '<p><b>'+esc(r.turtleId||'Unassigned sighting')+' · '+esc(r.date)+'</b></p><p>Finish sharing on iNaturalist. You will review and submit the observation there.</p>'+
     '<ol><li>Save the photo below, then open the iNaturalist uploader and sign in.</li><li>Add the photo, date, and the location shown below. Use the actual place and time you saw the turtle.</li><li>Check the identification. If unsure, choose a broader turtle identification and let the community help.</li><li>Set <b>Geoprivacy → Obscured</b> before submitting. Review notes and photos for location clues.</li></ol>'+
     '<div class="notice">Photo downloads from this journal do not contain GPS or date metadata. Enter those fields on iNaturalist before submitting.</div>'+
     '<div class="field"><label for="scienceDate">Observed date and time</label><input id="scienceDate" readonly value="'+esc(r.date+' '+r.time)+'"></div>'+

@@ -1,6 +1,6 @@
 # Turtle Tracks
 
-An Eastern Box Turtle field guide and personal observation journal. The approved cream and forest-green design, combined Identify/Observe workflow, and Tilly character remain the design foundation.
+An Eastern Box Turtle field guide and personal observation journal. The cream and forest-green field-guide identity remains the foundation. The review version has a naturalist cover with a reversible Field Guide/Tilly switch and a single Record a Sighting workflow.
 
 Production: https://turtletracks.haguewilliams.com/
 
@@ -13,7 +13,13 @@ Development branch: `work/final-stages`. Changes on this branch are for review; 
 - `citizen-science.js`: contribution preparation, photo download, and manual iNaturalist handoff.
 - `journal-core.test.cjs`: regression tests using Node's built-in test runner.
 
-Run checks with `node --test journal-core.test.cjs`. Serve this directory through a local static web server for browser checks. GPS on a deployed site requires HTTPS and visitor permission.
+Run checks with `npm test` (25 checks), and run the same-origin app/API with `npm start` on Node 22+. The frontend can still be served statically, with photo analysis unavailable. GPS on a deployed site requires HTTPS and visitor permission.
+
+## Review changes
+
+The photograph is attached directly to the sighting. Field-guide comparison and additional details are optional; a user can save without identification or a turtle ID. The save confirmation offers Citizen Scientist. Learn, Help, journal, and quest controls share outline icons. `material-theme.css` defines Material Design 3 role tokens and app-wide interaction styling; this is custom CSS, not Google Web Components.
+
+`server.mjs`, `photo-analysis-core.js`, and `photo-analysis.js` implement real photo analysis through OpenAI image inputs and structured output. No API credential is configured, so the service is not active. Tests use controlled provider responses; they are not a live accuracy evaluation. See `DEPLOYMENT.md` for secure activation and `PRODUCT_BRIEF.md` for the App Store release mandate.
 
 ## Data and contributions
 

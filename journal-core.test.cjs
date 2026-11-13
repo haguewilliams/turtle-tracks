@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 const core = require('./journal-core.js');
-const sample = (changes={}) => ({id:'obs_test_1',date:'2026-11-13',time:'09:00',location:'Private garden',behavior:'Moving',habitat:'Woods',notes:'Looked healthy',photo:'',gps:null,turtleId:'Turtle 001',assessment:null,...changes});
+const sample = (changes={}) => ({id:'obs_test_1',date:'2026-11-13',time:'09:00',location:'Private garden',behavior:'Moving',habitat:'Woods',notes:'Looked healthy',photo:'',gps:null,turtleId:'Turtle 001',assessment:null,photoAnalysis:null,...changes});
 test('calendar validation rejects impossible dates but accepts leap days',()=>{
   assert.equal(core.validDate('2026-02-29'),false); assert.equal(core.validDate('2024-02-29'),true); assert.equal(core.validDate('2026-13-01'),false);
 });

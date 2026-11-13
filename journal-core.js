@@ -42,7 +42,13 @@
         assessment = {};
         for (const key of ['sex','confidence','stage','eye','pl']) assessment[key] = field(item.assessment[key], 100, 'field estimate');
       }
-      return {id, date:item.date, time, location:field(item.location, 2000, 'location'), behavior:field(item.behavior, 200, 'behavior'), habitat:field(item.habitat, 200, 'habitat'), notes:field(item.notes, 30000, 'notes'), photo, gps, turtleId:field(item.turtleId, 200, 'turtle ID'), assessment};
+      let photoAnalysis=null;
+      if(item.photoAnalysis!=null){
+        if(!photo||item.photoAnalysis.accepted!==true)throw Error('Photo suggestions must be reviewed and attached to a photo.');
+        const photoCore=typeof module==='object'&&module.exports?require('./photo-analysis-core.js'):TurtlePhotoCore;
+        photoAnalysis={...photoCore.normalize(item.photoAnalysis),source:'AI photo suggestion',model:field(item.photoAnalysis.model,100,'analysis model'),analyzedAt:field(item.photoAnalysis.analyzedAt,50,'analysis date'),accepted:true};
+      }
+      return {id, date:item.date, time, location:field(item.location, 2000, 'location'), behavior:field(item.behavior, 200, 'behavior'), habitat:field(item.habitat, 200, 'habitat'), notes:field(item.notes, 30000, 'notes'), photo, gps, turtleId:field(item.turtleId, 200, 'turtle ID'), assessment, photoAnalysis};
     });
   }
   function parseBackup(text) {

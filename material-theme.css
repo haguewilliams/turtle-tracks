@@ -1,0 +1,43 @@
+/* Material Design 3 role tokens, adapted to the Turtle Tracks field-guide identity.
+   This is the app's CSS theme, not a dependency on Google's Web Components. */
+:root{
+ --md-sys-color-primary:#285039;--md-sys-color-on-primary:#ffffff;
+ --md-sys-color-primary-container:#dde8d5;--md-sys-color-on-primary-container:#173d2b;
+ --md-sys-color-surface:#f6f0df;--md-sys-color-surface-container:#fbf8ef;
+ --md-sys-color-on-surface:#243a2a;--md-sys-color-on-surface-variant:#53634f;
+ --md-sys-color-outline:#748268;--md-sys-color-outline-variant:#d3c9b2;
+ --md-sys-color-error:#8d382c;--md-sys-color-error-container:#faeee3;
+ --md-sys-shape-corner-small:8px;--md-sys-shape-corner-medium:12px;--md-sys-shape-corner-large:24px;
+ --md-ref-typeface-plain:Arial,Helvetica,sans-serif;--md-ref-typeface-brand:Georgia,'Times New Roman',serif;
+ --md-sys-typescale-body-large-size:16px;--md-sys-typescale-body-large-line-height:24px;
+ --md-sys-typescale-label-large-size:14px;--md-sys-typescale-title-large-size:22px;
+}
+#turtle-tracks-embed button,#turtle-tracks-embed input,#turtle-tracks-embed select,#turtle-tracks-embed textarea{font-family:var(--md-ref-typeface-plain)}
+#turtle-tracks-embed .btn{font-size:var(--md-sys-typescale-label-large-size);font-weight:600;line-height:20px;min-height:48px;padding:12px 20px;border-radius:24px;background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);box-shadow:none}
+#turtle-tracks-embed .btn.alt{background:transparent;color:var(--md-sys-color-primary);border:1px solid var(--md-sys-color-outline)}
+#turtle-tracks-embed .btn.danger{background:var(--md-sys-color-error)}
+#turtle-tracks-embed .screen:not(#home) .btn{font:600 14px/20px var(--md-ref-typeface-plain);font-family:var(--md-ref-typeface-plain)!important;min-height:48px;border-radius:24px;box-shadow:none}
+#turtle-tracks-embed #identify .tt-id-intro p{font:400 16px/24px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed #identify .sighting-photo-card p{font:400 14px/22px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed .iconbtn,#turtle-tracks-embed .close,#turtle-tracks-embed .text-button{min-width:48px;min-height:48px}
+#turtle-tracks-embed :is(button,a,input,select,textarea,summary):focus-visible{outline:3px solid #4e7957;outline-offset:3px}
+#turtle-tracks-embed .field :is(input,select,textarea){font-size:16px;line-height:24px;min-height:48px;background:var(--md-sys-color-surface-container);border:1px solid var(--md-sys-color-outline);border-radius:var(--md-sys-shape-corner-small)}
+#turtle-tracks-embed .screen:not(#home) .lead,#turtle-tracks-embed .screen:not(#home) .info-card p{font-family:var(--md-ref-typeface-plain);font-size:16px;line-height:24px}
+#turtle-tracks-embed .screen:not(#home) .learn-item{min-height:88px;padding:16px;gap:12px}
+#turtle-tracks-embed .learn-item .glyph{flex:0 0 32px;width:32px}
+#turtle-tracks-embed .screen:not(#home) .learn-item small{font:400 15px/22px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed #emergency .local-help-card h3{font:700 22px/28px var(--md-ref-typeface-brand)}
+#turtle-tracks-embed #emergency .local-help-card p{font:400 16px/24px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed #emergency .local-help-card .btn{font:600 14px/20px var(--md-ref-typeface-plain);min-height:48px;background:var(--md-sys-color-primary)}
+#turtle-tracks-embed #emergency .local-help-card .maplink{display:inline-block;font:500 14px/22px var(--md-ref-typeface-plain);padding:8px 0}
+#turtle-tracks-embed .quest-badge .field-icon{width:18px;height:18px;vertical-align:middle;margin-right:4px}
+#turtle-tracks-embed .emergency-btn{background:var(--md-sys-color-error-container);border:1px solid #d6b99e;color:#643f2d;border-radius:var(--md-sys-shape-corner-medium);padding:16px;text-align:left;min-height:142px;display:flex;flex-direction:column;gap:8px}
+#turtle-tracks-embed .emergency-btn .field-icon{width:28px;height:28px;flex:0 0 28px;color:#4b6146}
+#turtle-tracks-embed .emergency-btn strong{font:700 19px/24px var(--md-ref-typeface-brand)}
+#turtle-tracks-embed .emergency-btn small{font:14px/20px var(--md-ref-typeface-plain)}
+#turtle-tracks-embed .bottom-nav{height:80px;padding:8px 4px max(8px,env(safe-area-inset-bottom))}
+#turtle-tracks-embed .bottom-nav button{min-height:56px;font-size:12px;line-height:16px;gap:5px}
+#turtle-tracks-embed .bottom-nav button.active{background:var(--md-sys-color-primary-container);border-radius:16px}
+#turtle-tracks-embed .field-home-nav button,#turtle-tracks-embed .tt29-nav button{min-height:56px;font:12px/16px var(--md-ref-typeface-plain)}
+@media(prefers-reduced-motion:reduce){#turtle-tracks-embed *{scroll-behavior:auto!important;transition:none!important}}
+@media(max-width:350px){#turtle-tracks-embed .emergency-grid{grid-template-columns:1fr}}
