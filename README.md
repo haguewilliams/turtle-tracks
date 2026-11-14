@@ -4,7 +4,7 @@ An Eastern Box Turtle field guide and personal observation journal. The cream an
 
 Production: https://turtletracks.haguewilliams.com/
 
-`main` is the single working version and source of truth. Make approved incremental updates there and verify them at the production link above. Use Git history for rollback; do not ask Hague to choose between branches or alternate preview URLs. The first release uses the existing manual iNaturalist uploader handoff. Direct submission is deferred and does not block release. Photo analysis remains an active priority and is not yet activated.
+`main` is the single working version and source of truth. Make approved incremental updates there and verify them at the production link above. Use Git history for rollback; do not ask Hague to choose between branches or alternate preview URLs. The first release uses the existing manual iNaturalist uploader handoff. Direct submission is deferred and does not block release. The free on-device species check is an experimental trial; age and sex estimates remain unavailable.
 
 ## Files
 
@@ -15,13 +15,17 @@ Production: https://turtletracks.haguewilliams.com/
 - `private-state.mjs`: persistent request allowances and submission recovery records for one backend process.
 - `journal-core.test.cjs`: regression tests using Node's built-in test runner.
 
-Run checks with `npm test` (49 checks), and run the same-origin app/API with `npm start` on Node 22+. The frontend can still be served statically, with photo analysis unavailable. GPS on a deployed site requires HTTPS and visitor permission.
+Run checks with `npm test` (54 checks), and run the local app with `npm start` on Node 22+. GitHub Pages serves the app and its on-device model without a backend or API account. GPS on a deployed site requires HTTPS and visitor permission.
 
 ## Current experience
 
 The photograph is attached directly to the sighting. Field-guide comparison and additional details are optional; a user can save without identification or a turtle ID. The save confirmation offers Citizen Scientist. Learn, Help, journal, and quest controls share outline icons. `material-theme.css` retains the shared Material Design 3 role theme and responsive controls. Learn and habitat guidance carry the theme “Make room for turtles. Make room to thrive,” connecting care for wildlife with time outdoors and attention to home. The original Tilly cover uses a shared layout for the headline and illustration so their overlap does not depend on screen height.
 
-`server.mjs`, `photo-analysis-core.js`, and `photo-analysis.js` implement real photo analysis through OpenAI image inputs and structured output. No API credential is configured, so the service is not active. Tests use controlled provider responses; they are not a live accuracy evaluation. See `DEPLOYMENT.md` for secure activation and `PRODUCT_BRIEF.md` for the App Store release mandate.
+`on-device-photo.js`, `on-device-worker.js`, and `on-device-core.js` run a self-hosted MobileNet feature model plus a custom Eastern box turtle classifier inside the browser. No photograph, GPS, or notes are sent for analysis; no paid service or API key is required. Visitors explicitly run the check and review a suggestion before saving. The model can confuse similar turtles and returns unknown often. Sex and life stage always remain unknown in this trial.
+
+On an additional frozen 143-photo evaluation, 17 of 19 suggestions matched source labels; 2 were mistaken. Only 17 of 53 Eastern box turtles received suggestions. This missed the 95% precision target: it is a disclosed experimental trial, not a validated identification product. See [model card](models/eastern-box-v1/README.md), [evaluation](models/eastern-box-v1/evaluation.json), and [reproduction tools](tools/model-development/README.md). Desktop browser upload, analyze, review, save and reopen are checked; physical phones remain to be tested.
+
+The earlier OpenAI backend code remains inactive and optional. It is not needed for the free trial. Do not provision Render, paid inference, or credentials without a new owner decision. See `DEPLOYMENT.md` for current static deployment and deferred backend configuration.
 
 ## Data and contributions
 

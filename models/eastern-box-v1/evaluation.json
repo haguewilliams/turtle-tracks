@@ -1,0 +1,441 @@
+{
+  "status": "experimental species trial only; not validated identification or full feature release",
+  "date": "2026-11-14",
+  "development": {
+    "dataset": "iNaturalist CC0 / CC BY; research-grade taxon, unverified community age/sex annotations",
+    "photos": 1761,
+    "perceptualDuplicatesRemoved": 5,
+    "split": "observer-hash 70/15/15; no observer spans splits",
+    "heads": {
+      "species": {
+        "train": 1134,
+        "validation": 329,
+        "test": 298,
+        "C": 1,
+        "classes": [
+          "eastern",
+          "other",
+          "other_box_turtle",
+          "other_turtle"
+        ],
+        "testAccuracy": 0.7684563758389261,
+        "confusionMatrix": [
+          [
+            89,
+            6,
+            27,
+            6
+          ],
+          [
+            0,
+            65,
+            0,
+            4
+          ],
+          [
+            7,
+            6,
+            43,
+            0
+          ],
+          [
+            1,
+            7,
+            5,
+            32
+          ]
+        ],
+        "classificationReport": {
+          "eastern": {
+            "precision": 0.9175257731958762,
+            "recall": 0.6953125,
+            "f1-score": 0.7911111111111111,
+            "support": 128.0
+          },
+          "other": {
+            "precision": 0.7738095238095238,
+            "recall": 0.9420289855072463,
+            "f1-score": 0.8496732026143791,
+            "support": 69.0
+          },
+          "other_box_turtle": {
+            "precision": 0.5733333333333334,
+            "recall": 0.7678571428571429,
+            "f1-score": 0.6564885496183206,
+            "support": 56.0
+          },
+          "other_turtle": {
+            "precision": 0.7619047619047619,
+            "recall": 0.7111111111111111,
+            "f1-score": 0.735632183908046,
+            "support": 45.0
+          },
+          "accuracy": 0.7684563758389261,
+          "macro avg": {
+            "precision": 0.7566433480608739,
+            "recall": 0.7790774348688752,
+            "f1-score": 0.7582262618129642,
+            "support": 298.0
+          },
+          "weighted avg": {
+            "precision": 0.7960689163231889,
+            "recall": 0.7684563758389261,
+            "f1-score": 0.7709949001916188,
+            "support": 298.0
+          }
+        },
+        "deploymentApproved": false,
+        "threshold": 0.6400000000000001,
+        "testSuggestions": 61,
+        "testCorrect": 61,
+        "testIncorrect": 0,
+        "testSuggestionPrecision": 1.0,
+        "testRecall": 0.4765625,
+        "testEasternCount": 128,
+        "testOtherCount": 170,
+        "candidateForBrowserTrial": true
+      },
+      "life_stage": {
+        "train": 345,
+        "validation": 162,
+        "test": 94,
+        "C": 1,
+        "classes": [
+          "adult",
+          "juvenile"
+        ],
+        "testAccuracy": 0.7872340425531915,
+        "confusionMatrix": [
+          [
+            42,
+            15
+          ],
+          [
+            5,
+            32
+          ]
+        ],
+        "classificationReport": {
+          "adult": {
+            "precision": 0.8936170212765957,
+            "recall": 0.7368421052631579,
+            "f1-score": 0.8076923076923077,
+            "support": 57.0
+          },
+          "juvenile": {
+            "precision": 0.6808510638297872,
+            "recall": 0.8648648648648649,
+            "f1-score": 0.7619047619047619,
+            "support": 37.0
+          },
+          "accuracy": 0.7872340425531915,
+          "macro avg": {
+            "precision": 0.7872340425531914,
+            "recall": 0.8008534850640114,
+            "f1-score": 0.7847985347985348,
+            "support": 94.0
+          },
+          "weighted avg": {
+            "precision": 0.80986871887732,
+            "recall": 0.7872340425531915,
+            "f1-score": 0.7896695503078481,
+            "support": 94.0
+          }
+        },
+        "deploymentApproved": false,
+        "blockedReason": "Community annotations do not verify visible diagnostic evidence; expert review is required."
+      },
+      "sex": {
+        "train": 210,
+        "validation": 107,
+        "test": 47,
+        "C": 0.1,
+        "classes": [
+          "female",
+          "male"
+        ],
+        "testAccuracy": 0.5106382978723404,
+        "confusionMatrix": [
+          [
+            9,
+            7
+          ],
+          [
+            16,
+            15
+          ]
+        ],
+        "classificationReport": {
+          "female": {
+            "precision": 0.36,
+            "recall": 0.5625,
+            "f1-score": 0.43902439024390244,
+            "support": 16.0
+          },
+          "male": {
+            "precision": 0.6818181818181818,
+            "recall": 0.4838709677419355,
+            "f1-score": 0.5660377358490566,
+            "support": 31.0
+          },
+          "accuracy": 0.5106382978723404,
+          "macro avg": {
+            "precision": 0.5209090909090909,
+            "recall": 0.5231854838709677,
+            "f1-score": 0.5025310630464795,
+            "support": 47.0
+          },
+          "weighted avg": {
+            "precision": 0.5722630560928432,
+            "recall": 0.5106382978723404,
+            "f1-score": 0.5227991501111318,
+            "support": 47.0
+          }
+        },
+        "deploymentApproved": false,
+        "blockedReason": "Community annotations do not verify visible diagnostic evidence; expert review is required."
+      }
+    }
+  },
+  "earlierBaseline": {
+    "dataset": "iNaturalist CC0 / CC BY; research-grade taxon, unverified community age/sex annotations",
+    "photos": 1761,
+    "perceptualDuplicatesRemoved": 5,
+    "split": "observer-hash 70/15/15; no observer spans splits",
+    "heads": {
+      "species": {
+        "train": 1134,
+        "validation": 329,
+        "test": 298,
+        "C": 0.1,
+        "classes": [
+          "eastern",
+          "other",
+          "other_box_turtle",
+          "other_turtle"
+        ],
+        "testAccuracy": 0.7281879194630873,
+        "confusionMatrix": [
+          [
+            83,
+            9,
+            30,
+            6
+          ],
+          [
+            0,
+            65,
+            0,
+            4
+          ],
+          [
+            6,
+            12,
+            37,
+            1
+          ],
+          [
+            2,
+            9,
+            2,
+            32
+          ]
+        ],
+        "classificationReport": {
+          "eastern": {
+            "precision": 0.9120879120879121,
+            "recall": 0.6484375,
+            "f1-score": 0.7579908675799086,
+            "support": 128.0
+          },
+          "other": {
+            "precision": 0.6842105263157895,
+            "recall": 0.9420289855072463,
+            "f1-score": 0.7926829268292683,
+            "support": 69.0
+          },
+          "other_box_turtle": {
+            "precision": 0.5362318840579711,
+            "recall": 0.6607142857142857,
+            "f1-score": 0.592,
+            "support": 56.0
+          },
+          "other_turtle": {
+            "precision": 0.7441860465116279,
+            "recall": 0.7111111111111111,
+            "f1-score": 0.7272727272727273,
+            "support": 45.0
+          },
+          "accuracy": 0.7281879194630873,
+          "macro avg": {
+            "precision": 0.7191790922433251,
+            "recall": 0.7405729705831609,
+            "f1-score": 0.7174866304204761,
+            "support": 298.0
+          },
+          "weighted avg": {
+            "precision": 0.7633393847762142,
+            "recall": 0.7281879194630873,
+            "f1-score": 0.7301920326467132,
+            "support": 298.0
+          }
+        },
+        "deploymentApproved": false,
+        "threshold": 1.0,
+        "testSuggestions": 0,
+        "testCorrect": 0,
+        "testIncorrect": 0,
+        "testSuggestionPrecision": null,
+        "testRecall": 0.0,
+        "testEasternCount": 128,
+        "testOtherCount": 170,
+        "candidateForBrowserTrial": false
+      },
+      "life_stage": {
+        "train": 345,
+        "validation": 162,
+        "test": 94,
+        "C": 1,
+        "classes": [
+          "adult",
+          "juvenile"
+        ],
+        "testAccuracy": 0.7872340425531915,
+        "confusionMatrix": [
+          [
+            42,
+            15
+          ],
+          [
+            5,
+            32
+          ]
+        ],
+        "classificationReport": {
+          "adult": {
+            "precision": 0.8936170212765957,
+            "recall": 0.7368421052631579,
+            "f1-score": 0.8076923076923077,
+            "support": 57.0
+          },
+          "juvenile": {
+            "precision": 0.6808510638297872,
+            "recall": 0.8648648648648649,
+            "f1-score": 0.7619047619047619,
+            "support": 37.0
+          },
+          "accuracy": 0.7872340425531915,
+          "macro avg": {
+            "precision": 0.7872340425531914,
+            "recall": 0.8008534850640114,
+            "f1-score": 0.7847985347985348,
+            "support": 94.0
+          },
+          "weighted avg": {
+            "precision": 0.80986871887732,
+            "recall": 0.7872340425531915,
+            "f1-score": 0.7896695503078481,
+            "support": 94.0
+          }
+        },
+        "deploymentApproved": false,
+        "blockedReason": "Community annotations do not verify visible diagnostic evidence; expert review is required."
+      },
+      "sex": {
+        "train": 210,
+        "validation": 107,
+        "test": 47,
+        "C": 0.1,
+        "classes": [
+          "female",
+          "male"
+        ],
+        "testAccuracy": 0.5106382978723404,
+        "confusionMatrix": [
+          [
+            9,
+            7
+          ],
+          [
+            16,
+            15
+          ]
+        ],
+        "classificationReport": {
+          "female": {
+            "precision": 0.36,
+            "recall": 0.5625,
+            "f1-score": 0.43902439024390244,
+            "support": 16.0
+          },
+          "male": {
+            "precision": 0.6818181818181818,
+            "recall": 0.4838709677419355,
+            "f1-score": 0.5660377358490566,
+            "support": 31.0
+          },
+          "accuracy": 0.5106382978723404,
+          "macro avg": {
+            "precision": 0.5209090909090909,
+            "recall": 0.5231854838709677,
+            "f1-score": 0.5025310630464795,
+            "support": 47.0
+          },
+          "weighted avg": {
+            "precision": 0.5722630560928432,
+            "recall": 0.5106382978723404,
+            "f1-score": 0.5227991501111318,
+            "support": 47.0
+          }
+        },
+        "deploymentApproved": false,
+        "blockedReason": "Community annotations do not verify visible diagnostic evidence; expert review is required."
+      }
+    }
+  },
+  "additionalFrozenEvaluation": {
+    "cohort": "Additional 2023 sightings from observers absent from development; frozen model and threshold",
+    "classifierSHA256": "9f9d20abf160e90893e04c6dafe435163c4a7e4004b63e8fd73f632b1ca7fd0c",
+    "photos": 143,
+    "nearDuplicatesExcluded": 0,
+    "easternCount": 53,
+    "otherCount": 90,
+    "threshold": 0.6400000000000001,
+    "suggestions": 19,
+    "correct": 17,
+    "incorrect": 2,
+    "precision": 0.8947368421052632,
+    "recall": 0.32075471698113206,
+    "byLabel": {
+      "eastern": {
+        "photos": 53,
+        "easternSuggestions": 17
+      },
+      "other": {
+        "photos": 20,
+        "easternSuggestions": 0
+      },
+      "other_box_turtle": {
+        "photos": 40,
+        "easternSuggestions": 1
+      },
+      "other_turtle": {
+        "photos": 30,
+        "easternSuggestions": 1
+      }
+    }
+  },
+  "limitations": [
+    "The additional cohort did not meet a 95% suggestion-precision target: 17/19 suggestions matched source labels.",
+    "Labels are iNaturalist community identifications, not an independent expert review.",
+    "The trial deliberately returns unknown often and can still make confident mistakes.",
+    "Small, opportunistic datasets; no claim of general accuracy, calibrated confidence, phone performance, or regional coverage.",
+    "The baseline test was inspected during development. Only the additional cohort was evaluated after freezing the revised model and threshold.",
+    "Age and sex models remain disabled. Community annotations may describe anatomy that is absent from the selected photo."
+  ],
+  "browserQA": [
+    "Desktop Chrome: photo upload, model load and inference, accept suggestion, save locally, reopen saved result",
+    "Other box turtle fixture returned unknown; other negative and stale-photo checks recorded in release checklist"
+  ],
+  "classifierReleaseSHA256": "744a3154c21e022d548463a2193357e109a53a0435187e0e3c1a88ae7162b649"
+}

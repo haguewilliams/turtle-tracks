@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "2.1.1",
+    "@tensorflow/tfjs": "4.22.0",
+    "@tensorflow/tfjs-backend-wasm": "4.22.0",
+    "sharp": "0.34.5"
+  },
+  "name": "turtle-tracks-model-development",
+  "private": true
+}

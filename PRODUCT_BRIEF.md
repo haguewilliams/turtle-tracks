@@ -1,6 +1,6 @@
 # Turtle Tracks product and App Store release brief
 
-Owner: Hague Williams. Updated November 13, 2026. This is the development and release mandate; it does not claim the current prototype is App Store ready.
+Owner: Hague Williams. Updated November 14, 2026. This is the development and release mandate; it does not claim the current prototype is App Store ready.
 
 ## Assignment
 
@@ -22,7 +22,7 @@ One photo input experience; editable observation date/time; GPS on explicit requ
 
 ### Photo analysis
 
-An explicit action sends only the resized photo to the server/provider after disclosure and consent. Keys remain server-side. The result includes a suggested species, visible evidence, qualitative confidence, and cautious sex and life-stage estimates. Use unknown where evidence is insufficient. Do not derive exact age from shell rings, use eye color alone to determine sex, infer hidden anatomy, or tell users to handle wildlife. Suggestions remain labeled AI and are saved only after the user chooses them. Handle timeouts, refusals, malformed output, limits, photo changes mid-request, and service outages. Test real images reviewed by a knowledgeable turtle identifier before making accuracy claims. Record error/abstention rates by species and photo quality; confidence wording is not a calibrated probability.
+The selected implementation runs a small, self-hosted model in the browser without an API account or paid inference. An explicit action checks the photo locally, and a visitor reviews the result before saving. The experimental trial suggests only a possible Eastern box turtle or unknown. Age and sex are required future capabilities but are not working in this trial. Never derive exact age from shell rings, use eye color alone to determine sex, infer hidden anatomy, or tell users to handle wildlife. Each field needs its own reliable visible evidence and validation. Suggestions remain labeled AI and are saved only after the user chooses them. Handle timeouts, malformed output, photo changes, unsupported browsers and download failure. Test real images reviewed by a knowledgeable turtle identifier before making accuracy claims; retain error and abstention counts. Confidence wording is not a calibrated probability.
 
 ### Citizen Scientist
 
@@ -41,7 +41,7 @@ Check VoiceOver, keyboard navigation, contrast, text enlargement, focus return, 
 ## Release stages
 
 1. Retain the verified original overlapping Tilly cover and matching icons. Use the manual iNaturalist uploader handoff for the first release.
-2. Activate a protected backend, API credential, owner-approved usage budget, and durable abuse/rate controls. Validate photo analysis on real turtle photographs; retain unknown when needed.
+2. Evaluate the free browser species trial and improve it using independent expert-reviewed photographs. Develop separately validated age and sex estimates; retain unknown when evidence is insufficient. No paid service or account is authorized by this stage.
 3. Verify the first-release manual Citizen Scientist handoff and finish recording, backup, accessibility, and phone usability checks. Build iNaturalist account eligibility separately; direct API integration is a later update and does not block the remaining release stages.
 4. Package for iOS with appropriate native camera/photo-library/location support and durable local storage. Evaluate a maintained native container versus a native implementation; do not assume a web URL alone meets App Store requirements. Provide meaningful field functionality, offline journal behavior, and safe data migration.
 5. Complete device testing and TestFlight beta. Prepare privacy policy, support page, third-party data disclosures, consent screens, data deletion/export behavior, age rating, app icon, screenshots, description, accessibility review, and reviewer instructions.
@@ -49,9 +49,9 @@ Check VoiceOver, keyboard navigation, contrast, text enlargement, focus return, 
 
 ## Current status and account dependencies
 
-The original overlapping Tilly front cover is restored; the improved line icons and other page work remain. The simplified recording flow and server photo-analysis code remain implemented for review. Automated tests use controlled provider responses; no live model accuracy evaluation has been completed. No OpenAI API credential is configured, so analysis is not activated. The current public hosting is static; it cannot run the new server endpoint. A server host and secure environment configuration are required. Citizen Scientist’s manual iNaturalist upload is the selected first-release path. Direct-submission code is saved and tested with controlled responses but remains disabled and deferred. Signup has been opened; no owner account or approved API application has been confirmed. Native packaging, TestFlight, and App Store submission have not started.
+The original Tilly design and simplified recording flow remain. The default photo mode uses a local MobileNet-based custom species classifier on GitHub Pages. The additional frozen evaluation gave 17 correct and 2 mistaken suggestions from 143 photos, leaving most uncertain; the 95% precision target was not met. It is a clearly disclosed experimental trial, not a finished identifier. Sex and life-stage classifiers failed validation and remain disabled. Upload, analyze, accept, save and reopen work in desktop Chrome; physical device testing remains outstanding. The existing OpenAI backend is retained but inactive and is not required for this trial.
 
-OpenAI Developers and Render connections have been suggested to support API activation and hosting. GitHub is already connected. Apple Developer enrollment can wait until the app is ready for native testing. Never place API keys, passwords, or user access tokens in source code, a Page, or ordinary chat.
+Citizen Scientist uses the manual iNaturalist uploader. Direct submission remains deferred. Native packaging, TestFlight and App Store submission have not started. No Render or OpenAI API account has been activated or paid service purchased. GitHub is already connected. Apple Developer enrollment can wait until native testing is ready.
 
 ## Reference patterns and requirements
 

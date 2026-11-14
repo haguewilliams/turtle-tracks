@@ -1,6 +1,8 @@
-/* Only an explicit Analyze action transmits a photo. Secrets belong on the server. */
+/* On-device mode keeps photos in the browser. Server mode requires explicit consent. */
 let currentPhotoAnalysis=null,legacyAssessment=null,pendingPhotoAnalysis=null;
 let analysisAvailable=false,analysisBusy=false,analysisJob=0,analysisController=null;
+const onDeviceAnalysis=window.TurtleTracksConfig?.analysisMode==='on-device';
+function hasAnalysisConsent(){return onDeviceAnalysis||document.getElementById('analysisConsent').checked}
 function invalidatePhotoAnalysis(){
   analysisJob++;analysisController?.abort();analysisController=null;analysisBusy=false;
   currentPhotoAnalysis=null;pendingPhotoAnalysis=null;legacyAssessment=null;
@@ -10,23 +12,27 @@ function invalidatePhotoAnalysis(){
 }
 function refreshAnalysisControls(){
   const button=document.getElementById('analyzePhotoButton');if(!button)return;
-  button.disabled=!analysisAvailable||!photoData||analysisBusy||!document.getElementById('analysisConsent').checked||photoJobs>0;
+  button.disabled=!analysisAvailable||!photoData||analysisBusy||!hasAnalysisConsent()||photoJobs>0;
   button.textContent=analysisBusy?'Looking at your photo…':'Analyze photo';
-  document.getElementById('analysisConsentRow').hidden=!analysisAvailable;
-  document.getElementById('analysisStatus').textContent=analysisBusy?'Checking visible features. You can still save without waiting.':analysisAvailable?'Review the suggestion before adding it to your sighting.':'Photo analysis is not available yet. You can save now or use the field guide below.';
+  document.getElementById('analysisConsentRow').hidden=onDeviceAnalysis||!analysisAvailable;
+  document.getElementById('analysisStatus').textContent=analysisBusy?'Checking your photo. You can still save without waiting.':analysisAvailable?(onDeviceAnalysis?'Experimental check on this device. Your photo is not uploaded. Review the suggestion before saving.':'Review the suggestion before adding it to your sighting.'):'Photo analysis is not available yet. You can save now or use the field guide below.';
 }
 async function checkAnalysisAvailability(){
-  try{const r=await fetch((window.TurtleTracksConfig?.apiBase||'')+'/api/status',{cache:'no-store'});if(!r.ok)throw Error();const data=await r.json();analysisAvailable=data.photoAnalysis===true}catch{analysisAvailable=false}
+  try{const r=await fetch(onDeviceAnalysis?'model-manifest.json':(window.TurtleTracksConfig?.apiBase||'')+'/api/status',{cache:'no-store'});if(!r.ok)throw Error();const data=await r.json();analysisAvailable=onDeviceAnalysis?data.enabled===true&&typeof Worker==='function'&&typeof WebAssembly==='object':data.photoAnalysis===true}catch{analysisAvailable=false}
   refreshAnalysisControls();
 }
 async function analyzePhoto(){
-  if(!photoData||!analysisAvailable||analysisBusy||!document.getElementById('analysisConsent').checked||photoJobs)return;
+  if(!photoData||!analysisAvailable||analysisBusy||!hasAnalysisConsent()||photoJobs)return;
   const job=++analysisJob,epoch=photoEpoch,image=photoData;analysisBusy=true;pendingPhotoAnalysis=null;refreshAnalysisControls();
-  const controller=new AbortController();analysisController=controller;const timeout=setTimeout(()=>controller.abort(),50000);
+  const controller=new AbortController();analysisController=controller;const timeout=setTimeout(()=>controller.abort(),onDeviceAnalysis?95000:50000);
   try{
-    const r=await fetch((window.TurtleTracksConfig?.apiBase||'')+'/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image,consent:true}),signal:controller.signal});
-    let data;try{data=await r.json()}catch{throw Error('Photo analysis is unavailable. You can still save this sighting.')}
-    if(!r.ok)throw Error(data.error||'Photo analysis could not be completed.');
+    let data;
+    if(onDeviceAnalysis){data=await TurtleDevicePhoto.analyze(image,{signal:controller.signal,onProgress:message=>{if(job===analysisJob)document.getElementById('analysisStatus').textContent=message}})}
+    else{
+      const r=await fetch((window.TurtleTracksConfig?.apiBase||'')+'/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image,consent:true}),signal:controller.signal});
+      try{data=await r.json()}catch{throw Error('Photo analysis is unavailable. You can still save this sighting.')}
+      if(!r.ok)throw Error(data.error||'Photo analysis could not be completed.');
+    }
     if(job!==analysisJob||epoch!==photoEpoch||photoData!==image)return;
     pendingPhotoAnalysis={...TurtlePhotoCore.normalize(data.analysis),source:'AI photo suggestion',model:String(data.model||'').slice(0,100),analyzedAt:String(data.analyzedAt||'').slice(0,50),accepted:false};
     renderPhotoAnalysis(pendingPhotoAnalysis,false);

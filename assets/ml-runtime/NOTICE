@@ -1,0 +1,9 @@
+Self-hosted runtime dependencies, retrieved from their official npm packages:
+@tensorflow/tfjs 4.22.0 — https://github.com/tensorflow/tfjs
+@tensorflow/tfjs-backend-wasm 4.22.0 — https://github.com/tensorflow/tfjs
+@tensorflow-models/mobilenet 2.1.1 — https://github.com/tensorflow/tfjs-models
+
+Copyright Google LLC / TensorFlow Authors and respective contributors.
+Distributed under Apache License 2.0; see LICENSE in this directory.
+Runtime files are unmodified published distribution files. Source maps are omitted.
+The MobileNet backbone is separately described in models/eastern-box-v1/README.md.

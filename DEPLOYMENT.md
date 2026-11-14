@@ -1,14 +1,20 @@
 # Activating Turtle Tracks integrations
 
-Status: November 13, 2026. Both integrations have code and controlled-provider tests. Neither has been activated or verified against a live account. The public app still runs on GitHub Pages, which cannot execute this Node server. No paid service, credential, account, model call, or wildlife submission has been created by this setup.
+Status: November 14, 2026. The default photo check is now an experimental on-device species trial on the existing GitHub Pages site. It needs no new account, API key, paid inference service, or server host. Sex/life-stage estimates remain unavailable. The retained OpenAI and direct iNaturalist integrations are inactive.
 
 ## One app, one source
 
-Keep `main` in `haguewilliams/turtle-tracks` as the single working version and https://turtletracks.haguewilliams.com/ as the public app. Deploy the app and API together behind HTTPS. Keep the same public origin when moving off GitHub Pages so existing browser journals remain accessible. Export a journal backup before any hosting transition. A technical host address can be used for owner-only checks; it is not a second design or review version.
+Keep `main` in `haguewilliams/turtle-tracks` as the single working version and https://turtletracks.haguewilliams.com/ as the public app. GitHub Pages serves the static files, including `assets/ml-runtime`, `models/eastern-box-v1`, and the worker. `app-config.js` selects `analysisMode: 'on-device'`; `model-manifest.json` enables only the experimental trial. A false manifest flag disables the button. Both the availability flag and classifier must permit execution. Never enable sex or life-stage heads without separate validation.
 
-Use Node 22+; build/check command `npm test`, start command `node server.mjs`. The host supplies `PORT`.
+The runtime/model download is about 5 MB before HTTP compression. Photos stay in the browser. No service worker or guaranteed offline model availability is provided. Initial use needs connectivity; memory and speed vary by device. Web Workers and WebAssembly are required. On failure, the photo remains savable. Run `npm test` and use `npm start` on Node 22+ for local development. The Node server is not required in production for the free trial.
 
-## Required backend storage
+See `models/eastern-box-v1/README.md` and `evaluation.json` for actual errors, abstentions, provenance, and release limits. The fresh evaluation missed the 95% precision target. This is an owner-requested experimental trial with explicit review, not full biological validation. Physical iPhone and Android checks remain outstanding.
+
+## Deferred backend options
+
+Everything below describes retained, inactive integrations. It is not required to run the current species trial. Do not activate accounts, incur costs, or move hosting merely because these instructions exist. If a later owner decision activates a backend, retain the existing HTTPS origin so browser journals remain accessible and export a backup before migration.
+
+### Backend storage for a later server integration
 
 Use ONE running Node process with a persistent Linux filesystem mounted outside the repository and public assets. Set:
 
@@ -21,7 +27,7 @@ The private store keeps daily request counts and submission recovery receipts. I
 
 Do not run multiple processes or replicas against these files. The locks are process-local. Horizontal scaling requires a shared transactional database and distributed request limiter first. Never mark an ephemeral free-host filesystem durable just to enable the buttons.
 
-## Photo analysis
+### Inactive OpenAI photo-analysis option
 
 1. Connect the owner's OpenAI account and backend host. Enter `OPENAI_API_KEY` only through the host's secure environment settings, never chat, a command argument, browser code, or GitHub.
 2. Optionally set `OPENAI_MODEL` (default `gpt-4.1-mini`). Keep `ANALYSIS_DAILY_LIMIT=0` during initial hosting setup; choose a small evaluation allowance with the owner before enabling calls. Default when omitted is 50 attempts per UTC day.
@@ -86,7 +92,7 @@ Before enabling publicly, verify OAuth, revocation, and the full user flow with 
 
 ## Verification and references
 
-`npm test` currently runs 49 automated journal, photo-analysis, authorization, privacy, quota, receipt, and retry checks using controlled provider responses. Local browser QA confirms the existing manual contribution path remains usable while integrations are off. Live provider accuracy, real-device testing, accessibility, and native App Store packaging remain release gates.
+`npm test` currently runs 54 automated journal, photo-analysis, authorization, privacy, quota, receipt, and retry checks using controlled provider responses. Local browser QA confirms the existing manual contribution path remains usable while integrations are off. Full model validation, real-device testing, accessibility, and native App Store packaging remain release gates.
 
 - https://www.inaturalist.org/pages/api+reference
 - https://www.inaturalist.org/pages/api+recommended+practices

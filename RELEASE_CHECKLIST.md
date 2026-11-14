@@ -1,6 +1,6 @@
 # Turtle Tracks final stages
 
-Status: November 13, 2026. Hague requested consolidation into one working version on `main`. The selected first-release Citizen Scientist experience prepares a photo/date handoff, including saved GPS when available, to the official iNaturalist uploader. Direct submission is deferred and is not a release gate. Photo-analysis activation, device testing, and native release preparation remain active priorities.
+Status: November 14, 2026. Hague requested consolidation into one working version on `main`. The selected first-release Citizen Scientist experience prepares a photo/date handoff, including saved GPS when available, to the official iNaturalist uploader. Direct submission is deferred and is not a release gate. An experimental free species trial is available; full photo validation, age/sex estimation, device testing and native release remain unfinished.
 
 ## Implemented and checked
 
@@ -15,15 +15,15 @@ Status: November 13, 2026. Hague requested consolidation into one working versio
 - [x] Share the selected record with location text omitted by default and honest identification language.
 - [x] Add Citizen Scientist to My Tracks, Learn, and the navigation menu.
 - [x] Browser-check contribution readiness and preparation using clearly labeled synthetic data; download a real photo file. No test data sent to external databases.
-- [x] Run 49 automated journal/photo-service/iNaturalist checks and JavaScript syntax checks.
+- [x] Run 54 automated journal/photo-service/iNaturalist checks and JavaScript syntax checks.
 
 ## Before photo-analysis activation and App Store release
 
 - [x] Confirm the original overlapping Tilly cover, matching icons, and one-version workflow with Hague.
 - [ ] Test real iPhone and Android camera uploads, GPS permission allowed/denied, and small-screen keyboard behavior.
 - [ ] Complete accessibility and all-page content review, including external wildlife-help links. SCDNR registry verified; NWRA page could not be verified by the research tool.
-- [ ] Provision one HTTPS backend process with persistent private storage; configure secure credentials and owner-approved usage/spending controls.
-- [ ] Activate and evaluate the implemented photo-analysis service with a server-held API key, HTTPS backend, owner-approved budget, and reviewed real photos. The service is not yet activated.
+- [x] Replace the backend dependency with a self-hosted browser model for the free species trial. No account or paid service provisioned.
+- [ ] Complete independent expert validation of species, sex and life stage. The species trial missed its 95% precision target; sex/stage remain unavailable.
 - [x] Consolidate into `main`, verify successful GitHub Pages deployment, and visually confirm the live cover plus Learn and Help icons.
 
 Cloud sync, cross-device journals, and automatic individual-turtle recognition are not implemented. The public science-data handoff remains manual and labeled accordingly; the direct-submission code is retained, disabled, and deferred to a later release. No scheduled/background development task has been created.
@@ -59,3 +59,13 @@ These items do not block the first release. Account participation happens on iNa
 - [x] Keep private journal notes out of the public notes by default.
 - [x] Browser-check the downloaded JPEG and copy/paste of saved coordinates using synthetic data only.
 - [x] Add a light shared-habitat theme to Learn, Habitat, and Citizen Scientist.
+
+## November 14 free photo trial
+
+- [x] Train a compact species head on licensed images; preserve attribution and provenance.
+- [x] Separate observers across development partitions, remove perceptual duplicates, and evaluate a frozen model on 143 additional images. Publish errors as well as successes.
+- [x] Self-host runtime and model; process photographs locally in a cancellable worker.
+- [x] Browser-check Eastern turtle suggestion, another box turtle returning unknown, review, save locally and reopen. Replacing a photo clears the previous result. A frog fixture returns unknown; removing the photo during analysis cancels it without a stale result.
+- [ ] Reach the species validation target on a new expert-reviewed cohort. The additional cohort produced 17 correct and 2 incorrect suggestions.
+- [ ] Validate male/female and life stage from visible evidence. Both remain disabled. Exact age is not inferred.
+- [ ] Test on physical iPhone and Android devices and weak connections.
