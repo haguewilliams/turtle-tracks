@@ -36,3 +36,11 @@ experimental. See the model card and evaluation report for actual results.
 `--follow` is an optional development mode for overlapping image downloads with
 feature extraction. The published pruned graph retains only embedding ancestors.
 `verify-runtime.cjs` is a runtime smoke check, not a classifier accuracy test.
+
+For a separate wider-model experiment, pass `--alpha=1` to `extract.cjs`,
+`train.py`, and `evaluate-fresh.py`; cached files receive a `-100` suffix and
+do not overwrite the original model. `diagnose-photo.cjs PATH [x,y,w,h]` checks
+a local photograph or the photo region of an app screenshot; optional
+`--alpha=1` checks the wider candidate. No image data is transmitted.
+`evaluate-detection.py` evaluates broad recognition separately from species.
+The wider candidate is rejected in `follow-up-evaluation.json`, not deployed.

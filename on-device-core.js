@@ -29,12 +29,18 @@
   const scores=probabilities(features,head),idx=head.classes.indexOf('eastern');
   if(idx<0)throw Error('Missing Eastern box turtle classifier.');
   const possible=scores[idx]>=head.threshold;
+  // Recognizing a turtle and resolving its species are separate decisions.
+  // Keep a cautious broad result when the trained turtle classes jointly pass
+  // the separately evaluated detection threshold; never force an Eastern ID.
+  const turtleClasses=['eastern','other_box_turtle','other_turtle'];
+  const turtleScore=turtleClasses.every(c=>head.classes.includes(c))?turtleClasses.reduce((sum,c)=>sum+scores[head.classes.indexOf(c)],0):0;
+  const turtleDetected=possible||turtleScore>=.95;
   // A species classifier cannot certify anatomy or exact age. Never invent
   // visible evidence from a class score, or treat unvalidated heads as active.
-  return {turtlePresent:possible,imageQuality:'limited',
-   species:{commonName:possible?'Possible Eastern box turtle':'Unable to identify confidently',scientificName:possible?'Terrapene carolina carolina':'',confidence:possible?'moderate':'unknown'},
+  return {turtlePresent:turtleDetected,imageQuality:'limited',
+   species:{commonName:possible?'Possible Eastern box turtle':turtleDetected?'Turtle detected — species uncertain':'Unable to identify confidently',scientificName:possible?'Terrapene carolina carolina':'',confidence:possible?'moderate':'unknown'},
    sex:{value:'unknown',confidence:'unknown'},lifeStage:{value:'unknown',confidence:'unknown'},evidence:[],
-   limitations:[possible?'Experimental species suggestion; similar turtles can be mistaken for Eastern box turtles. Please compare with the field guide.':'This model cannot confidently identify this photo. This does not mean no turtle is present.',
+   limitations:[possible?'Experimental species suggestion; similar turtles can be mistaken for Eastern box turtles. Please compare with the field guide.':turtleDetected?'This model recognizes a likely turtle but cannot reliably identify its species. Compare the photo with the field guide.':'This model cannot confidently identify this photo. This does not mean no turtle is present.',
      'Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result.'],
    photoAdvice:'Photograph only what is naturally visible; leave the turtle where it is.'};
  }

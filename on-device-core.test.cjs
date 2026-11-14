@@ -21,3 +21,11 @@ test('multiclass softmax remains finite for large logits',()=>{
  const p=core.probabilities([1,0],{classes:['eastern','other_box','other'],coefficients:[[10000,0],[9999,0],[-10000,0]],intercepts:[0,0,0]});
  assert.ok(p.every(Number.isFinite));assert.ok(Math.abs(p.reduce((a,b)=>a+b)-1)<1e-12);
 });
+test('uncertain species preserves a detected turtle through journal validation',()=>{
+ const m={schemaVersion:1,backbone:{dimensions:2},heads:{species:{enabled:true,classes:['eastern','other','other_box_turtle','other_turtle'],coefficients:[[-3,0],[0,12],[10,0],[3,0]],intercepts:[0,0,0,0],threshold:.64}}};
+ const r=require('./photo-analysis-core.js').normalize(core.decide([1,0],m));
+ assert.equal(r.turtlePresent,true);assert.equal(r.species.commonName,'Turtle detected — species uncertain');
+ assert.equal(r.species.scientificName,'');assert.equal(r.species.confidence,'unknown');
+ assert.equal(r.sex.value,'unknown');assert.equal(r.lifeStage.value,'unknown');
+ const negative=core.decide([0,1],m);assert.equal(negative.turtlePresent,false);
+});

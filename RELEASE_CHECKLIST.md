@@ -15,7 +15,7 @@ Status: November 14, 2026. Hague requested consolidation into one working versio
 - [x] Share the selected record with location text omitted by default and honest identification language.
 - [x] Add Citizen Scientist to My Tracks, Learn, and the navigation menu.
 - [x] Browser-check contribution readiness and preparation using clearly labeled synthetic data; download a real photo file. No test data sent to external databases.
-- [x] Run 54 automated journal/photo-service/iNaturalist checks and JavaScript syntax checks.
+- [x] Run 55 automated journal/photo-service/iNaturalist checks and JavaScript syntax checks.
 
 ## Before photo-analysis activation and App Store release
 
@@ -69,3 +69,10 @@ These items do not block the first release. Account participation happens on iNa
 - [ ] Reach the species validation target on a new expert-reviewed cohort. The additional cohort produced 17 correct and 2 incorrect suggestions.
 - [ ] Validate male/female and life stage from visible evidence. Both remain disabled. Exact age is not inferred.
 - [ ] Test on physical iPhone and Android devices and weak connections.
+
+## Reported photo: unresolved species
+
+- [x] Reproduce the reported failure using the turtle region of the supplied screenshot.
+- [x] Preserve broad turtle detection when exact species is uncertain; regression test covers output normalization and a non-turtle input.
+- [x] Evaluate a wider model on the existing observer partitions and additional cohort; reject it because mistaken species calls increased.
+- [ ] Complete reliable species, sex and life-stage identification. This correction does not close that requirement.

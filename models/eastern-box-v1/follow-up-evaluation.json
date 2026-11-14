@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-14",
+  "reportedFailure": "Uploaded turtle photo returned Unable to identify. Reproduced on the animal region of the supplied app screenshot; the original camera/photo file was not supplied.",
+  "cause": "Species score below threshold was also used as turtlePresent=false. Output normalization then discarded the broader turtle result.",
+  "fix": "Keep likely turtle detection separate from species identity. The Eastern species threshold and original model weights are unchanged. Unknown species, sex and age remain unknown.",
+  "originalModelDetection": {
+    "threshold": 0.95,
+    "note": "Sum of existing turtle-class scores; not a calibrated probability. Community source labels and limited negative coverage do not establish general accuracy.",
+    "cohorts": {
+      "validation": {
+        "photos": 329,
+        "turtles": 271,
+        "nonTurtles": 58,
+        "detections": 188,
+        "correct": 188,
+        "incorrect": 0
+      },
+      "test": {
+        "photos": 298,
+        "turtles": 229,
+        "nonTurtles": 69,
+        "detections": 136,
+        "correct": 136,
+        "incorrect": 0
+      },
+      "additional": {
+        "photos": 143,
+        "turtles": 123,
+        "nonTurtles": 20,
+        "detections": 76,
+        "correct": 76,
+        "incorrect": 0
+      }
+    }
+  },
+  "largerModelCandidate": {
+    "deployed": false,
+    "reason": "It recognized the reported screenshot region, but the additional cohort produced more mistaken species suggestions. Rejected as a replacement.",
+    "alpha": 1,
+    "developmentTest": {
+      "train": 1134,
+      "validation": 329,
+      "test": 298,
+      "C": 10,
+      "classes": [
+        "eastern",
+        "other",
+        "other_box_turtle",
+        "other_turtle"
+      ],
+      "testAccuracy": 0.8087248322147651,
+      "deploymentApproved": false,
+      "threshold": 0.5850000000000001,
+      "testSuggestions": 94,
+      "testCorrect": 90,
+      "testIncorrect": 4,
+      "testSuggestionPrecision": 0.9574468085106383,
+      "testRecall": 0.703125,
+      "testEasternCount": 128,
+      "testOtherCount": 170,
+      "candidateForBrowserTrial": true
+    },
+    "additionalEvaluation": {
+      "cohort": "Additional 2023 sightings from observers absent from development; frozen model and threshold",
+      "classifierSHA256": "aef5023cd4e3a7f74a6a5a90f4f6b44d91dd9617c4de7ad45cfbeb0ba0b2d956",
+      "photos": 143,
+      "nearDuplicatesExcluded": 0,
+      "easternCount": 53,
+      "otherCount": 90,
+      "threshold": 0.5850000000000001,
+      "suggestions": 45,
+      "correct": 37,
+      "incorrect": 8,
+      "precision": 0.8222222222222222,
+      "recall": 0.6981132075471698,
+      "byLabel": {
+        "eastern": {
+          "photos": 53,
+          "easternSuggestions": 37
+        },
+        "other": {
+          "photos": 20,
+          "easternSuggestions": 0
+        },
+        "other_box_turtle": {
+          "photos": 40,
+          "easternSuggestions": 7
+        },
+        "other_turtle": {
+          "photos": 30,
+          "easternSuggestions": 1
+        }
+      }
+    },
+    "lifeStageTestAccuracy": 0.8191489361702128,
+    "sexTestAccuracy": 0.48936170212765956
+  },
+  "limits": [
+    "The screenshot test is approximate because screenshot compression and cropping differ from the original uploaded photograph.",
+    "The reported screenshot was not used as a training example.",
+    "Broad turtle detection is not Eastern box turtle identification. The species trial remains unreliable and age/sex functionality remains unfinished."
+  ]
+}

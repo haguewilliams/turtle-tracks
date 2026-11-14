@@ -1,7 +1,7 @@
 # Experimental Eastern box turtle photo check
 
 This is a free, browser-only **species trial**, not a validated wildlife identifier.
-It suggests “Possible Eastern box turtle” or returns unknown. It does not estimate
+It suggests “Possible Eastern box turtle”, preserves a broad “Turtle detected — species uncertain” result when supported, or returns unknown. It does not estimate
 sex, life stage, exact age, or individual identity. It cannot explain visible
 anatomy, and it does not fabricate that evidence from a classification score.
 
@@ -54,3 +54,20 @@ overlap, hybrids, poor lighting, unusual views, unrelated objects and distributi
 shift can cause errors. Desktop Chrome workflow is checked; physical iPhone and
 Android performance still needs testing. Never use a result to justify handling,
 relocating, or submitting an unreviewed identification of an animal.
+
+## Reported-photo follow-up
+
+A user screenshot exposed a decision bug: unresolved species was being mapped to
+`turtlePresent: false`, erasing broad recognition. The corrected decision preserves
+a likely turtle when the sum of turtle-class scores reaches 0.95. The Eastern
+species threshold and weights are unchanged. This is not a resolved species ID.
+Across 298 development test images, 136 broad detections matched source labels;
+across the additional 143 images, 76 matched. Non-turtle coverage is limited, so
+these counts are not a general-accuracy claim.
+
+A larger MobileNet V2 alpha=1 candidate was also trained on the same observer
+partitions. Although it recognized the turtle region of the reported screenshot,
+it made 8 wrong Eastern suggestions out of 45 on the additional cohort, compared
+with the original model's 2 out of 19. It was not deployed. Age/sex remained
+unreliable. See `follow-up-evaluation.json`. No user photograph is published or
+added to training.

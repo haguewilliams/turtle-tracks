@@ -4,7 +4,7 @@ let loaded;
 async function loadModel(id){
  if(!loaded)loaded=(async()=>{
   postMessage({id,type:'progress',message:'Loading the photo model onto this device…'});
-  importScripts('assets/ml-runtime/tf.min.js','assets/ml-runtime/tf-backend-wasm.min.js','assets/ml-runtime/mobilenet.min.js','on-device-core.js');
+  importScripts('assets/ml-runtime/tf.min.js','assets/ml-runtime/tf-backend-wasm.min.js','assets/ml-runtime/mobilenet.min.js','on-device-core.js?v=20261114-detection-2');
   tf.wasm.setWasmPaths(new URL('assets/ml-runtime/',self.location.href).href);
   tf.env().set('WASM_HAS_MULTITHREAD_SUPPORT',false);
   await tf.setBackend('wasm');await tf.ready();

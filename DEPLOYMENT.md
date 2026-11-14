@@ -92,7 +92,7 @@ Before enabling publicly, verify OAuth, revocation, and the full user flow with 
 
 ## Verification and references
 
-`npm test` currently runs 54 automated journal, photo-analysis, authorization, privacy, quota, receipt, and retry checks using controlled provider responses. Local browser QA confirms the existing manual contribution path remains usable while integrations are off. Full model validation, real-device testing, accessibility, and native App Store packaging remain release gates.
+`npm test` currently runs 55 automated journal, photo-analysis, authorization, privacy, quota, receipt, and retry checks using controlled provider responses. Local browser QA confirms the existing manual contribution path remains usable while integrations are off. Full model validation, real-device testing, accessibility, and native App Store packaging remain release gates.
 
 - https://www.inaturalist.org/pages/api+reference
 - https://www.inaturalist.org/pages/api+recommended+practices

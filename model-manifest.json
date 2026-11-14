@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "enabled": true,
-  "release": "experimental-species-trial-2026-11-14",
+  "release": "experimental-species-trial-2026-11-14-detection-2",
   "species": "experimental",
   "sex": "unavailable",
   "lifeStage": "unavailable"

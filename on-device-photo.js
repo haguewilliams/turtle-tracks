@@ -5,7 +5,7 @@
  function abortError(){return new DOMException('Photo analysis cancelled.','AbortError');}
  function ensureWorker(){
   if(worker)return;
-  worker=new Worker('on-device-worker.js');
+  worker=new Worker('on-device-worker.js?v=20261114-detection-2');
   worker.onmessage=event=>{
    const msg=event.data,job=active;if(!job||msg.id!==job.id)return;
    if(msg.type==='progress'){job.onProgress?.(msg.message);return;}

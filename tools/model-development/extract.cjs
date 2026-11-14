@@ -6,16 +6,20 @@ const wasm=require('@tensorflow/tfjs-backend-wasm');
 const mobilenet=require('@tensorflow-models/mobilenet');
 const sharp=require('sharp');
 const ROOT=path.resolve(__dirname,'../..'),CACHE=path.join(ROOT,'.model-cache');
+const alphaArg=process.argv.find(x=>x.startsWith('--alpha='));
+const alpha=alphaArg?Number(alphaArg.split('=')[1]):.5;
+if(![.5,.75,1].includes(alpha))throw Error('Unsupported MobileNet width.');
+const suffix=alpha===.5?'':`-${Math.round(alpha*100)}`;
 (async()=>{
  wasm.setWasmPaths(path.dirname(require.resolve('@tensorflow/tfjs-backend-wasm'))+'/');
  await tf.setBackend('wasm');await tf.ready();
- const modelDir=path.join(CACHE,'backbone');fs.mkdirSync(modelDir,{recursive:true});
+ const modelDir=path.join(CACHE,'backbone'+suffix);fs.mkdirSync(modelDir,{recursive:true});
  const cachedPath=path.join(modelDir,'model.json');
  let model;
  if(fs.existsSync(cachedPath)){
   const cached=JSON.parse(fs.readFileSync(cachedPath)),group=cached.weightsManifest[0],bytes=Buffer.concat(group.paths.map(p=>fs.readFileSync(path.join(modelDir,p))));
-  model=await mobilenet.load({version:2,alpha:.5,inputRange:[0,1],modelUrl:{load:async()=>({modelTopology:cached.modelTopology,weightSpecs:group.weights,weightData:bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)})}});
- }else model=await mobilenet.load({version:2,alpha:.5});
+  model=await mobilenet.load({version:2,alpha,inputRange:[0,1],modelUrl:{load:async()=>({modelTopology:cached.modelTopology,weightSpecs:group.weights,weightData:bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength)})}});
+ }else model=await mobilenet.load({version:2,alpha});
  await model.model.save(tf.io.withSaveHandler(async a=>{
   const bin=Array.isArray(a.weightData)?Buffer.concat(a.weightData.map(x=>Buffer.from(x))):Buffer.from(a.weightData),paths=[];
   for(let offset=0;offset<bin.length;offset+=1024*1024){const name=`weights-${paths.length+1}.bin`;paths.push(name);fs.writeFileSync(path.join(modelDir,name),bin.subarray(offset,offset+1024*1024));}
@@ -26,7 +30,7 @@ const ROOT=path.resolve(__dirname,'../..'),CACHE=path.join(ROOT,'.model-cache');
  const follow=process.argv.includes('--follow');
  const fresh=process.argv.includes('--fresh');
  const rows=JSON.parse(fs.readFileSync(path.join(CACHE,fresh?'fresh-manifest.json':follow?'pending-manifest.json':'manifest.json')));
- const featureFile=path.join(CACHE,fresh?'fresh-features.jsonl':'features.jsonl');
+ const featureFile=path.join(CACHE,(fresh?'fresh-features':'features')+suffix+'.jsonl');
  const existing=new Set(fs.existsSync(featureFile)?fs.readFileSync(featureFile,'utf8').split('\n').filter(Boolean).map(s=>JSON.parse(s).photo_id):[]);
  const out=fs.createWriteStream(featureFile,{flags:'a'});
  let count=0;

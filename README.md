@@ -15,7 +15,7 @@ Production: https://turtletracks.haguewilliams.com/
 - `private-state.mjs`: persistent request allowances and submission recovery records for one backend process.
 - `journal-core.test.cjs`: regression tests using Node's built-in test runner.
 
-Run checks with `npm test` (54 checks), and run the local app with `npm start` on Node 22+. GitHub Pages serves the app and its on-device model without a backend or API account. GPS on a deployed site requires HTTPS and visitor permission.
+Run checks with `npm test` (55 checks), and run the local app with `npm start` on Node 22+. GitHub Pages serves the app and its on-device model without a backend or API account. GPS on a deployed site requires HTTPS and visitor permission.
 
 ## Current experience
 

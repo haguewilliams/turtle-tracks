@@ -3,7 +3,7 @@
 Stage and sex annotations are exploratory labels. They cannot activate those
 fields without visible-feature evidence and independent expert validation.
 """
-import collections, hashlib, json, pathlib
+import collections, hashlib, json, pathlib, argparse
 import numpy as np
 from PIL import Image, ImageOps
 from sklearn.linear_model import LogisticRegression
@@ -17,7 +17,9 @@ def image_hash(photo_id):
         return int.from_bytes(np.packbits(a[:,1:]>a[:,:-1]).tobytes(),'big')
 
 def main():
-    raw=[json.loads(s) for s in (CACHE/'features.jsonl').read_text().splitlines()]
+    parser=argparse.ArgumentParser();parser.add_argument('--alpha',type=float,choices=[.5,.75,1],default=.5);args=parser.parse_args()
+    suffix='' if args.alpha==.5 else f'-{round(args.alpha*100)}'
+    raw=[json.loads(s) for s in (CACHE/f'features{suffix}.jsonl').read_text().splitlines()]
     rows=[];seen=[];duplicates=0
     for row in raw:
         h=image_hash(row['photo_id'])
@@ -29,7 +31,7 @@ def main():
     partitions=np.array(['train' if (n:=int(r['observer_group'][:8],16)%100)<70 else 'validation' if n<85 else 'test' for r in rows])
     report={'dataset':'iNaturalist CC0 / CC BY; research-grade taxon, unverified community age/sex annotations',
        'photos':len(rows),'perceptualDuplicatesRemoved':duplicates,'split':'observer-hash 70/15/15; no observer spans splits','heads':{}}
-    export={'schemaVersion':1,'id':'eastern-box-mobilenet-v2-050-experiment-1','backbone':{'version':2,'alpha':.5,'inputRange':[0,1],'dimensions':1280},'heads':{}}
+    export={'schemaVersion':1,'id':f'eastern-box-mobilenet-v2-{round(args.alpha*100):03d}-experiment-1','backbone':{'version':2,'alpha':args.alpha,'inputRange':[0,1],'dimensions':1280},'heads':{}}
     for field in ['species','life_stage','sex']:
         usable=np.array([r[field]!='unknown' and (field=='species' or r['species']=='eastern') for r in rows])
         labels=np.array([r[field] for r in rows]);train=(partitions=='train')&usable;val=(partitions=='validation')&usable;test=(partitions=='test')&usable
@@ -70,10 +72,10 @@ def main():
         report['heads'][field]=details
         for i in np.flatnonzero(test):
             row=rows[i];row.setdefault('predictions',{})[field]={'label':str(m.predict(X[i:i+1])[0]),'scores':m.predict_proba(X[i:i+1])[0].tolist()}
-    (CACHE/'classifier.json').write_text(json.dumps(export,separators=(',',':')))
-    (CACHE/'evaluation.json').write_text(json.dumps(report,indent=2))
+    (CACHE/f'classifier{suffix}.json').write_text(json.dumps(export,separators=(',',':')))
+    (CACHE/f'evaluation{suffix}.json').write_text(json.dumps(report,indent=2))
     for i,r in enumerate(rows):r['split']=str(partitions[i])
-    (CACHE/'review-manifest.json').write_text(json.dumps(rows,indent=2))
+    (CACHE/f'review-manifest{suffix}.json').write_text(json.dumps(rows,indent=2))
     print(json.dumps({k:{a:b for a,b in v.items() if a not in ['classificationReport','validationThresholds','confusionMatrix']} for k,v in report['heads'].items()},indent=2))
 
 if __name__=='__main__':main()

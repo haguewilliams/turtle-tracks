@@ -1,16 +1,18 @@
 """Evaluate the frozen species model on additional observers; never tune it here."""
-import collections, hashlib, json, pathlib
+import collections, hashlib, json, pathlib, argparse
 import numpy as np
 from train import image_hash
 
 ROOT=pathlib.Path(__file__).resolve().parents[2];CACHE=ROOT/'.model-cache'
-model_bytes=(CACHE/'classifier.json').read_bytes();model=json.loads(model_bytes)
+parser=argparse.ArgumentParser();parser.add_argument('--alpha',type=float,choices=[.5,.75,1],default=.5);args=parser.parse_args()
+suffix='' if args.alpha==.5 else f'-{round(args.alpha*100)}'
+model_bytes=(CACHE/f'classifier{suffix}.json').read_bytes();model=json.loads(model_bytes)
 head=model['heads']['species'];threshold=head['threshold']
-development=json.loads((CACHE/'review-manifest.json').read_text())
+development=json.loads((CACHE/f'review-manifest{suffix}.json').read_text())
 seen=[image_hash(r['photo_id']) for r in development]
 observers={r['observer_group'] for r in development}
 rows=[];duplicates=0
-for line in (CACHE/'fresh-features.jsonl').read_text().splitlines():
+for line in (CACHE/f'fresh-features{suffix}.jsonl').read_text().splitlines():
     row=json.loads(line)
     assert row['observer_group'] not in observers
     h=image_hash(row['photo_id'])
@@ -30,6 +32,6 @@ report={'cohort':'Additional 2023 sightings from observers absent from developme
 for kind in sorted({r['species'] for r in rows}):
     mask=np.array([r['species']==kind for r in rows])
     report['byLabel'][kind]={'photos':int(mask.sum()),'easternSuggestions':int((mask&accepted).sum())}
-(CACHE/'fresh-evaluation.json').write_text(json.dumps(report,indent=2))
-(CACHE/'fresh-review-manifest.json').write_text(json.dumps([{k:v for k,v in r.items() if k!='features'} for r in rows],indent=2))
+(CACHE/f'fresh-evaluation{suffix}.json').write_text(json.dumps(report,indent=2))
+(CACHE/f'fresh-review-manifest{suffix}.json').write_text(json.dumps([{k:v for k,v in r.items() if k!='features'} for r in rows],indent=2))
 print(json.dumps(report,indent=2))
