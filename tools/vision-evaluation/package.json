@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@huggingface/transformers": "3.8.1",
+    "onnxruntime-node": "1.21.0",
+    "sharp": "0.34.5",
+    "transformers4": "npm:@huggingface/transformers@4.3.2"
+  },
+  "name": "turtle-tracks-vision-evaluation",
+  "private": true,
+  "type": "module"
+}

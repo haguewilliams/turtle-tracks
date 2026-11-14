@@ -1,0 +1,387 @@
+{
+  "model": "eastern-box-mobilenet-v2-050-experiment-1",
+  "scope": "Released model on original internet photographs; local inference, not browser upload testing",
+  "cases": [
+    {
+      "id": "adult-male-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "scores": {
+        "eastern": 0.826384095400485,
+        "other": 0.048820468537980125,
+        "other_box_turtle": 0.04154343737538494,
+        "other_turtle": 0.08325199868614987
+      },
+      "decision": {
+        "turtlePresent": true,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Possible Eastern box turtle",
+          "scientificName": "Terrapene carolina carolina",
+          "confidence": "moderate"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "Experimental species suggestion; similar turtles can be mistaken for Eastern box turtles. Please compare with the field guide.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "adult-female-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "scores": {
+        "eastern": 0.5351911253418162,
+        "other": 0.060069867588764383,
+        "other_box_turtle": 0.12115645256892642,
+        "other_turtle": 0.283582554500493
+      },
+      "decision": {
+        "turtlePresent": false,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Unable to identify confidently",
+          "scientificName": "",
+          "confidence": "unknown"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "This model cannot confidently identify this photo. This does not mean no turtle is present.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "adult-male-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "scores": {
+        "eastern": 0.8383751845024092,
+        "other": 0.0416399729278016,
+        "other_box_turtle": 0.06884383606794214,
+        "other_turtle": 0.05114100650184702
+      },
+      "decision": {
+        "turtlePresent": true,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Possible Eastern box turtle",
+          "scientificName": "Terrapene carolina carolina",
+          "confidence": "moderate"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "Experimental species suggestion; similar turtles can be mistaken for Eastern box turtles. Please compare with the field guide.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "adult-female-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "scores": {
+        "eastern": 0.6648097433997601,
+        "other": 0.0043340525488752115,
+        "other_box_turtle": 0.23236605440602595,
+        "other_turtle": 0.09849014964533871
+      },
+      "decision": {
+        "turtlePresent": true,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Possible Eastern box turtle",
+          "scientificName": "Terrapene carolina carolina",
+          "confidence": "moderate"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "Experimental species suggestion; similar turtles can be mistaken for Eastern box turtles. Please compare with the field guide.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "nps-juvenile",
+      "source": "https://npgallery.nps.gov/AssetDetail/D6E68312-1DD8-B71C-07A2AD941DC30161",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "scores": {
+        "eastern": 0.8213770481684822,
+        "other": 0.03937567164741891,
+        "other_box_turtle": 0.07861105689248804,
+        "other_turtle": 0.060636223291610905
+      },
+      "decision": {
+        "turtlePresent": true,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Possible Eastern box turtle",
+          "scientificName": "Terrapene carolina carolina",
+          "confidence": "moderate"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "Experimental species suggestion; similar turtles can be mistaken for Eastern box turtles. Please compare with the field guide.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "inat-juvenile",
+      "source": "https://www.inaturalist.org/observations/406056779",
+      "reference": {
+        "species": "Terrapene carolina carolina",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "scores": {
+        "eastern": 0.7085072850146341,
+        "other": 0.010208371935340846,
+        "other_box_turtle": 0.2203655021029307,
+        "other_turtle": 0.06091884094709442
+      },
+      "decision": {
+        "turtlePresent": true,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Possible Eastern box turtle",
+          "scientificName": "Terrapene carolina carolina",
+          "confidence": "moderate"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "Experimental species suggestion; similar turtles can be mistaken for Eastern box turtles. Please compare with the field guide.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "ornate",
+      "source": "https://www.inaturalist.org/observations/403702824",
+      "reference": {
+        "species": "Terrapene ornata",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "scores": {
+        "eastern": 0.15833371172144264,
+        "other": 0.07713001899221054,
+        "other_box_turtle": 0.7292984661128568,
+        "other_turtle": 0.03523780317349017
+      },
+      "decision": {
+        "turtlePresent": false,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Unable to identify confidently",
+          "scientificName": "",
+          "confidence": "unknown"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "This model cannot confidently identify this photo. This does not mean no turtle is present.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "other-turtle",
+      "source": "https://www.inaturalist.org/observations/414394476",
+      "reference": {
+        "species": "Trachemys dorbigni",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "scores": {
+        "eastern": 0.5015153065207908,
+        "other": 0.04997253141368074,
+        "other_box_turtle": 0.19188356944584542,
+        "other_turtle": 0.25662859261968296
+      },
+      "decision": {
+        "turtlePresent": true,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Turtle detected \u2014 species uncertain",
+          "scientificName": "",
+          "confidence": "unknown"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "This model recognizes a likely turtle but cannot reliably identify its species. Compare the photo with the field guide.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "frog",
+      "source": "https://www.inaturalist.org/observations/414755544",
+      "reference": {
+        "species": "Ranitomeya variabilis",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "scores": {
+        "eastern": 0.038462514703769386,
+        "other": 0.7986434845827526,
+        "other_box_turtle": 0.04753130578698781,
+        "other_turtle": 0.11536269492649025
+      },
+      "decision": {
+        "turtlePresent": false,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Unable to identify confidently",
+          "scientificName": "",
+          "confidence": "unknown"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "This model cannot confidently identify this photo. This does not mean no turtle is present.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    },
+    {
+      "id": "other-animal",
+      "source": "https://www.inaturalist.org/observations/414755536",
+      "reference": {
+        "species": "Rhinella marina",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "scores": {
+        "eastern": 0.1483802212181036,
+        "other": 0.7113569051349862,
+        "other_box_turtle": 0.07181418910636032,
+        "other_turtle": 0.06844868454055002
+      },
+      "decision": {
+        "turtlePresent": false,
+        "imageQuality": "limited",
+        "species": {
+          "commonName": "Unable to identify confidently",
+          "scientificName": "",
+          "confidence": "unknown"
+        },
+        "sex": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "lifeStage": {
+          "value": "unknown",
+          "confidence": "unknown"
+        },
+        "evidence": [],
+        "limitations": [
+          "This model cannot confidently identify this photo. This does not mean no turtle is present.",
+          "Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result."
+        ],
+        "photoAdvice": "Photograph only what is naturally visible; leave the turtle where it is."
+      }
+    }
+  ],
+  "evaluatedAt": "2026-11-14"
+}

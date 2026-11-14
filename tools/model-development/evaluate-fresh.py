@@ -4,8 +4,8 @@ import numpy as np
 from train import image_hash
 
 ROOT=pathlib.Path(__file__).resolve().parents[2];CACHE=ROOT/'.model-cache'
-parser=argparse.ArgumentParser();parser.add_argument('--alpha',type=float,choices=[.5,.75,1],default=.5);args=parser.parse_args()
-suffix='' if args.alpha==.5 else f'-{round(args.alpha*100)}'
+parser=argparse.ArgumentParser();parser.add_argument('--alpha',type=float,choices=[.5,.75,1],default=.5);parser.add_argument('--backbone',choices=['mobilenet','bioclip'],default='mobilenet');args=parser.parse_args()
+suffix='-bioclip' if args.backbone=='bioclip' else '' if args.alpha==.5 else f'-{round(args.alpha*100)}'
 model_bytes=(CACHE/f'classifier{suffix}.json').read_bytes();model=json.loads(model_bytes)
 head=model['heads']['species'];threshold=head['threshold']
 development=json.loads((CACHE/f'review-manifest{suffix}.json').read_text())

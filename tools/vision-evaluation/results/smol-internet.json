@@ -1,0 +1,250 @@
+{
+  "modelId": "HuggingFaceTB/SmolVLM-500M-Instruct",
+  "revision": "753c1752602b5e739af7a7fa6947a635051897a3",
+  "runtime": "Transformers.js 3.8.1, q8, Node CPU",
+  "questions": {
+    "species": "What animal is in this photograph? Give the most specific common name you can justify and briefly describe what you see. If unclear, say unknown.",
+    "stage": "For the animal in this photo, is it a hatchling, juvenile, adult, or unknown? Briefly explain the visible basis. Give unknown if it is not a turtle or the image does not support an estimate. Do not give an exact age.",
+    "sex": "For the animal in this photograph, can you determine male or female? Say unknown if it is not a turtle or diagnostic anatomy is not visible. Eye colour alone is insufficient. Briefly describe only the relevant features actually visible."
+  },
+  "scope": "Ten source-labeled internet photos; feasibility comparison only. Captions are not evidence that sex is visible. No physical-phone verification.",
+  "cases": [
+    {
+      "id": "adult-male-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "answers": {
+        "species": {
+          "text": " Turtle.",
+          "seconds": 1.0107772060000002
+        },
+        "stage": {
+          "text": " Unknown.",
+          "seconds": 0.9896423220000001
+        },
+        "sex": {
+          "text": " Female.",
+          "seconds": 0.7220790510000006
+        }
+      }
+    },
+    {
+      "id": "adult-female-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "answers": {
+        "species": {
+          "text": " Turtle.",
+          "seconds": 0.7966934469999997
+        },
+        "stage": {
+          "text": " Unknown.",
+          "seconds": 1.0398904919999996
+        },
+        "sex": {
+          "text": " Unknown.",
+          "seconds": 0.9540732210000006
+        }
+      }
+    },
+    {
+      "id": "adult-male-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "answers": {
+        "species": {
+          "text": " Turtle.",
+          "seconds": 1.0144277480000001
+        },
+        "stage": {
+          "text": " Juvenile.",
+          "seconds": 0.9856172409999999
+        },
+        "sex": {
+          "text": " Unknown.",
+          "seconds": 1.0104312659999997
+        }
+      }
+    },
+    {
+      "id": "adult-female-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "answers": {
+        "species": {
+          "text": " Turtle.",
+          "seconds": 0.8090725980000006
+        },
+        "stage": {
+          "text": " Juvenile.",
+          "seconds": 0.903028182
+        },
+        "sex": {
+          "text": " Male.",
+          "seconds": 0.7717172439999995
+        }
+      }
+    },
+    {
+      "id": "nps-juvenile",
+      "source": "https://npgallery.nps.gov/AssetDetail/D6E68312-1DD8-B71C-07A2AD941DC30161",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": " Turtle.",
+          "seconds": 0.8337311230000014
+        },
+        "stage": {
+          "text": " Unknown.",
+          "seconds": 1.164589646999997
+        },
+        "sex": {
+          "text": " No.",
+          "seconds": 1.026349664999998
+        }
+      }
+    },
+    {
+      "id": "inat-juvenile",
+      "source": "https://www.inaturalist.org/observations/406056779",
+      "reference": {
+        "species": "Terrapene carolina carolina",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": " Turtle.",
+          "seconds": 1.0372336939999987
+        },
+        "stage": {
+          "text": " Unknown.",
+          "seconds": 1.0005688950000002
+        },
+        "sex": {
+          "text": " No, there are no other animals present in the image.",
+          "seconds": 1.4825878980000016
+        }
+      }
+    },
+    {
+      "id": "ornate",
+      "source": "https://www.inaturalist.org/observations/403702824",
+      "reference": {
+        "species": "Terrapene ornata",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": " Tortoise.",
+          "seconds": 1.0626595340000022
+        },
+        "stage": {
+          "text": " Adult.",
+          "seconds": 0.894820033
+        },
+        "sex": {
+          "text": " No, there are no animals present in the image.",
+          "seconds": 1.3557249069999997
+        }
+      }
+    },
+    {
+      "id": "other-turtle",
+      "source": "https://www.inaturalist.org/observations/414394476",
+      "reference": {
+        "species": "Trachemys dorbigni",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": " Tortoise.",
+          "seconds": 1.023762186
+        },
+        "stage": {
+          "text": " Unknown.",
+          "seconds": 1.0637145270000001
+        },
+        "sex": {
+          "text": " Yes.",
+          "seconds": 1.0294598890000015
+        }
+      }
+    },
+    {
+      "id": "frog",
+      "source": "https://www.inaturalist.org/observations/414755544",
+      "reference": {
+        "species": "Ranitomeya variabilis",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": " None.",
+          "seconds": 0.8885278929999986
+        },
+        "stage": {
+          "text": " For the animal in this photo, it is a hatchling.",
+          "seconds": 1.3576339979999976
+        },
+        "sex": {
+          "text": " The image shows a close-up of a plant with green leaves and small red flowers. The leaves are long and narrow, with pointed tips at the top. The flowers have five petals each, which are slightly curled downwards. There appears to be a cluster of these flowers near the bottom left side of the image.\n\nThe background is blurred but seems to contain more plants or foliage, indicating that the photo was taken outdoors. The lighting suggests it might be either natural light or artificial, as there are no strong shadows in the image.\n\n### Analysis:\n1. **Plant Characteristics",
+          "seconds": 10.54005309
+        }
+      }
+    },
+    {
+      "id": "other-animal",
+      "source": "https://www.inaturalist.org/observations/414755536",
+      "reference": {
+        "species": "Rhinella marina",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": " The animal in this photograph is a frog. It has brown skin with black spots all over its body. Its eyes are round and yellow, and it has a long tongue that is curled up behind its mouth. The frog's tongue is also covered in tiny hairs that help it stick to surfaces.",
+          "seconds": 3.697742570000002
+        },
+        "stage": {
+          "text": " Adult.",
+          "seconds": 1.032781673999998
+        },
+        "sex": {
+          "text": " The frog has a brown and green body with lots of spots all over its body. It also has a big, round head with a small, black dot for an eye. There are two large, dark eyes on either side of the frog's face. The frog's tongue is long and forked, and it hangs out of its mouth. The frog is sitting on a bed of dry grass.",
+          "seconds": 4.431162385000003
+        }
+      }
+    }
+  ],
+  "evaluatedAt": "2026-11-14",
+  "generation": {
+    "max_new_tokens": 120,
+    "do_sample": false,
+    "repetition_penalty": 1.1,
+    "enable_thinking": false
+  }
+}

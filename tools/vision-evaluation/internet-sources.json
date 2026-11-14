@@ -1,0 +1,107 @@
+[
+  {
+    "id": "adult-male-1",
+    "url": "https://theturtleroom.org/wp-content/uploads/2012/02/Eastern-box.jpg",
+    "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+    "species": "Eastern box turtle",
+    "stage": "adult",
+    "sex": "male",
+    "rights": "Source photographer retains rights; local evaluation only",
+    "sha256": "90e4b8b97d93c8f97af39c9b15db73ae449f2ec22404123704310e362caaa990"
+  },
+  {
+    "id": "adult-female-1",
+    "url": "https://theturtleroom.org/wp-content/uploads/2012/02/Goldie.jpg",
+    "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+    "species": "Eastern box turtle",
+    "stage": "adult",
+    "sex": "female",
+    "rights": "Source photographer retains rights; local evaluation only",
+    "sha256": "23d6cba6b3542d089dcb6ddaf4e446200b97317e1c5db870050fa96c37cc9f17"
+  },
+  {
+    "id": "adult-male-2",
+    "url": "https://theturtleroom.org/wp-content/uploads/2012/08/2012-0321-adult-male-c-carolina-01.jpg",
+    "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+    "species": "Eastern box turtle",
+    "stage": "adult",
+    "sex": "male",
+    "rights": "Source photographer retains rights; local evaluation only",
+    "sha256": "c968a12093d4ee557ef750f0d1032227ea11ab26837351512445d38befe1521c"
+  },
+  {
+    "id": "adult-female-2",
+    "url": "https://theturtleroom.org/wp-content/uploads/2012/02/curtis-eastern-female-01.jpg",
+    "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+    "species": "Eastern box turtle",
+    "stage": "adult",
+    "sex": "female",
+    "rights": "Source photographer retains rights; local evaluation only",
+    "sha256": "d95bb6a6a55f500ee2665d2a56ee8d256a9454d060c0c6ba38b4f0af96be7e02"
+  },
+  {
+    "id": "nps-juvenile",
+    "url": "https://npgallery.nps.gov/GetAsset/D6E68312-1DD8-B71C-07A2AD941DC30161/original.jpg",
+    "source": "https://npgallery.nps.gov/AssetDetail/D6E68312-1DD8-B71C-07A2AD941DC30161",
+    "species": "Eastern box turtle",
+    "stage": "juvenile",
+    "sex": "unknown",
+    "rights": "Public domain; Alicia Lafever / National Park Service",
+    "sha256": "c295f81e7a4aec6997f6d51f940df22848e6bdbfcf8074015c2b19c435f353bc"
+  },
+  {
+    "id": "inat-juvenile",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/745962938/original.jpg",
+    "source": "https://www.inaturalist.org/observations/406056779",
+    "species": "Terrapene carolina carolina",
+    "stage": "juvenile",
+    "sex": "unknown",
+    "rights": "(c) harrier, some rights reserved (CC BY)",
+    "labelLimit": "iNaturalist community annotation; not independent expert certification",
+    "sha256": "3d777c965172a83b7cce1dca988799f2a6dff39269e66c7a219570b697a96a9b"
+  },
+  {
+    "id": "ornate",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/741659361/original.jpg",
+    "source": "https://www.inaturalist.org/observations/403702824",
+    "species": "Terrapene ornata",
+    "stage": "unknown",
+    "sex": "unknown",
+    "rights": "(c) A.Yantzie, some rights reserved (CC BY)",
+    "labelLimit": "iNaturalist community annotation; not independent expert certification",
+    "sha256": "dd49d2f6b8216bc67e87c3829b37de7ba6e948f5339e04fd91206621514500cd"
+  },
+  {
+    "id": "other-turtle",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/762857152/original.jpg",
+    "source": "https://www.inaturalist.org/observations/414394476",
+    "species": "Trachemys dorbigni",
+    "stage": "unknown",
+    "sex": "unknown",
+    "rights": "(c) Nicolas Olejnik, some rights reserved (CC BY)",
+    "labelLimit": "iNaturalist community annotation; not independent expert certification",
+    "sha256": "59e3d422fd9b9014f2f822967be491f00ab273cf71eda71e51fe739f633bbcc5"
+  },
+  {
+    "id": "frog",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/763572746/original.jpg",
+    "source": "https://www.inaturalist.org/observations/414755544",
+    "species": "Ranitomeya variabilis",
+    "stage": "unknown",
+    "sex": "unknown",
+    "rights": "(c) Samuel GUIRAUDOU, some rights reserved (CC BY)",
+    "labelLimit": "iNaturalist community annotation; not independent expert certification",
+    "sha256": "ed60a0da06cdc5f18941912b819ba6640b8923dbca0cb623866a1b85deb85223"
+  },
+  {
+    "id": "other-animal",
+    "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/763571999/original.jpg",
+    "source": "https://www.inaturalist.org/observations/414755536",
+    "species": "Rhinella marina",
+    "stage": "unknown",
+    "sex": "unknown",
+    "rights": "(c) Samuel GUIRAUDOU, some rights reserved (CC BY)",
+    "labelLimit": "iNaturalist community annotation; not independent expert certification",
+    "sha256": "4f026a01f52bbf311090ce21131daa9e8bbdf5edbca33d8e49a249107ec2d92c"
+  }
+]

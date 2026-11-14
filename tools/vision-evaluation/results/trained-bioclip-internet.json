@@ -1,0 +1,367 @@
+{
+  "model": "eastern-box-bioclip-experiment-1",
+  "scope": "Disabled research heads; source labels do not validate sex/stage visibility; no phone verification",
+  "cases": [
+    {
+      "id": "adult-male-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.9888308139790378,
+            "other": 0.00021609763971800302,
+            "other_box_turtle": 0.009687525301123132,
+            "other_turtle": 0.001265563080120936
+          },
+          "topLabel": "eastern"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.8672458852936993,
+            "juvenile": 0.1327541147063007
+          },
+          "topLabel": "adult"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.5577249626308289,
+            "male": 0.4422750373691711
+          },
+          "topLabel": "female"
+        }
+      },
+      "easternSuggested": true,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "adult-female-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.9630985488092563,
+            "other": 0.0008929873368389987,
+            "other_box_turtle": 0.029324839873353648,
+            "other_turtle": 0.006683623980551097
+          },
+          "topLabel": "eastern"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.6475233041363444,
+            "juvenile": 0.3524766958636556
+          },
+          "topLabel": "adult"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.4915937642932533,
+            "male": 0.5084062357067467
+          },
+          "topLabel": "male"
+        }
+      },
+      "easternSuggested": true,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "adult-male-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.9889249395349603,
+            "other": 0.00015665495713950206,
+            "other_box_turtle": 0.009415450973001446,
+            "other_turtle": 0.0015029545348987578
+          },
+          "topLabel": "eastern"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.9542165204655896,
+            "juvenile": 0.04578347953441044
+          },
+          "topLabel": "adult"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.3310362398197564,
+            "male": 0.6689637601802436
+          },
+          "topLabel": "male"
+        }
+      },
+      "easternSuggested": true,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "adult-female-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.8644566957833155,
+            "other": 0.003292122652457697,
+            "other_box_turtle": 0.11744030356755088,
+            "other_turtle": 0.014810877996675891
+          },
+          "topLabel": "eastern"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.8599424630785417,
+            "juvenile": 0.14005753692145828
+          },
+          "topLabel": "adult"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.47357191960022926,
+            "male": 0.5264280803997707
+          },
+          "topLabel": "male"
+        }
+      },
+      "easternSuggested": true,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "nps-juvenile",
+      "source": "https://npgallery.nps.gov/AssetDetail/D6E68312-1DD8-B71C-07A2AD941DC30161",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.8938462542778449,
+            "other": 0.0010459071120827196,
+            "other_box_turtle": 0.08847580951264783,
+            "other_turtle": 0.016632029097424714
+          },
+          "topLabel": "eastern"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.3054569369889417,
+            "juvenile": 0.6945430630110583
+          },
+          "topLabel": "juvenile"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.4927592865311229,
+            "male": 0.5072407134688771
+          },
+          "topLabel": "male"
+        }
+      },
+      "easternSuggested": true,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "inat-juvenile",
+      "source": "https://www.inaturalist.org/observations/406056779",
+      "reference": {
+        "species": "Terrapene carolina carolina",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.499703984175924,
+            "other": 0.000757795869235848,
+            "other_box_turtle": 0.34483113602839577,
+            "other_turtle": 0.15470708392644428
+          },
+          "topLabel": "eastern"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.0552332127623435,
+            "juvenile": 0.9447667872376565
+          },
+          "topLabel": "juvenile"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.4667363472627942,
+            "male": 0.5332636527372058
+          },
+          "topLabel": "male"
+        }
+      },
+      "easternSuggested": false,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "ornate",
+      "source": "https://www.inaturalist.org/observations/403702824",
+      "reference": {
+        "species": "Terrapene ornata",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.0074330237262368705,
+            "other": 0.001120119497247796,
+            "other_box_turtle": 0.9735608076846775,
+            "other_turtle": 0.017886049091837712
+          },
+          "topLabel": "other_box_turtle"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.9389228667532612,
+            "juvenile": 0.06107713324673876
+          },
+          "topLabel": "adult"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.45415875517904847,
+            "male": 0.5458412448209515
+          },
+          "topLabel": "male"
+        }
+      },
+      "easternSuggested": false,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "other-turtle",
+      "source": "https://www.inaturalist.org/observations/414394476",
+      "reference": {
+        "species": "Trachemys dorbigni",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.07659566574438219,
+            "other": 0.0023312289517153704,
+            "other_box_turtle": 0.03376248169333787,
+            "other_turtle": 0.8873106236105645
+          },
+          "topLabel": "other_turtle"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.7504785156410654,
+            "juvenile": 0.24952148435893465
+          },
+          "topLabel": "adult"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.3159582670796317,
+            "male": 0.6840417329203683
+          },
+          "topLabel": "male"
+        }
+      },
+      "easternSuggested": false,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "frog",
+      "source": "https://www.inaturalist.org/observations/414755544",
+      "reference": {
+        "species": "Ranitomeya variabilis",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.0037240155443360582,
+            "other": 0.9338479511799744,
+            "other_box_turtle": 0.02278583665724857,
+            "other_turtle": 0.039642196618440984
+          },
+          "topLabel": "other"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.7345148916003434,
+            "juvenile": 0.2654851083996565
+          },
+          "topLabel": "adult"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.5714867628935898,
+            "male": 0.42851323710641015
+          },
+          "topLabel": "female"
+        }
+      },
+      "easternSuggested": false,
+      "threshold": 0.6300000000000001
+    },
+    {
+      "id": "other-animal",
+      "source": "https://www.inaturalist.org/observations/414755536",
+      "reference": {
+        "species": "Rhinella marina",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "heads": {
+        "species": {
+          "scores": {
+            "eastern": 0.001943659577353496,
+            "other": 0.9173215370859844,
+            "other_box_turtle": 0.05423147050676589,
+            "other_turtle": 0.026503332829896045
+          },
+          "topLabel": "other"
+        },
+        "life_stage": {
+          "scores": {
+            "adult": 0.5264377171545316,
+            "juvenile": 0.4735622828454685
+          },
+          "topLabel": "adult"
+        },
+        "sex": {
+          "scores": {
+            "female": 0.6307465417067788,
+            "male": 0.3692534582932212
+          },
+          "topLabel": "female"
+        }
+      },
+      "easternSuggested": false,
+      "threshold": 0.6300000000000001
+    }
+  ],
+  "evaluatedAt": "2026-11-14"
+}

@@ -1,0 +1,250 @@
+{
+  "modelId": "onnx-community/Qwen3.5-0.8B-ONNX-OPT",
+  "revision": "9a4c21d8f724176b0a7edaaed36303044451886e",
+  "runtime": "Transformers.js 4.3.2, q4 language/fp32 vision, Node CPU",
+  "questions": {
+    "species": "What animal is in this photograph? Give the most specific common name you can justify and briefly describe what you see. If unclear, say unknown.",
+    "stage": "For the animal in this photo, is it a hatchling, juvenile, adult, or unknown? Briefly explain the visible basis. Give unknown if it is not a turtle or the image does not support an estimate. Do not give an exact age.",
+    "sex": "For the animal in this photograph, can you determine male or female? Say unknown if it is not a turtle or diagnostic anatomy is not visible. Eye colour alone is insufficient. Briefly describe only the relevant features actually visible."
+  },
+  "scope": "Ten source-labeled internet photos; feasibility comparison only. Captions are not evidence that sex is visible. No physical-phone verification.",
+  "cases": [
+    {
+      "id": "adult-male-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "answers": {
+        "species": {
+          "text": "Based on the visual evidence, here is the analysis of the animal:\n\n**Most Specific Common Name:** **Red-eared Turtle (Terra Preta)**\n\n**Description:**\nThe image shows a close-up of an adult Red-eared turtle resting on the forest floor. The animal is identifiable by its distinctive patterned shell with concentric rings of orange, black, and yellow markings around the body. Its head features a lighter, mottled face that contrasts with the darker shell. Notably, the tail is visible behind the turtle's legs, displaying a distinct spotted pattern similar to the",
+          "seconds": 7.690089160999996
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph, here is the analysis:\n\n**Analysis:**\nThe animal in the center of the frame is clearly identifiable as a **turtle**. The key features supporting this identification are:\n*   **Shell:** It possesses a large, domed shell with distinct patterns (likely a heron's pattern), which is characteristic of turtles.\n*   **Body Shape:** The elongated body and tail structure are typical of turtles.\n*   **Hatchling Status:** While the specific size cannot be determined from the image alone, the presence of a fully formed",
+          "seconds": 8.706577421000002
+        },
+        "sex": {
+          "text": "unknown",
+          "seconds": 1.7402727330000052
+        }
+      }
+    },
+    {
+      "id": "adult-female-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "answers": {
+        "species": {
+          "text": "The animal in this photograph is a **turtle**, specifically a species that resembles a **box turtle** (or possibly a **red-eared tortoise** or similar large land tortoise).\n\nHere's a justification for the description:\n*   **Body Shape:** It has a long, slender body with a distinct head and tail.\n*   **Shell:** The shell is large, oval-shaped, and features a pattern of yellowish-orange stripes on a dark background. This is characteristic of box turtles.\n*   **Coloration:** The sides of its back show a reddish-b",
+          "seconds": 8.590305575000006
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph, here is the analysis:\n\n**Analysis:**\nThe animal in the image is clearly identifiable as a **turtle**, specifically a species with a large, domed shell (likely a Box Turtle). The key indicators supporting this classification are:\n*   **Shell Shape:** The prominent, curved, and slightly raised dorsal shell is characteristic of turtles, distinguishing them from other reptiles like lizards or snakes which typically have more slender, elongated shells.\n*   **Body Structure:** The body plan includes a long neck, a head with a distinct eye",
+          "seconds": 9.314261448000005
+        },
+        "sex": {
+          "text": "unknown",
+          "seconds": 1.6555240849999973
+        }
+      }
+    },
+    {
+      "id": "adult-male-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "answers": {
+        "species": {
+          "text": "The animal in this photograph is a **turtle**, specifically a species such as the **American banded turtle** (*Chelyi rufescens*), identifiable by its distinctive spotted shell and orange-brown neck markings.\n\nHere\u2019s what I see:\n- It\u2019s resting on forest floor covered with dry brown leaves.\n- Its shell has a dark background with lighter spots (likely bands or spots).\n- The head shows prominent orange-red markings along the sides of the neck.\n- It appears calm, partially obscured by twigs and small green plants, suggesting it might be foraging",
+          "seconds": 11.756796994999997
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph, here is the analysis:\n\n**Analysis:**\nThe animal in the image is clearly identifiable as a **turtle**, specifically a species such as a Painted Turtle (specifically *Chelyi* or *Lepus* type). The key features supporting this identification are:\n1.  **Shell Shape and Pattern:** The shell displays a distinct pattern of yellow spots with black outlines, which is characteristic of painted turtles.\n2.  **Coloration:** The neck and head show orange markings that are typical for painted turtles.\n3.",
+          "seconds": 10.683123353000003
+        },
+        "sex": {
+          "text": "Unknown",
+          "seconds": 1.3994575119999937
+        }
+      }
+    },
+    {
+      "id": "adult-female-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "answers": {
+        "species": {
+          "text": "Based on the visual evidence, here is the justification for the answer:\n\n**The Animal:** **Tortoise (specifically a Box Turtle or similar species)**\n\n**Description:**\nYou are seeing a large tortoise resting in a grassy field. Its shell is prominent, featuring a pattern of dark brown bands separated by lighter yellowish lines that resemble a stylized map or grid. The texture of its skin around the neck and legs appears rough and scaly. It is positioned centrally but slightly to the left within the frame, surrounded by green blades of grass.",
+          "seconds": 6.798516170000003
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph, here is the analysis:\n\n**Analysis:**\nThe animal in the image is clearly identifiable as a **turtle**, specifically a species with a large, domed shell (likely a Tortoise). The key indicators supporting this classification are:\n*   **Shell Structure:** The prominent, raised, and segmented shell covering the body is characteristic of turtles.\n*   **Body Shape:** The elongated limbs and tail structure seen in the background suggest a larger size than a hatchling or juvenile.\n*   **Context:** While many tortoises can",
+          "seconds": 7.478488834000004
+        },
+        "sex": {
+          "text": "unknown",
+          "seconds": 1.1705074190000013
+        }
+      }
+    },
+    {
+      "id": "nps-juvenile",
+      "source": "https://npgallery.nps.gov/AssetDetail/D6E68312-1DD8-B71C-07A2AD941DC30161",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": "Based on the visual evidence, here is the analysis of the animal:\n\n**Most Specific Common Name:** **Red-eared Turtle (Amanita chrysostoma)**\n\n**Description:**\nThe image shows a close-up of an adult Red-eared turtle resting on a person's hand. The animal displays several key identifying features:\n*   **Shell:** It has a distinctive patterned shell with a dark background and lighter, yellowish-brown markings around the edges and along the sides.\n*   **Head:** Its head is turned slightly to the side, revealing its large,",
+          "seconds": 7.005079994
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph, here is the analysis:\n\n**Analysis:**\nThe animal shown is a **turtle**, specifically identified as a **hatchling**. The key indicators are:\n*   **Hatching Position:** It is curled up with its head down and facing away from the viewer (towards the bottom left), which is characteristic of a baby turtle that has just emerged from the shell.\n*   **Size:** It appears to be significantly smaller than an adult, fitting within the typical size range for hatchlings (often under 10 inches long).\n",
+          "seconds": 7.329835053999996
+        },
+        "sex": {
+          "text": "unknown",
+          "seconds": 1.2205185169999895
+        }
+      }
+    },
+    {
+      "id": "inat-juvenile",
+      "source": "https://www.inaturalist.org/observations/406056779",
+      "reference": {
+        "species": "Terrapene carolina carolina",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": "Based on the visual evidence, here is the analysis:\n\n**Most Specific Common Name:** **Box Turtle (specifically a Box-toed or Box-Tailed Box Turtle)**\n\n**Description of what is seen:**\nThe image features a small tortoise resting on a rough, gray concrete surface. The animal has a distinctive shell with a pattern that includes dark bands and lighter, reddish-brown markings around the edges and along the sides. Its head appears slightly angled as it moves slowly across the ground. The texture of the background suggests an outdoor setting, likely near a sidewalk or pavement.",
+          "seconds": 6.989817716999998
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph, here is the analysis:\n\n**Analysis:**\nThe animal shown is a **turtle**, specifically identified as a **juvenile**. The primary basis for this classification lies in its physical characteristics and size relative to the environment:\n\n*   **Size:** The turtle's shell (carapace) appears significantly smaller than that of an adult specimen found in typical aquariums or natural habitats. It is roughly half the width of the surrounding gravel stones.\n*   **Shell Pattern:** While the pattern is somewhat indistinct due to the lighting and distance,",
+          "seconds": 7.386426934000017
+        },
+        "sex": {
+          "text": "unknown",
+          "seconds": 1.3503674519999769
+        }
+      }
+    },
+    {
+      "id": "ornate",
+      "source": "https://www.inaturalist.org/observations/403702824",
+      "reference": {
+        "species": "Terrapene ornata",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": "The animal in this photograph is a **turtle**, specifically a species with a patterned shell \u2014 likely a **red-eared tortoise** or similar endemic turtle from the New Zealand (e.g., *Chrysemicondosaurus* or *Tortora*), though it could also be a generic term for any patterned turtle.\n\n### What I see:\n- A small, terrestrial reptile with a domed, textured shell featuring dark and yellowish markings along the sides and around the neck.\n- It\u2019s walking on an asphalt surface near a sandy path, suggesting a rural",
+          "seconds": 7.040313590000006
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph:\n\n*   **Shell Shape:** The shell is relatively small and oval-shaped with a smooth, slightly convex curve, which is characteristic of a young turtle (juvenile). It lacks the large, domed, and heavily sculptured shells seen in adults.\n*   **Coloration:** The markings are subtle but present\u2014dark lines running along the sides and a faint pattern on the back\u2014which are typical features of a young specimen. Adult turtles often display more distinct, larger patterns or bold color changes across their entire body.\n*   **Size:**",
+          "seconds": 7.211757775000006
+        },
+        "sex": {
+          "text": "unknown",
+          "seconds": 1.3714627099999925
+        }
+      }
+    },
+    {
+      "id": "other-turtle",
+      "source": "https://www.inaturalist.org/observations/414394476",
+      "reference": {
+        "species": "Trachemys dorbigni",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": "Based on the visual evidence, here is the analysis:\n\n**The Animal:**\nThis is a **Red-eared Turtle**, commonly known as a **Red-bellied Turtle**.\n\n**Description:**\nYou are looking at a close-up profile of a turtle's head. The key identifying features visible in the image include:\n*   **Striped Shell:** The shell (carapace) displays vibrant orange stripes running along its sides.\n*   **Distinctive Face Markings:** The face has a dark background with large, bright orange markings that resemble a stylized \"X\"",
+          "seconds": 7.366141486000008
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph:\n\n*   **Species Identification:** The animal is clearly identifiable as a **turtle**, specifically one with distinctive orange and yellow markings along its neck (often called \"crested\" or \"striped\").\n*   **Age Estimation:** While turtles can be adults, juveniles, or hatchlings, there are no specific biological indicators (such as shell size, tail length, or skin texture) that allow for a precise determination of whether it is a hatchling, juvenile, or adult.\n*   **Conclusion:** Since the image lacks sufficient detail",
+          "seconds": 7.693916809999995
+        },
+        "sex": {
+          "text": "unknown",
+          "seconds": 1.4256177670000179
+        }
+      }
+    },
+    {
+      "id": "frog",
+      "source": "https://www.inaturalist.org/observations/414755544",
+      "reference": {
+        "species": "Ranitomeya variabilis",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": "Based on the visual evidence in the photograph, here is the analysis:\n\n**Justification:**\nThe image features a small mammal with distinct characteristics that fit the description of an **African Elephant**. The animal appears to be standing or sitting amidst foliage, likely within a forested environment. It has large ears, a short tail, and a dark coat pattern typical of African elephants.\n\n**Description:**\nThe animal is partially obscured by leaves but clearly identifiable as an elephant. Its body shape is elongated, and its posture suggests it might be resting or moving slowly among the green plants.",
+          "seconds": 6.942797804000001
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph:\n\n**Unknown**\n\nThe image appears to be taken through night vision (likely a thermal camera) and suffers from significant overexposure or motion blur, which makes it difficult to discern fine details such as the animal's size, shape, or markings. While some features might resemble those of a juvenile or hatchling due to the lighting conditions, without clear identification of specific traits like tail length, head structure, or limb proportions, it cannot be definitively classified as one of these stages. The low resolution also prevents any accurate estimation of age.",
+          "seconds": 6.829617513000005
+        },
+        "sex": {
+          "text": "Unknown",
+          "seconds": 1.2755123889999813
+        }
+      }
+    },
+    {
+      "id": "other-animal",
+      "source": "https://www.inaturalist.org/observations/414755536",
+      "reference": {
+        "species": "Rhinella marina",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "answers": {
+        "species": {
+          "text": "Based on the visual evidence, here is the analysis of the animal:\n\n**Most Specific Common Name:** **Toad** (or Toad Frog)\n\n**Description:**\nThe image shows a close-up of an amphibian resting on the ground amidst grass. The creature has a textured, bumpy skin pattern that blends with its surroundings, which is characteristic of many species of toads or froglets. Its eyes are partially visible, giving it a somewhat alert expression as it rests near vegetation.",
+          "seconds": 6.1879762359999875
+        },
+        "stage": {
+          "text": "Based on the visual evidence in the photograph:\n\n**Unknown**\n\nThe animal appears to be a **toad**, which is a type of amphibian. While they can be juveniles (hatchlings) or adults, there are no specific anatomical features\u2014such as size, coloration patterns, or developmental stages\u2014that allow for a definitive estimation of their age from this single frame alone. The image is somewhat hazy and focuses heavily on the texture of the skin, making identification difficult without additional context or higher resolution.",
+          "seconds": 6.203078338999999
+        },
+        "sex": {
+          "text": "unknown",
+          "seconds": 1.259809867999982
+        }
+      }
+    }
+  ],
+  "evaluatedAt": "2026-11-14",
+  "generation": {
+    "max_new_tokens": 120,
+    "do_sample": false,
+    "repetition_penalty": 1.1,
+    "enable_thinking": false
+  }
+}

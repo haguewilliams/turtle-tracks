@@ -44,3 +44,10 @@ a local photograph or the photo region of an app screenshot; optional
 `--alpha=1` checks the wider candidate. No image data is transmitted.
 `evaluate-detection.py` evaluates broad recognition separately from species.
 The wider candidate is rejected in `follow-up-evaluation.json`, not deployed.
+
+`../vision-evaluation/README.md` records the subsequent original-internet-photo
+comparison and BioCLIP feature experiment. `train.py --backbone bioclip` and
+`evaluate-fresh.py --backbone bioclip` keep their files separate with a `-bioclip`
+suffix and retain the same partitions/threshold selection. No candidate activates
+itself, and these scripts do not validate phone compatibility or visible sex/age
+evidence.

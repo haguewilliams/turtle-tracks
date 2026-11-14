@@ -1,0 +1,998 @@
+{
+  "dataset": "iNaturalist CC0 / CC BY; research-grade taxon, unverified community age/sex annotations",
+  "photos": 1761,
+  "perceptualDuplicatesRemoved": 5,
+  "split": "observer-hash 70/15/15; no observer spans splits",
+  "heads": {
+    "species": {
+      "train": 1134,
+      "validation": 329,
+      "test": 298,
+      "C": 10,
+      "classes": [
+        "eastern",
+        "other",
+        "other_box_turtle",
+        "other_turtle"
+      ],
+      "testAccuracy": 0.8859060402684564,
+      "confusionMatrix": [
+        [
+          106,
+          2,
+          13,
+          7
+        ],
+        [
+          1,
+          68,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          50,
+          2
+        ],
+        [
+          1,
+          0,
+          4,
+          40
+        ]
+      ],
+      "classificationReport": {
+        "eastern": {
+          "precision": 0.9636363636363636,
+          "recall": 0.828125,
+          "f1-score": 0.8907563025210085,
+          "support": 128.0
+        },
+        "other": {
+          "precision": 0.9444444444444444,
+          "recall": 0.9855072463768116,
+          "f1-score": 0.9645390070921985,
+          "support": 69.0
+        },
+        "other_box_turtle": {
+          "precision": 0.746268656716418,
+          "recall": 0.8928571428571429,
+          "f1-score": 0.8130081300813008,
+          "support": 56.0
+        },
+        "other_turtle": {
+          "precision": 0.8163265306122449,
+          "recall": 0.8888888888888888,
+          "f1-score": 0.851063829787234,
+          "support": 45.0
+        },
+        "accuracy": 0.8859060402684564,
+        "macro avg": {
+          "precision": 0.8676689988523677,
+          "recall": 0.8988445695307108,
+          "f1-score": 0.8798418173704354,
+          "support": 298.0
+        },
+        "weighted avg": {
+          "precision": 0.8961002008919182,
+          "recall": 0.8859060402684564,
+          "f1-score": 0.8872359927417086,
+          "support": 298.0
+        }
+      },
+      "deploymentApproved": false,
+      "validationThresholds": [
+        {
+          "threshold": 0.5,
+          "suggestions": 176,
+          "correct": 170,
+          "incorrect": 6,
+          "precision": 0.9659090909090909,
+          "recall": 0.8854166666666666
+        },
+        {
+          "threshold": 0.505,
+          "suggestions": 174,
+          "correct": 168,
+          "incorrect": 6,
+          "precision": 0.9655172413793104,
+          "recall": 0.875
+        },
+        {
+          "threshold": 0.51,
+          "suggestions": 174,
+          "correct": 168,
+          "incorrect": 6,
+          "precision": 0.9655172413793104,
+          "recall": 0.875
+        },
+        {
+          "threshold": 0.515,
+          "suggestions": 174,
+          "correct": 168,
+          "incorrect": 6,
+          "precision": 0.9655172413793104,
+          "recall": 0.875
+        },
+        {
+          "threshold": 0.52,
+          "suggestions": 172,
+          "correct": 166,
+          "incorrect": 6,
+          "precision": 0.9651162790697675,
+          "recall": 0.8645833333333334
+        },
+        {
+          "threshold": 0.525,
+          "suggestions": 171,
+          "correct": 165,
+          "incorrect": 6,
+          "precision": 0.9649122807017544,
+          "recall": 0.859375
+        },
+        {
+          "threshold": 0.53,
+          "suggestions": 170,
+          "correct": 164,
+          "incorrect": 6,
+          "precision": 0.9647058823529412,
+          "recall": 0.8541666666666666
+        },
+        {
+          "threshold": 0.535,
+          "suggestions": 170,
+          "correct": 164,
+          "incorrect": 6,
+          "precision": 0.9647058823529412,
+          "recall": 0.8541666666666666
+        },
+        {
+          "threshold": 0.54,
+          "suggestions": 170,
+          "correct": 164,
+          "incorrect": 6,
+          "precision": 0.9647058823529412,
+          "recall": 0.8541666666666666
+        },
+        {
+          "threshold": 0.545,
+          "suggestions": 169,
+          "correct": 163,
+          "incorrect": 6,
+          "precision": 0.9644970414201184,
+          "recall": 0.8489583333333334
+        },
+        {
+          "threshold": 0.55,
+          "suggestions": 169,
+          "correct": 163,
+          "incorrect": 6,
+          "precision": 0.9644970414201184,
+          "recall": 0.8489583333333334
+        },
+        {
+          "threshold": 0.555,
+          "suggestions": 167,
+          "correct": 161,
+          "incorrect": 6,
+          "precision": 0.9640718562874252,
+          "recall": 0.8385416666666666
+        },
+        {
+          "threshold": 0.56,
+          "suggestions": 167,
+          "correct": 161,
+          "incorrect": 6,
+          "precision": 0.9640718562874252,
+          "recall": 0.8385416666666666
+        },
+        {
+          "threshold": 0.5650000000000001,
+          "suggestions": 167,
+          "correct": 161,
+          "incorrect": 6,
+          "precision": 0.9640718562874252,
+          "recall": 0.8385416666666666
+        },
+        {
+          "threshold": 0.5700000000000001,
+          "suggestions": 166,
+          "correct": 160,
+          "incorrect": 6,
+          "precision": 0.963855421686747,
+          "recall": 0.8333333333333334
+        },
+        {
+          "threshold": 0.5750000000000001,
+          "suggestions": 165,
+          "correct": 159,
+          "incorrect": 6,
+          "precision": 0.9636363636363636,
+          "recall": 0.828125
+        },
+        {
+          "threshold": 0.5800000000000001,
+          "suggestions": 165,
+          "correct": 159,
+          "incorrect": 6,
+          "precision": 0.9636363636363636,
+          "recall": 0.828125
+        },
+        {
+          "threshold": 0.5850000000000001,
+          "suggestions": 165,
+          "correct": 159,
+          "incorrect": 6,
+          "precision": 0.9636363636363636,
+          "recall": 0.828125
+        },
+        {
+          "threshold": 0.5900000000000001,
+          "suggestions": 164,
+          "correct": 158,
+          "incorrect": 6,
+          "precision": 0.9634146341463414,
+          "recall": 0.8229166666666666
+        },
+        {
+          "threshold": 0.5950000000000001,
+          "suggestions": 164,
+          "correct": 158,
+          "incorrect": 6,
+          "precision": 0.9634146341463414,
+          "recall": 0.8229166666666666
+        },
+        {
+          "threshold": 0.6000000000000001,
+          "suggestions": 164,
+          "correct": 158,
+          "incorrect": 6,
+          "precision": 0.9634146341463414,
+          "recall": 0.8229166666666666
+        },
+        {
+          "threshold": 0.6050000000000001,
+          "suggestions": 164,
+          "correct": 158,
+          "incorrect": 6,
+          "precision": 0.9634146341463414,
+          "recall": 0.8229166666666666
+        },
+        {
+          "threshold": 0.6100000000000001,
+          "suggestions": 164,
+          "correct": 158,
+          "incorrect": 6,
+          "precision": 0.9634146341463414,
+          "recall": 0.8229166666666666
+        },
+        {
+          "threshold": 0.6150000000000001,
+          "suggestions": 163,
+          "correct": 157,
+          "incorrect": 6,
+          "precision": 0.9631901840490797,
+          "recall": 0.8177083333333334
+        },
+        {
+          "threshold": 0.6200000000000001,
+          "suggestions": 162,
+          "correct": 157,
+          "incorrect": 5,
+          "precision": 0.9691358024691358,
+          "recall": 0.8177083333333334
+        },
+        {
+          "threshold": 0.6250000000000001,
+          "suggestions": 161,
+          "correct": 156,
+          "incorrect": 5,
+          "precision": 0.968944099378882,
+          "recall": 0.8125
+        },
+        {
+          "threshold": 0.6300000000000001,
+          "suggestions": 160,
+          "correct": 156,
+          "incorrect": 4,
+          "precision": 0.975,
+          "recall": 0.8125
+        },
+        {
+          "threshold": 0.6350000000000001,
+          "suggestions": 157,
+          "correct": 153,
+          "incorrect": 4,
+          "precision": 0.9745222929936306,
+          "recall": 0.796875
+        },
+        {
+          "threshold": 0.6400000000000001,
+          "suggestions": 153,
+          "correct": 149,
+          "incorrect": 4,
+          "precision": 0.9738562091503268,
+          "recall": 0.7760416666666666
+        },
+        {
+          "threshold": 0.6450000000000001,
+          "suggestions": 152,
+          "correct": 149,
+          "incorrect": 3,
+          "precision": 0.9802631578947368,
+          "recall": 0.7760416666666666
+        },
+        {
+          "threshold": 0.6500000000000001,
+          "suggestions": 152,
+          "correct": 149,
+          "incorrect": 3,
+          "precision": 0.9802631578947368,
+          "recall": 0.7760416666666666
+        },
+        {
+          "threshold": 0.6550000000000001,
+          "suggestions": 150,
+          "correct": 148,
+          "incorrect": 2,
+          "precision": 0.9866666666666667,
+          "recall": 0.7708333333333334
+        },
+        {
+          "threshold": 0.6600000000000001,
+          "suggestions": 149,
+          "correct": 147,
+          "incorrect": 2,
+          "precision": 0.9865771812080537,
+          "recall": 0.765625
+        },
+        {
+          "threshold": 0.6650000000000001,
+          "suggestions": 148,
+          "correct": 146,
+          "incorrect": 2,
+          "precision": 0.9864864864864865,
+          "recall": 0.7604166666666666
+        },
+        {
+          "threshold": 0.6700000000000002,
+          "suggestions": 148,
+          "correct": 146,
+          "incorrect": 2,
+          "precision": 0.9864864864864865,
+          "recall": 0.7604166666666666
+        },
+        {
+          "threshold": 0.6750000000000002,
+          "suggestions": 148,
+          "correct": 146,
+          "incorrect": 2,
+          "precision": 0.9864864864864865,
+          "recall": 0.7604166666666666
+        },
+        {
+          "threshold": 0.6800000000000002,
+          "suggestions": 147,
+          "correct": 145,
+          "incorrect": 2,
+          "precision": 0.9863945578231292,
+          "recall": 0.7552083333333334
+        },
+        {
+          "threshold": 0.6850000000000002,
+          "suggestions": 147,
+          "correct": 145,
+          "incorrect": 2,
+          "precision": 0.9863945578231292,
+          "recall": 0.7552083333333334
+        },
+        {
+          "threshold": 0.6900000000000002,
+          "suggestions": 144,
+          "correct": 142,
+          "incorrect": 2,
+          "precision": 0.9861111111111112,
+          "recall": 0.7395833333333334
+        },
+        {
+          "threshold": 0.6950000000000002,
+          "suggestions": 142,
+          "correct": 140,
+          "incorrect": 2,
+          "precision": 0.9859154929577465,
+          "recall": 0.7291666666666666
+        },
+        {
+          "threshold": 0.7000000000000002,
+          "suggestions": 141,
+          "correct": 139,
+          "incorrect": 2,
+          "precision": 0.9858156028368794,
+          "recall": 0.7239583333333334
+        },
+        {
+          "threshold": 0.7050000000000002,
+          "suggestions": 140,
+          "correct": 138,
+          "incorrect": 2,
+          "precision": 0.9857142857142858,
+          "recall": 0.71875
+        },
+        {
+          "threshold": 0.7100000000000002,
+          "suggestions": 138,
+          "correct": 136,
+          "incorrect": 2,
+          "precision": 0.9855072463768116,
+          "recall": 0.7083333333333334
+        },
+        {
+          "threshold": 0.7150000000000002,
+          "suggestions": 137,
+          "correct": 135,
+          "incorrect": 2,
+          "precision": 0.9854014598540146,
+          "recall": 0.703125
+        },
+        {
+          "threshold": 0.7200000000000002,
+          "suggestions": 137,
+          "correct": 135,
+          "incorrect": 2,
+          "precision": 0.9854014598540146,
+          "recall": 0.703125
+        },
+        {
+          "threshold": 0.7250000000000002,
+          "suggestions": 136,
+          "correct": 134,
+          "incorrect": 2,
+          "precision": 0.9852941176470589,
+          "recall": 0.6979166666666666
+        },
+        {
+          "threshold": 0.7300000000000002,
+          "suggestions": 135,
+          "correct": 133,
+          "incorrect": 2,
+          "precision": 0.9851851851851852,
+          "recall": 0.6927083333333334
+        },
+        {
+          "threshold": 0.7350000000000002,
+          "suggestions": 134,
+          "correct": 132,
+          "incorrect": 2,
+          "precision": 0.9850746268656716,
+          "recall": 0.6875
+        },
+        {
+          "threshold": 0.7400000000000002,
+          "suggestions": 134,
+          "correct": 132,
+          "incorrect": 2,
+          "precision": 0.9850746268656716,
+          "recall": 0.6875
+        },
+        {
+          "threshold": 0.7450000000000002,
+          "suggestions": 134,
+          "correct": 132,
+          "incorrect": 2,
+          "precision": 0.9850746268656716,
+          "recall": 0.6875
+        },
+        {
+          "threshold": 0.7500000000000002,
+          "suggestions": 133,
+          "correct": 131,
+          "incorrect": 2,
+          "precision": 0.9849624060150376,
+          "recall": 0.6822916666666666
+        },
+        {
+          "threshold": 0.7550000000000002,
+          "suggestions": 132,
+          "correct": 130,
+          "incorrect": 2,
+          "precision": 0.9848484848484849,
+          "recall": 0.6770833333333334
+        },
+        {
+          "threshold": 0.7600000000000002,
+          "suggestions": 132,
+          "correct": 130,
+          "incorrect": 2,
+          "precision": 0.9848484848484849,
+          "recall": 0.6770833333333334
+        },
+        {
+          "threshold": 0.7650000000000002,
+          "suggestions": 131,
+          "correct": 129,
+          "incorrect": 2,
+          "precision": 0.9847328244274809,
+          "recall": 0.671875
+        },
+        {
+          "threshold": 0.7700000000000002,
+          "suggestions": 131,
+          "correct": 129,
+          "incorrect": 2,
+          "precision": 0.9847328244274809,
+          "recall": 0.671875
+        },
+        {
+          "threshold": 0.7750000000000002,
+          "suggestions": 131,
+          "correct": 129,
+          "incorrect": 2,
+          "precision": 0.9847328244274809,
+          "recall": 0.671875
+        },
+        {
+          "threshold": 0.7800000000000002,
+          "suggestions": 131,
+          "correct": 129,
+          "incorrect": 2,
+          "precision": 0.9847328244274809,
+          "recall": 0.671875
+        },
+        {
+          "threshold": 0.7850000000000003,
+          "suggestions": 129,
+          "correct": 127,
+          "incorrect": 2,
+          "precision": 0.9844961240310077,
+          "recall": 0.6614583333333334
+        },
+        {
+          "threshold": 0.7900000000000003,
+          "suggestions": 128,
+          "correct": 126,
+          "incorrect": 2,
+          "precision": 0.984375,
+          "recall": 0.65625
+        },
+        {
+          "threshold": 0.7950000000000003,
+          "suggestions": 128,
+          "correct": 126,
+          "incorrect": 2,
+          "precision": 0.984375,
+          "recall": 0.65625
+        },
+        {
+          "threshold": 0.8000000000000003,
+          "suggestions": 126,
+          "correct": 125,
+          "incorrect": 1,
+          "precision": 0.9920634920634921,
+          "recall": 0.6510416666666666
+        },
+        {
+          "threshold": 0.8050000000000003,
+          "suggestions": 122,
+          "correct": 121,
+          "incorrect": 1,
+          "precision": 0.9918032786885246,
+          "recall": 0.6302083333333334
+        },
+        {
+          "threshold": 0.8100000000000003,
+          "suggestions": 122,
+          "correct": 121,
+          "incorrect": 1,
+          "precision": 0.9918032786885246,
+          "recall": 0.6302083333333334
+        },
+        {
+          "threshold": 0.8150000000000003,
+          "suggestions": 121,
+          "correct": 120,
+          "incorrect": 1,
+          "precision": 0.9917355371900827,
+          "recall": 0.625
+        },
+        {
+          "threshold": 0.8200000000000003,
+          "suggestions": 120,
+          "correct": 119,
+          "incorrect": 1,
+          "precision": 0.9916666666666667,
+          "recall": 0.6197916666666666
+        },
+        {
+          "threshold": 0.8250000000000003,
+          "suggestions": 116,
+          "correct": 115,
+          "incorrect": 1,
+          "precision": 0.9913793103448276,
+          "recall": 0.5989583333333334
+        },
+        {
+          "threshold": 0.8300000000000003,
+          "suggestions": 114,
+          "correct": 113,
+          "incorrect": 1,
+          "precision": 0.9912280701754386,
+          "recall": 0.5885416666666666
+        },
+        {
+          "threshold": 0.8350000000000003,
+          "suggestions": 110,
+          "correct": 109,
+          "incorrect": 1,
+          "precision": 0.990909090909091,
+          "recall": 0.5677083333333334
+        },
+        {
+          "threshold": 0.8400000000000003,
+          "suggestions": 108,
+          "correct": 107,
+          "incorrect": 1,
+          "precision": 0.9907407407407407,
+          "recall": 0.5572916666666666
+        },
+        {
+          "threshold": 0.8450000000000003,
+          "suggestions": 105,
+          "correct": 104,
+          "incorrect": 1,
+          "precision": 0.9904761904761905,
+          "recall": 0.5416666666666666
+        },
+        {
+          "threshold": 0.8500000000000003,
+          "suggestions": 104,
+          "correct": 103,
+          "incorrect": 1,
+          "precision": 0.9903846153846154,
+          "recall": 0.5364583333333334
+        },
+        {
+          "threshold": 0.8550000000000003,
+          "suggestions": 104,
+          "correct": 103,
+          "incorrect": 1,
+          "precision": 0.9903846153846154,
+          "recall": 0.5364583333333334
+        },
+        {
+          "threshold": 0.8600000000000003,
+          "suggestions": 102,
+          "correct": 101,
+          "incorrect": 1,
+          "precision": 0.9901960784313726,
+          "recall": 0.5260416666666666
+        },
+        {
+          "threshold": 0.8650000000000003,
+          "suggestions": 99,
+          "correct": 98,
+          "incorrect": 1,
+          "precision": 0.98989898989899,
+          "recall": 0.5104166666666666
+        },
+        {
+          "threshold": 0.8700000000000003,
+          "suggestions": 97,
+          "correct": 96,
+          "incorrect": 1,
+          "precision": 0.9896907216494846,
+          "recall": 0.5
+        },
+        {
+          "threshold": 0.8750000000000003,
+          "suggestions": 94,
+          "correct": 93,
+          "incorrect": 1,
+          "precision": 0.9893617021276596,
+          "recall": 0.484375
+        },
+        {
+          "threshold": 0.8800000000000003,
+          "suggestions": 90,
+          "correct": 89,
+          "incorrect": 1,
+          "precision": 0.9888888888888889,
+          "recall": 0.4635416666666667
+        },
+        {
+          "threshold": 0.8850000000000003,
+          "suggestions": 89,
+          "correct": 88,
+          "incorrect": 1,
+          "precision": 0.9887640449438202,
+          "recall": 0.4583333333333333
+        },
+        {
+          "threshold": 0.8900000000000003,
+          "suggestions": 86,
+          "correct": 85,
+          "incorrect": 1,
+          "precision": 0.9883720930232558,
+          "recall": 0.4427083333333333
+        },
+        {
+          "threshold": 0.8950000000000004,
+          "suggestions": 81,
+          "correct": 80,
+          "incorrect": 1,
+          "precision": 0.9876543209876543,
+          "recall": 0.4166666666666667
+        },
+        {
+          "threshold": 0.9000000000000004,
+          "suggestions": 80,
+          "correct": 79,
+          "incorrect": 1,
+          "precision": 0.9875,
+          "recall": 0.4114583333333333
+        },
+        {
+          "threshold": 0.9050000000000004,
+          "suggestions": 78,
+          "correct": 77,
+          "incorrect": 1,
+          "precision": 0.9871794871794872,
+          "recall": 0.4010416666666667
+        },
+        {
+          "threshold": 0.9100000000000004,
+          "suggestions": 76,
+          "correct": 75,
+          "incorrect": 1,
+          "precision": 0.9868421052631579,
+          "recall": 0.390625
+        },
+        {
+          "threshold": 0.9150000000000004,
+          "suggestions": 73,
+          "correct": 72,
+          "incorrect": 1,
+          "precision": 0.9863013698630136,
+          "recall": 0.375
+        },
+        {
+          "threshold": 0.9200000000000004,
+          "suggestions": 68,
+          "correct": 67,
+          "incorrect": 1,
+          "precision": 0.9852941176470589,
+          "recall": 0.3489583333333333
+        },
+        {
+          "threshold": 0.9250000000000004,
+          "suggestions": 67,
+          "correct": 66,
+          "incorrect": 1,
+          "precision": 0.9850746268656716,
+          "recall": 0.34375
+        },
+        {
+          "threshold": 0.9300000000000004,
+          "suggestions": 66,
+          "correct": 65,
+          "incorrect": 1,
+          "precision": 0.9848484848484849,
+          "recall": 0.3385416666666667
+        },
+        {
+          "threshold": 0.9350000000000004,
+          "suggestions": 61,
+          "correct": 60,
+          "incorrect": 1,
+          "precision": 0.9836065573770492,
+          "recall": 0.3125
+        },
+        {
+          "threshold": 0.9400000000000004,
+          "suggestions": 56,
+          "correct": 55,
+          "incorrect": 1,
+          "precision": 0.9821428571428571,
+          "recall": 0.2864583333333333
+        },
+        {
+          "threshold": 0.9450000000000004,
+          "suggestions": 52,
+          "correct": 51,
+          "incorrect": 1,
+          "precision": 0.9807692307692307,
+          "recall": 0.265625
+        },
+        {
+          "threshold": 0.9500000000000004,
+          "suggestions": 49,
+          "correct": 48,
+          "incorrect": 1,
+          "precision": 0.9795918367346939,
+          "recall": 0.25
+        },
+        {
+          "threshold": 0.9550000000000004,
+          "suggestions": 41,
+          "correct": 41,
+          "incorrect": 0,
+          "precision": 1.0,
+          "recall": 0.21354166666666666
+        },
+        {
+          "threshold": 0.9600000000000004,
+          "suggestions": 35,
+          "correct": 35,
+          "incorrect": 0,
+          "precision": 1.0,
+          "recall": 0.18229166666666666
+        },
+        {
+          "threshold": 0.9650000000000004,
+          "suggestions": 34,
+          "correct": 34,
+          "incorrect": 0,
+          "precision": 1.0,
+          "recall": 0.17708333333333334
+        },
+        {
+          "threshold": 0.9700000000000004,
+          "suggestions": 30,
+          "correct": 30,
+          "incorrect": 0,
+          "precision": 1.0,
+          "recall": 0.15625
+        },
+        {
+          "threshold": 0.9750000000000004,
+          "suggestions": 24,
+          "correct": 24,
+          "incorrect": 0,
+          "precision": 1.0,
+          "recall": 0.125
+        },
+        {
+          "threshold": 0.9800000000000004,
+          "suggestions": 18,
+          "correct": 18,
+          "incorrect": 0,
+          "precision": 1.0,
+          "recall": 0.09375
+        },
+        {
+          "threshold": 0.9850000000000004,
+          "suggestions": 14,
+          "correct": 14,
+          "incorrect": 0,
+          "precision": 1.0,
+          "recall": 0.07291666666666667
+        },
+        {
+          "threshold": 0.9900000000000004,
+          "suggestions": 5,
+          "correct": 5,
+          "incorrect": 0,
+          "precision": 1.0,
+          "recall": 0.026041666666666668
+        },
+        {
+          "threshold": 0.9950000000000004,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "precision": null,
+          "recall": 0.0
+        }
+      ],
+      "threshold": 0.6300000000000001,
+      "testSuggestions": 97,
+      "testCorrect": 96,
+      "testIncorrect": 1,
+      "testSuggestionPrecision": 0.9896907216494846,
+      "testRecall": 0.75,
+      "testEasternCount": 128,
+      "testOtherCount": 170,
+      "candidateForBrowserTrial": true
+    },
+    "life_stage": {
+      "train": 345,
+      "validation": 162,
+      "test": 94,
+      "C": 10,
+      "classes": [
+        "adult",
+        "juvenile"
+      ],
+      "testAccuracy": 0.8617021276595744,
+      "confusionMatrix": [
+        [
+          50,
+          7
+        ],
+        [
+          6,
+          31
+        ]
+      ],
+      "classificationReport": {
+        "adult": {
+          "precision": 0.8928571428571429,
+          "recall": 0.8771929824561403,
+          "f1-score": 0.8849557522123894,
+          "support": 57.0
+        },
+        "juvenile": {
+          "precision": 0.8157894736842105,
+          "recall": 0.8378378378378378,
+          "f1-score": 0.8266666666666667,
+          "support": 37.0
+        },
+        "accuracy": 0.8617021276595744,
+        "macro avg": {
+          "precision": 0.8543233082706767,
+          "recall": 0.8575154101469891,
+          "f1-score": 0.855811209439528,
+          "support": 94.0
+        },
+        "weighted avg": {
+          "precision": 0.8625219964805632,
+          "recall": 0.8617021276595744,
+          "f1-score": 0.8620121759869452,
+          "support": 94.0
+        }
+      },
+      "deploymentApproved": false,
+      "blockedReason": "Community annotations do not verify visible diagnostic evidence; expert review is required."
+    },
+    "sex": {
+      "train": 210,
+      "validation": 107,
+      "test": 47,
+      "C": 1,
+      "classes": [
+        "female",
+        "male"
+      ],
+      "testAccuracy": 0.7446808510638298,
+      "confusionMatrix": [
+        [
+          12,
+          4
+        ],
+        [
+          8,
+          23
+        ]
+      ],
+      "classificationReport": {
+        "female": {
+          "precision": 0.6,
+          "recall": 0.75,
+          "f1-score": 0.6666666666666666,
+          "support": 16.0
+        },
+        "male": {
+          "precision": 0.8518518518518519,
+          "recall": 0.7419354838709677,
+          "f1-score": 0.7931034482758621,
+          "support": 31.0
+        },
+        "accuracy": 0.7446808510638298,
+        "macro avg": {
+          "precision": 0.7259259259259259,
+          "recall": 0.7459677419354839,
+          "f1-score": 0.7298850574712643,
+          "support": 47.0
+        },
+        "weighted avg": {
+          "precision": 0.7661150512214342,
+          "recall": 0.7446808510638298,
+          "f1-score": 0.7500611396429445,
+          "support": 47.0
+        }
+      },
+      "deploymentApproved": false,
+      "blockedReason": "Community annotations do not verify visible diagnostic evidence; expert review is required."
+    }
+  }
+}

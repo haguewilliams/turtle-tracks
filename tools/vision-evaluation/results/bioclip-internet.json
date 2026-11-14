@@ -1,0 +1,642 @@
+{
+  "model": "imageomics/bioclip",
+  "export": "jsteinshouer/trail-bingo-bioclip-onnx",
+  "revision": "25d50dd481d6a748ce78c8bc513a420bf7d3d279",
+  "runtime": "ONNX Runtime 1.21.0 CPU, fp16 stored weights/fp32 computation",
+  "scope": "Ten original internet photos, fixed 28 candidate labels, no confidence calibration, no phone verification; pretraining overlap unknown",
+  "labels": [
+    [
+      "eastern",
+      "Eastern box turtle",
+      "Terrapene carolina carolina"
+    ],
+    [
+      "ornate",
+      "Ornate box turtle",
+      "Terrapene ornata"
+    ],
+    [
+      "three-toed",
+      "Three-toed box turtle",
+      "Terrapene triunguis"
+    ],
+    [
+      "florida",
+      "Florida box turtle",
+      "Terrapene carolina bauri"
+    ],
+    [
+      "gulf",
+      "Gulf Coast box turtle",
+      "Terrapene carolina major"
+    ],
+    [
+      "red-eared",
+      "Red-eared slider",
+      "Trachemys scripta elegans"
+    ],
+    [
+      "yellow-bellied",
+      "Yellow-bellied slider",
+      "Trachemys scripta scripta"
+    ],
+    [
+      "dorbigni",
+      "DOrbignys slider",
+      "Trachemys dorbigni"
+    ],
+    [
+      "painted",
+      "Painted turtle",
+      "Chrysemys picta"
+    ],
+    [
+      "spotted",
+      "Spotted turtle",
+      "Clemmys guttata"
+    ],
+    [
+      "wood",
+      "Wood turtle",
+      "Glyptemys insculpta"
+    ],
+    [
+      "bog",
+      "Bog turtle",
+      "Glyptemys muhlenbergii"
+    ],
+    [
+      "musk",
+      "Common musk turtle",
+      "Sternotherus odoratus"
+    ],
+    [
+      "mud",
+      "Eastern mud turtle",
+      "Kinosternon subrubrum"
+    ],
+    [
+      "snapping",
+      "Common snapping turtle",
+      "Chelydra serpentina"
+    ],
+    [
+      "map",
+      "Northern map turtle",
+      "Graptemys geographica"
+    ],
+    [
+      "softshell",
+      "Spiny softshell turtle",
+      "Apalone spinifera"
+    ],
+    [
+      "terrapin",
+      "Diamondback terrapin",
+      "Malaclemys terrapin"
+    ],
+    [
+      "tortoise",
+      "Gopher tortoise",
+      "Gopherus polyphemus"
+    ],
+    [
+      "frog",
+      "Variable poison frog",
+      "Ranitomeya variabilis"
+    ],
+    [
+      "toad",
+      "Cane toad",
+      "Rhinella marina"
+    ],
+    [
+      "bullfrog",
+      "American bullfrog",
+      "Lithobates catesbeianus"
+    ],
+    [
+      "lizard",
+      "Green anole",
+      "Anolis carolinensis"
+    ],
+    [
+      "snake",
+      "Eastern garter snake",
+      "Thamnophis sirtalis"
+    ],
+    [
+      "dog",
+      "Domestic dog",
+      "Canis lupus familiaris"
+    ],
+    [
+      "cat",
+      "Domestic cat",
+      "Felis catus"
+    ],
+    [
+      "leaf",
+      "A green leaf",
+      "plant leaf"
+    ],
+    [
+      "rock",
+      "A rock",
+      "stone"
+    ]
+  ],
+  "cases": [
+    {
+      "id": "adult-male-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "seconds": 0.18827536599999986,
+      "top": [
+        {
+          "id": "eastern",
+          "common": "Eastern box turtle",
+          "scientific": "Terrapene carolina carolina",
+          "cosine": 0.3281952154864284,
+          "relativeScore": 0.8484521451104393
+        },
+        {
+          "id": "spotted",
+          "common": "Spotted turtle",
+          "scientific": "Clemmys guttata",
+          "cosine": 0.3053752690670885,
+          "relativeScore": 0.08661031052391262
+        },
+        {
+          "id": "florida",
+          "common": "Florida box turtle",
+          "scientific": "Terrapene carolina bauri",
+          "cosine": 0.30036704763353406,
+          "relativeScore": 0.05248863584564967
+        },
+        {
+          "id": "gulf",
+          "common": "Gulf Coast box turtle",
+          "scientific": "Terrapene carolina major",
+          "cosine": 0.2752105323501143,
+          "relativeScore": 0.00424161870235958
+        },
+        {
+          "id": "tortoise",
+          "common": "Gopher tortoise",
+          "scientific": "Gopherus polyphemus",
+          "cosine": 0.2737603428920989,
+          "relativeScore": 0.0036690251825399383
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "adult-female-1",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "seconds": 0.14476906099999998,
+      "top": [
+        {
+          "id": "eastern",
+          "common": "Eastern box turtle",
+          "scientific": "Terrapene carolina carolina",
+          "cosine": 0.32771871922701773,
+          "relativeScore": 0.5986200726285567
+        },
+        {
+          "id": "gulf",
+          "common": "Gulf Coast box turtle",
+          "scientific": "Terrapene carolina major",
+          "cosine": 0.3149122399486769,
+          "relativeScore": 0.166330887395854
+        },
+        {
+          "id": "florida",
+          "common": "Florida box turtle",
+          "scientific": "Terrapene carolina bauri",
+          "cosine": 0.3106507322020311,
+          "relativeScore": 0.10861703929337307
+        },
+        {
+          "id": "ornate",
+          "common": "Ornate box turtle",
+          "scientific": "Terrapene ornata",
+          "cosine": 0.3050767075340908,
+          "relativeScore": 0.062204403026214564
+        },
+        {
+          "id": "spotted",
+          "common": "Spotted turtle",
+          "scientific": "Clemmys guttata",
+          "cosine": 0.30092041842667117,
+          "relativeScore": 0.0410502465918757
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "adult-male-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "male"
+      },
+      "seconds": 0.14557935799999996,
+      "top": [
+        {
+          "id": "spotted",
+          "common": "Spotted turtle",
+          "scientific": "Clemmys guttata",
+          "cosine": 0.33353276141639054,
+          "relativeScore": 0.42057968044892796
+        },
+        {
+          "id": "eastern",
+          "common": "Eastern box turtle",
+          "scientific": "Terrapene carolina carolina",
+          "cosine": 0.328461358587128,
+          "relativeScore": 0.25327950192104437
+        },
+        {
+          "id": "wood",
+          "common": "Wood turtle",
+          "scientific": "Glyptemys insculpta",
+          "cosine": 0.321784502865546,
+          "relativeScore": 0.12990559658153897
+        },
+        {
+          "id": "bog",
+          "common": "Bog turtle",
+          "scientific": "Glyptemys muhlenbergii",
+          "cosine": 0.31897257113917593,
+          "relativeScore": 0.09806345924554193
+        },
+        {
+          "id": "florida",
+          "common": "Florida box turtle",
+          "scientific": "Terrapene carolina bauri",
+          "cosine": 0.3147416455188709,
+          "relativeScore": 0.06423332892465301
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "adult-female-2",
+      "source": "https://theturtleroom.org/learn/photo-galleries/species-galleries/terrapene-carolina-carolina-gallery/",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "adult",
+        "sex": "female"
+      },
+      "seconds": 0.1586573619999999,
+      "top": [
+        {
+          "id": "eastern",
+          "common": "Eastern box turtle",
+          "scientific": "Terrapene carolina carolina",
+          "cosine": 0.33616694080179216,
+          "relativeScore": 0.6725883775263337
+        },
+        {
+          "id": "florida",
+          "common": "Florida box turtle",
+          "scientific": "Terrapene carolina bauri",
+          "cosine": 0.3218030917699401,
+          "relativeScore": 0.1599319650659361
+        },
+        {
+          "id": "gulf",
+          "common": "Gulf Coast box turtle",
+          "scientific": "Terrapene carolina major",
+          "cosine": 0.3183689978452,
+          "relativeScore": 0.11344737667663596
+        },
+        {
+          "id": "ornate",
+          "common": "Ornate box turtle",
+          "scientific": "Terrapene ornata",
+          "cosine": 0.3082458429854298,
+          "relativeScore": 0.04122412010854239
+        },
+        {
+          "id": "wood",
+          "common": "Wood turtle",
+          "scientific": "Glyptemys insculpta",
+          "cosine": 0.2881840746119524,
+          "relativeScore": 0.005544722276598073
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "nps-juvenile",
+      "source": "https://npgallery.nps.gov/AssetDetail/D6E68312-1DD8-B71C-07A2AD941DC30161",
+      "reference": {
+        "species": "Eastern box turtle",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "seconds": 0.20069854699999995,
+      "top": [
+        {
+          "id": "spotted",
+          "common": "Spotted turtle",
+          "scientific": "Clemmys guttata",
+          "cosine": 0.35509197755045435,
+          "relativeScore": 0.8962919469182632
+        },
+        {
+          "id": "wood",
+          "common": "Wood turtle",
+          "scientific": "Glyptemys insculpta",
+          "cosine": 0.33026720100399554,
+          "relativeScore": 0.0748726259788053
+        },
+        {
+          "id": "eastern",
+          "common": "Eastern box turtle",
+          "scientific": "Terrapene carolina carolina",
+          "cosine": 0.31242588703048785,
+          "relativeScore": 0.012574322225991618
+        },
+        {
+          "id": "florida",
+          "common": "Florida box turtle",
+          "scientific": "Terrapene carolina bauri",
+          "cosine": 0.30913857445808207,
+          "relativeScore": 0.009051455139511186
+        },
+        {
+          "id": "bog",
+          "common": "Bog turtle",
+          "scientific": "Glyptemys muhlenbergii",
+          "cosine": 0.30178039242509314,
+          "relativeScore": 0.004336672175925003
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "inat-juvenile",
+      "source": "https://www.inaturalist.org/observations/406056779",
+      "reference": {
+        "species": "Terrapene carolina carolina",
+        "stage": "juvenile",
+        "sex": "unknown"
+      },
+      "seconds": 0.24476233099999992,
+      "top": [
+        {
+          "id": "eastern",
+          "common": "Eastern box turtle",
+          "scientific": "Terrapene carolina carolina",
+          "cosine": 0.3314183469982632,
+          "relativeScore": 0.5167369713486284
+        },
+        {
+          "id": "florida",
+          "common": "Florida box turtle",
+          "scientific": "Terrapene carolina bauri",
+          "cosine": 0.3280155220394021,
+          "relativeScore": 0.36769414457531
+        },
+        {
+          "id": "gulf",
+          "common": "Gulf Coast box turtle",
+          "scientific": "Terrapene carolina major",
+          "cosine": 0.31484180801092887,
+          "relativeScore": 0.0984826076359635
+        },
+        {
+          "id": "yellow-bellied",
+          "common": "Yellow-bellied slider",
+          "scientific": "Trachemys scripta scripta",
+          "cosine": 0.2850763578604571,
+          "relativeScore": 0.005019522041047487
+        },
+        {
+          "id": "ornate",
+          "common": "Ornate box turtle",
+          "scientific": "Terrapene ornata",
+          "cosine": 0.2846295258099071,
+          "relativeScore": 0.004800170843901911
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "ornate",
+      "source": "https://www.inaturalist.org/observations/403702824",
+      "reference": {
+        "species": "Terrapene ornata",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "seconds": 0.2220632800000003,
+      "top": [
+        {
+          "id": "ornate",
+          "common": "Ornate box turtle",
+          "scientific": "Terrapene ornata",
+          "cosine": 0.35981128254797534,
+          "relativeScore": 0.927796286776299
+        },
+        {
+          "id": "eastern",
+          "common": "Eastern box turtle",
+          "scientific": "Terrapene carolina carolina",
+          "cosine": 0.3277857942857984,
+          "relativeScore": 0.03772274090306721
+        },
+        {
+          "id": "gulf",
+          "common": "Gulf Coast box turtle",
+          "scientific": "Terrapene carolina major",
+          "cosine": 0.3229487344632812,
+          "relativeScore": 0.023255859003102734
+        },
+        {
+          "id": "florida",
+          "common": "Florida box turtle",
+          "scientific": "Terrapene carolina bauri",
+          "cosine": 0.3136935125362904,
+          "relativeScore": 0.009216863885250212
+        },
+        {
+          "id": "three-toed",
+          "common": "Three-toed box turtle",
+          "scientific": "Terrapene triunguis",
+          "cosine": 0.29475665488621383,
+          "relativeScore": 0.0013872854549576135
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "other-turtle",
+      "source": "https://www.inaturalist.org/observations/414394476",
+      "reference": {
+        "species": "Trachemys dorbigni",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "seconds": 0.14814769199999955,
+      "top": [
+        {
+          "id": "dorbigni",
+          "common": "DOrbignys slider",
+          "scientific": "Trachemys dorbigni",
+          "cosine": 0.34751681898139175,
+          "relativeScore": 0.7339987714798939
+        },
+        {
+          "id": "red-eared",
+          "common": "Red-eared slider",
+          "scientific": "Trachemys scripta elegans",
+          "cosine": 0.33613626831429994,
+          "relativeScore": 0.23520375977722893
+        },
+        {
+          "id": "yellow-bellied",
+          "common": "Yellow-bellied slider",
+          "scientific": "Trachemys scripta scripta",
+          "cosine": 0.3106902211045492,
+          "relativeScore": 0.018464450451492066
+        },
+        {
+          "id": "painted",
+          "common": "Painted turtle",
+          "scientific": "Chrysemys picta",
+          "cosine": 0.30636764471965106,
+          "relativeScore": 0.011984205982615794
+        },
+        {
+          "id": "bog",
+          "common": "Bog turtle",
+          "scientific": "Glyptemys muhlenbergii",
+          "cosine": 0.2660633318876451,
+          "relativeScore": 0.00021291931753758685
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "frog",
+      "source": "https://www.inaturalist.org/observations/414755544",
+      "reference": {
+        "species": "Ranitomeya variabilis",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "seconds": 0.19417164800000045,
+      "top": [
+        {
+          "id": "lizard",
+          "common": "Green anole",
+          "scientific": "Anolis carolinensis",
+          "cosine": 0.19253752438089922,
+          "relativeScore": 0.4795003881191808
+        },
+        {
+          "id": "yellow-bellied",
+          "common": "Yellow-bellied slider",
+          "scientific": "Trachemys scripta scripta",
+          "cosine": 0.18572793894021428,
+          "relativeScore": 0.24269029097922049
+        },
+        {
+          "id": "red-eared",
+          "common": "Red-eared slider",
+          "scientific": "Trachemys scripta elegans",
+          "cosine": 0.1794251046194943,
+          "relativeScore": 0.1292182231645439
+        },
+        {
+          "id": "toad",
+          "common": "Cane toad",
+          "scientific": "Rhinella marina",
+          "cosine": 0.17821523158543126,
+          "relativeScore": 0.11449318652945152
+        },
+        {
+          "id": "frog",
+          "common": "Variable poison frog",
+          "scientific": "Ranitomeya variabilis",
+          "cosine": 0.16274469582224071,
+          "relativeScore": 0.024372650453358503
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    },
+    {
+      "id": "other-animal",
+      "source": "https://www.inaturalist.org/observations/414755536",
+      "reference": {
+        "species": "Rhinella marina",
+        "stage": "unknown",
+        "sex": "unknown"
+      },
+      "seconds": 0.16736233300000003,
+      "top": [
+        {
+          "id": "toad",
+          "common": "Cane toad",
+          "scientific": "Rhinella marina",
+          "cosine": 0.3620721901159963,
+          "relativeScore": 0.9999971747455472
+        },
+        {
+          "id": "three-toed",
+          "common": "Three-toed box turtle",
+          "scientific": "Terrapene triunguis",
+          "cosine": 0.23006473157761365,
+          "relativeScore": 1.8492143472562837e-06
+        },
+        {
+          "id": "tortoise",
+          "common": "Gopher tortoise",
+          "scientific": "Gopherus polyphemus",
+          "cosine": 0.21803004748069352,
+          "relativeScore": 5.550441439340718e-07
+        },
+        {
+          "id": "florida",
+          "common": "Florida box turtle",
+          "scientific": "Terrapene carolina bauri",
+          "cosine": 0.20728777346893762,
+          "relativeScore": 1.8958171893834002e-07
+        },
+        {
+          "id": "bullfrog",
+          "common": "American bullfrog",
+          "scientific": "Lithobates catesbeianus",
+          "cosine": 0.19920281522302513,
+          "relativeScore": 8.446390470057882e-08
+        }
+      ],
+      "sex": "not evaluated",
+      "lifeStage": "not evaluated"
+    }
+  ],
+  "evaluatedAt": "2026-11-14"
+}
