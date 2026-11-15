@@ -1,0 +1,35 @@
+name: Build pinned photo model assets
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/build-photo-model.yml
+      - tools/vision-evaluation/build-browser-assets.py
+      - tools/vision-evaluation/quantize-bioclip.py
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: photo-model-build
+  cancel-in-progress: false
+jobs:
+  assets:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install pinned model tools
+        run: |
+          python3 -m pip install onnx==1.17.0 onnxruntime==1.21.0 requests==2.32.3 numpy==2.3.5 protobuf==7.36.2
+          npm install --ignore-scripts --no-save --prefix /tmp/turtle-photo-runtime onnxruntime-web@1.21.0
+      - name: Build and verify model bytes
+        run: python3 tools/vision-evaluation/build-browser-assets.py /tmp/turtle-photo-runtime
+      - name: Commit reproducible assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add models/eastern-box-v2/image-encoder-q8.onnx assets/onnx-runtime/ort.min.js assets/onnx-runtime/ort-wasm-simd-threaded.mjs assets/onnx-runtime/ort-wasm-simd-threaded.wasm
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Build verified BioCLIP browser assets'
+          git pull --rebase origin main
+          git push origin HEAD:main
