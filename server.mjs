@@ -7,7 +7,9 @@ import {createINaturalist} from './inaturalist-service.mjs';
 
 const root=new URL('./',import.meta.url);
 const publicFiles=new Map([['/','index.html'],['/index.html','index.html'],['/journal-core.js','journal-core.js'],['/citizen-science.js','citizen-science.js'],['/photo-analysis.js','photo-analysis.js'],['/photo-analysis-core.js','photo-analysis-core.js'],['/app-config.js','app-config.js'],['/material-theme.css','material-theme.css']]);
-for(const file of ['on-device-photo.js','on-device-worker.js','on-device-core.js','model-manifest.json',
+for(const file of ['on-device-photo.js','on-device-worker.js','on-device-core.js','model-manifest.json','bioclip-worker.js','photo-preprocess.js',
+ 'assets/onnx-runtime/ort.min.js','assets/onnx-runtime/ort-wasm-simd-threaded.mjs','assets/onnx-runtime/ort-wasm-simd-threaded.wasm','assets/onnx-runtime/LICENSE',
+ 'models/eastern-box-v2/classifier.json','models/eastern-box-v2/image-encoder-q8.onnx',
  'assets/ml-runtime/tf.min.js','assets/ml-runtime/tf-backend-wasm.min.js','assets/ml-runtime/mobilenet.min.js',
  'assets/ml-runtime/tfjs-backend-wasm.wasm','assets/ml-runtime/tfjs-backend-wasm-simd.wasm','assets/ml-runtime/tfjs-backend-wasm-threaded-simd.wasm',
  'assets/ml-runtime/LICENSE','models/eastern-box-v1/classifier.json','models/eastern-box-v1/backbone/model.json',
@@ -75,7 +77,7 @@ export function createServer({apiKey=process.env.OPENAI_API_KEY,model=process.en
       if(path.startsWith('/api/'))return json(res,404,{error:'Unknown API endpoint.'});
       if(!['GET','HEAD'].includes(req.method))return json(res,405,{error:'Method not allowed.'});
       const file=publicFiles.get(path);if(!file)return json(res,404,{error:'Not found.'});
-      const mime=file.endsWith('.html')?'text/html; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':file.endsWith('.json')?'application/json':file.endsWith('.wasm')?'application/wasm':file.endsWith('.bin')?'application/octet-stream':file.endsWith('/LICENSE')?'text/plain':'text/javascript; charset=utf-8';
+      const mime=file.endsWith('.html')?'text/html; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':file.endsWith('.json')?'application/json':file.endsWith('.wasm')?'application/wasm':file.endsWith('.bin')||file.endsWith('.onnx')?'application/octet-stream':file.endsWith('/LICENSE')?'text/plain':'text/javascript; charset=utf-8';
       const content=await readFile(new URL(file,root));res.writeHead(200,{'Content-Type':mime,...headers});res.end(req.method==='HEAD'?undefined:content);
     }catch{if(!res.headersSent)json(res,500,{error:'The request could not be completed.'});else res.end()}
   });

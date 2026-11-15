@@ -118,3 +118,7 @@ Model references:
 - [SmolVLM 500M](https://huggingface.co/HuggingFaceTB/SmolVLM-500M-Instruct)
 - [Qwen ONNX export](https://huggingface.co/onnx-community/Qwen3.5-0.8B-ONNX-OPT)
 - [BioCLIP](https://huggingface.co/imageomics/bioclip) and its [ONNX export](https://huggingface.co/jsteinshouer/trail-bingo-bioclip-onnx)
+
+## Browser conversion and adult-only trial
+
+The subsequent Q8 browser conversion and additional stage check are documented in [the current model card](../../models/eastern-box-v2/README.md). Reproduce with `restore-cohorts.py`, `quantize-bioclip.py`, `evaluate-browser-candidate.mjs`, `fresh-stage-check.py`, `evaluate-browser-candidate.mjs --fresh-stage`, and `summarize-browser-candidate.py`. The fresh collector is time/query-dependent; `results/fresh-stage-sources.json` preserves the exact evaluated source photos and checksums. The full adult/juvenile and male/female heads still fail their validation gates; only a separately evaluated adult-only output is enabled.

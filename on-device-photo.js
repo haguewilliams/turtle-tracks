@@ -5,7 +5,7 @@
  function abortError(){return new DOMException('Photo analysis cancelled.','AbortError');}
  function ensureWorker(){
   if(worker)return;
-  worker=new Worker('on-device-worker.js?v=20261114-detection-2');
+  worker=new Worker('bioclip-worker.js?v=20261114-bioclip-1');
   worker.onmessage=event=>{
    const msg=event.data,job=active;if(!job||msg.id!==job.id)return;
    if(msg.type==='progress'){job.onProgress?.(msg.message);return;}
@@ -31,7 +31,7 @@
   canvas.width=canvas.height=0;
   ensureWorker();
   return new Promise((resolve,reject)=>{
-   const id=++serial,abort=()=>stop(abortError()),timer=setTimeout(()=>stop(Error('The photo check took too long on this device. You can still save your sighting.')),90000);
+   const id=++serial,abort=()=>stop(abortError()),timer=setTimeout(()=>stop(Error('The photo check took too long on this device. You can still save your sighting.')),180000);
    active={id,resolve,reject,onProgress,cleanup:()=>{clearTimeout(timer);signal?.removeEventListener('abort',abort);}};
    signal?.addEventListener('abort',abort,{once:true});
    if(signal?.aborted){abort();return;}

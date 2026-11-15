@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "enabled": true,
-  "release": "experimental-species-trial-2026-11-14-detection-2",
+  "release": "experimental-bioclip-q8-2026-11-14",
   "species": "experimental",
   "sex": "unavailable",
-  "lifeStage": "unavailable"
+  "lifeStage": "experimental-adult-only",
+  "downloadBytes": 103000000
 }

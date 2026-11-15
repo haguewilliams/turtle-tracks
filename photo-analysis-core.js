@@ -24,6 +24,13 @@
       lifeStage:{value:choice(input.lifeStage?.value,['hatchling','juvenile','adult','unknown']),confidence:choice(input.lifeStage?.confidence,confidence)},
       evidence:input.evidence.map(e=>{if(typeof e.supportsSex!=='boolean')throw Error('Invalid photo evidence.');return{feature:choice(e.feature,['shell','head','eye_colour','plastron','tail','body_proportions','other']),description:text(e.description),supportsSex:e.supportsSex}}),
       limitations:input.limitations.map(x=>text(x)),photoAdvice:text(input.photoAdvice)};
+    // Preserve capability metadata in saved/imported on-device suggestions.
+    // An unavailable feature must never be mistaken for a failed photograph.
+    if(input.capabilities){
+      result.capabilities={species:choice(input.capabilities.species,['experimental']),sex:choice(input.capabilities.sex,['experimental','unavailable']),lifeStage:choice(input.capabilities.lifeStage,['experimental','adult-only','unavailable'])};
+      if(result.capabilities.sex==='unavailable')result.sex={value:'unknown',confidence:'unknown'};
+      if(result.capabilities.lifeStage==='unavailable'||(result.capabilities.lifeStage==='adult-only'&&result.lifeStage.value!=='adult'))result.lifeStage={value:'unknown',confidence:'unknown'};
+    }
     // A sex label requires an adult and at least two distinct visible, diagnostic features.
     const diagnostic=new Set(result.evidence.filter(e=>e.supportsSex&&['eye_colour','plastron','tail'].includes(e.feature)).map(e=>e.feature));
     if(!result.turtlePresent||result.imageQuality==='unusable'){

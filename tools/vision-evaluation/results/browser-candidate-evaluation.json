@@ -1,0 +1,2419 @@
+{
+  "scope": "Previously used comparison cohorts, not new independent validation. Community labels do not validate visible sex/stage evidence. Thresholds selected only on original validation partition.",
+  "photos": 809,
+  "quantization": {
+    "sourceSHA256": "5758de50beec26ac65a4fbd9cdcafe09a968bd2ba0183898c63f0ecfa0687bc3",
+    "sha256": "9f0d0230172ad7f1d5696f7445bf7cd247ce0e35ad517645192c2b380ce2d112",
+    "bytes": 89646093,
+    "onnxruntime": "1.21.0",
+    "method": "Fold fp16 constant casts, ORT basic preprocessing, dynamic per-channel uint8 MatMul/Gemm",
+    "operators": {
+      "Conv": 1,
+      "Reshape": 110,
+      "Shape": 62,
+      "Transpose": 97,
+      "Gather": 111,
+      "Unsqueeze": 121,
+      "Concat": 98,
+      "Equal": 1,
+      "Where": 1,
+      "Expand": 2,
+      "Add": 85,
+      "LayerNormalization": 26,
+      "DynamicQuantizeLinear": 49,
+      "Slice": 48,
+      "Mul": 170,
+      "MatMulInteger": 49,
+      "Div": 37,
+      "Squeeze": 24,
+      "Cast": 61,
+      "Sqrt": 24,
+      "MatMul": 24,
+      "Softmax": 12,
+      "Erf": 12,
+      "ReduceL2": 1,
+      "Clip": 1
+    }
+  },
+  "species": {
+    "fp16": {
+      "validation": {
+        "photos": 329,
+        "suggestions": 158,
+        "correct": 154,
+        "incorrect": 4,
+        "abstentions": 171,
+        "precision": 0.9746835443037974,
+        "eastern": 192,
+        "recall": 0.8020833333333334,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 158,
+            "correct": 154
+          },
+          "other": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_box_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          }
+        }
+      },
+      "test": {
+        "photos": 298,
+        "suggestions": 98,
+        "correct": 97,
+        "incorrect": 1,
+        "abstentions": 200,
+        "precision": 0.9897959183673469,
+        "eastern": 128,
+        "recall": 0.7578125,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 98,
+            "correct": 97
+          },
+          "other": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_box_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          }
+        }
+      },
+      "additional": {
+        "photos": 143,
+        "suggestions": 42,
+        "correct": 41,
+        "incorrect": 1,
+        "abstentions": 101,
+        "precision": 0.9761904761904762,
+        "eastern": 53,
+        "recall": 0.7735849056603774,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 42,
+            "correct": 41
+          },
+          "other": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_box_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          }
+        }
+      },
+      "internet": {
+        "photos": 10,
+        "suggestions": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "abstentions": 5,
+        "precision": 1.0,
+        "eastern": 6,
+        "recall": 0.8333333333333334,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 5,
+            "correct": 5
+          },
+          "other": {
+            "suggestions": 0,
+            "correct": 0
+          }
+        }
+      },
+      "freshStage": {
+        "photos": 29,
+        "suggestions": 22,
+        "correct": 22,
+        "incorrect": 0,
+        "abstentions": 7,
+        "precision": 1.0,
+        "eastern": 29,
+        "recall": 0.7586206896551724,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 22,
+            "correct": 22
+          }
+        }
+      }
+    },
+    "q8": {
+      "validation": {
+        "photos": 329,
+        "suggestions": 154,
+        "correct": 150,
+        "incorrect": 4,
+        "abstentions": 175,
+        "precision": 0.974025974025974,
+        "eastern": 192,
+        "recall": 0.78125,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 154,
+            "correct": 150
+          },
+          "other": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_box_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          }
+        }
+      },
+      "test": {
+        "photos": 298,
+        "suggestions": 94,
+        "correct": 92,
+        "incorrect": 2,
+        "abstentions": 204,
+        "precision": 0.9787234042553191,
+        "eastern": 128,
+        "recall": 0.71875,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 94,
+            "correct": 92
+          },
+          "other": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_box_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          }
+        }
+      },
+      "additional": {
+        "photos": 143,
+        "suggestions": 42,
+        "correct": 40,
+        "incorrect": 2,
+        "abstentions": 101,
+        "precision": 0.9523809523809523,
+        "eastern": 53,
+        "recall": 0.7547169811320755,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 42,
+            "correct": 40
+          },
+          "other": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_box_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          },
+          "other_turtle": {
+            "suggestions": 0,
+            "correct": 0
+          }
+        }
+      },
+      "internet": {
+        "photos": 10,
+        "suggestions": 5,
+        "correct": 5,
+        "incorrect": 0,
+        "abstentions": 5,
+        "precision": 1.0,
+        "eastern": 6,
+        "recall": 0.8333333333333334,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 5,
+            "correct": 5
+          },
+          "other": {
+            "suggestions": 0,
+            "correct": 0
+          }
+        }
+      },
+      "freshStage": {
+        "photos": 29,
+        "suggestions": 21,
+        "correct": 21,
+        "incorrect": 0,
+        "abstentions": 8,
+        "precision": 1.0,
+        "eastern": 29,
+        "recall": 0.7241379310344828,
+        "byLabel": {
+          "eastern": {
+            "suggestions": 21,
+            "correct": 21
+          }
+        }
+      }
+    }
+  },
+  "exploratory": {
+    "life_stage": {
+      "selectedThreshold": 1.0,
+      "validationPassed": false,
+      "deploymentApproved": false,
+      "validationThresholds": [
+        {
+          "threshold": 0.5,
+          "photos": 162,
+          "suggestions": 122,
+          "correct": 104,
+          "incorrect": 18,
+          "abstentions": 40,
+          "precision": 0.8524590163934426,
+          "byLabel": {
+            "adult": {
+              "suggestions": 94,
+              "correct": 89
+            },
+            "juvenile": {
+              "suggestions": 28,
+              "correct": 15
+            }
+          }
+        },
+        {
+          "threshold": 0.51,
+          "photos": 162,
+          "suggestions": 120,
+          "correct": 104,
+          "incorrect": 16,
+          "abstentions": 42,
+          "precision": 0.8666666666666667,
+          "byLabel": {
+            "adult": {
+              "suggestions": 94,
+              "correct": 89
+            },
+            "juvenile": {
+              "suggestions": 26,
+              "correct": 15
+            }
+          }
+        },
+        {
+          "threshold": 0.52,
+          "photos": 162,
+          "suggestions": 120,
+          "correct": 104,
+          "incorrect": 16,
+          "abstentions": 42,
+          "precision": 0.8666666666666667,
+          "byLabel": {
+            "adult": {
+              "suggestions": 94,
+              "correct": 89
+            },
+            "juvenile": {
+              "suggestions": 26,
+              "correct": 15
+            }
+          }
+        },
+        {
+          "threshold": 0.53,
+          "photos": 162,
+          "suggestions": 117,
+          "correct": 102,
+          "incorrect": 15,
+          "abstentions": 45,
+          "precision": 0.8717948717948718,
+          "byLabel": {
+            "adult": {
+              "suggestions": 92,
+              "correct": 87
+            },
+            "juvenile": {
+              "suggestions": 25,
+              "correct": 15
+            }
+          }
+        },
+        {
+          "threshold": 0.54,
+          "photos": 162,
+          "suggestions": 113,
+          "correct": 98,
+          "incorrect": 15,
+          "abstentions": 49,
+          "precision": 0.8672566371681416,
+          "byLabel": {
+            "adult": {
+              "suggestions": 90,
+              "correct": 85
+            },
+            "juvenile": {
+              "suggestions": 23,
+              "correct": 13
+            }
+          }
+        },
+        {
+          "threshold": 0.55,
+          "photos": 162,
+          "suggestions": 113,
+          "correct": 98,
+          "incorrect": 15,
+          "abstentions": 49,
+          "precision": 0.8672566371681416,
+          "byLabel": {
+            "adult": {
+              "suggestions": 90,
+              "correct": 85
+            },
+            "juvenile": {
+              "suggestions": 23,
+              "correct": 13
+            }
+          }
+        },
+        {
+          "threshold": 0.56,
+          "photos": 162,
+          "suggestions": 109,
+          "correct": 97,
+          "incorrect": 12,
+          "abstentions": 53,
+          "precision": 0.8899082568807339,
+          "byLabel": {
+            "adult": {
+              "suggestions": 88,
+              "correct": 84
+            },
+            "juvenile": {
+              "suggestions": 21,
+              "correct": 13
+            }
+          }
+        },
+        {
+          "threshold": 0.57,
+          "photos": 162,
+          "suggestions": 107,
+          "correct": 97,
+          "incorrect": 10,
+          "abstentions": 55,
+          "precision": 0.9065420560747663,
+          "byLabel": {
+            "adult": {
+              "suggestions": 88,
+              "correct": 84
+            },
+            "juvenile": {
+              "suggestions": 19,
+              "correct": 13
+            }
+          }
+        },
+        {
+          "threshold": 0.58,
+          "photos": 162,
+          "suggestions": 107,
+          "correct": 97,
+          "incorrect": 10,
+          "abstentions": 55,
+          "precision": 0.9065420560747663,
+          "byLabel": {
+            "adult": {
+              "suggestions": 88,
+              "correct": 84
+            },
+            "juvenile": {
+              "suggestions": 19,
+              "correct": 13
+            }
+          }
+        },
+        {
+          "threshold": 0.59,
+          "photos": 162,
+          "suggestions": 107,
+          "correct": 97,
+          "incorrect": 10,
+          "abstentions": 55,
+          "precision": 0.9065420560747663,
+          "byLabel": {
+            "adult": {
+              "suggestions": 88,
+              "correct": 84
+            },
+            "juvenile": {
+              "suggestions": 19,
+              "correct": 13
+            }
+          }
+        },
+        {
+          "threshold": 0.6,
+          "photos": 162,
+          "suggestions": 106,
+          "correct": 96,
+          "incorrect": 10,
+          "abstentions": 56,
+          "precision": 0.9056603773584906,
+          "byLabel": {
+            "adult": {
+              "suggestions": 87,
+              "correct": 83
+            },
+            "juvenile": {
+              "suggestions": 19,
+              "correct": 13
+            }
+          }
+        },
+        {
+          "threshold": 0.61,
+          "photos": 162,
+          "suggestions": 104,
+          "correct": 94,
+          "incorrect": 10,
+          "abstentions": 58,
+          "precision": 0.9038461538461539,
+          "byLabel": {
+            "adult": {
+              "suggestions": 85,
+              "correct": 81
+            },
+            "juvenile": {
+              "suggestions": 19,
+              "correct": 13
+            }
+          }
+        },
+        {
+          "threshold": 0.62,
+          "photos": 162,
+          "suggestions": 102,
+          "correct": 92,
+          "incorrect": 10,
+          "abstentions": 60,
+          "precision": 0.9019607843137255,
+          "byLabel": {
+            "adult": {
+              "suggestions": 84,
+              "correct": 80
+            },
+            "juvenile": {
+              "suggestions": 18,
+              "correct": 12
+            }
+          }
+        },
+        {
+          "threshold": 0.63,
+          "photos": 162,
+          "suggestions": 97,
+          "correct": 88,
+          "incorrect": 9,
+          "abstentions": 65,
+          "precision": 0.9072164948453608,
+          "byLabel": {
+            "adult": {
+              "suggestions": 80,
+              "correct": 77
+            },
+            "juvenile": {
+              "suggestions": 17,
+              "correct": 11
+            }
+          }
+        },
+        {
+          "threshold": 0.64,
+          "photos": 162,
+          "suggestions": 94,
+          "correct": 86,
+          "incorrect": 8,
+          "abstentions": 68,
+          "precision": 0.9148936170212766,
+          "byLabel": {
+            "adult": {
+              "suggestions": 78,
+              "correct": 75
+            },
+            "juvenile": {
+              "suggestions": 16,
+              "correct": 11
+            }
+          }
+        },
+        {
+          "threshold": 0.65,
+          "photos": 162,
+          "suggestions": 92,
+          "correct": 85,
+          "incorrect": 7,
+          "abstentions": 70,
+          "precision": 0.9239130434782609,
+          "byLabel": {
+            "adult": {
+              "suggestions": 77,
+              "correct": 74
+            },
+            "juvenile": {
+              "suggestions": 15,
+              "correct": 11
+            }
+          }
+        },
+        {
+          "threshold": 0.66,
+          "photos": 162,
+          "suggestions": 90,
+          "correct": 84,
+          "incorrect": 6,
+          "abstentions": 72,
+          "precision": 0.9333333333333333,
+          "byLabel": {
+            "adult": {
+              "suggestions": 76,
+              "correct": 73
+            },
+            "juvenile": {
+              "suggestions": 14,
+              "correct": 11
+            }
+          }
+        },
+        {
+          "threshold": 0.67,
+          "photos": 162,
+          "suggestions": 90,
+          "correct": 84,
+          "incorrect": 6,
+          "abstentions": 72,
+          "precision": 0.9333333333333333,
+          "byLabel": {
+            "adult": {
+              "suggestions": 76,
+              "correct": 73
+            },
+            "juvenile": {
+              "suggestions": 14,
+              "correct": 11
+            }
+          }
+        },
+        {
+          "threshold": 0.68,
+          "photos": 162,
+          "suggestions": 89,
+          "correct": 83,
+          "incorrect": 6,
+          "abstentions": 73,
+          "precision": 0.9325842696629213,
+          "byLabel": {
+            "adult": {
+              "suggestions": 75,
+              "correct": 72
+            },
+            "juvenile": {
+              "suggestions": 14,
+              "correct": 11
+            }
+          }
+        },
+        {
+          "threshold": 0.69,
+          "photos": 162,
+          "suggestions": 88,
+          "correct": 82,
+          "incorrect": 6,
+          "abstentions": 74,
+          "precision": 0.9318181818181818,
+          "byLabel": {
+            "adult": {
+              "suggestions": 74,
+              "correct": 71
+            },
+            "juvenile": {
+              "suggestions": 14,
+              "correct": 11
+            }
+          }
+        },
+        {
+          "threshold": 0.7,
+          "photos": 162,
+          "suggestions": 86,
+          "correct": 80,
+          "incorrect": 6,
+          "abstentions": 76,
+          "precision": 0.9302325581395349,
+          "byLabel": {
+            "adult": {
+              "suggestions": 73,
+              "correct": 70
+            },
+            "juvenile": {
+              "suggestions": 13,
+              "correct": 10
+            }
+          }
+        },
+        {
+          "threshold": 0.71,
+          "photos": 162,
+          "suggestions": 84,
+          "correct": 78,
+          "incorrect": 6,
+          "abstentions": 78,
+          "precision": 0.9285714285714286,
+          "byLabel": {
+            "adult": {
+              "suggestions": 72,
+              "correct": 69
+            },
+            "juvenile": {
+              "suggestions": 12,
+              "correct": 9
+            }
+          }
+        },
+        {
+          "threshold": 0.72,
+          "photos": 162,
+          "suggestions": 81,
+          "correct": 76,
+          "incorrect": 5,
+          "abstentions": 81,
+          "precision": 0.9382716049382716,
+          "byLabel": {
+            "adult": {
+              "suggestions": 69,
+              "correct": 67
+            },
+            "juvenile": {
+              "suggestions": 12,
+              "correct": 9
+            }
+          }
+        },
+        {
+          "threshold": 0.73,
+          "photos": 162,
+          "suggestions": 79,
+          "correct": 74,
+          "incorrect": 5,
+          "abstentions": 83,
+          "precision": 0.9367088607594937,
+          "byLabel": {
+            "adult": {
+              "suggestions": 68,
+              "correct": 66
+            },
+            "juvenile": {
+              "suggestions": 11,
+              "correct": 8
+            }
+          }
+        },
+        {
+          "threshold": 0.74,
+          "photos": 162,
+          "suggestions": 78,
+          "correct": 74,
+          "incorrect": 4,
+          "abstentions": 84,
+          "precision": 0.9487179487179487,
+          "byLabel": {
+            "adult": {
+              "suggestions": 67,
+              "correct": 66
+            },
+            "juvenile": {
+              "suggestions": 11,
+              "correct": 8
+            }
+          }
+        },
+        {
+          "threshold": 0.75,
+          "photos": 162,
+          "suggestions": 75,
+          "correct": 71,
+          "incorrect": 4,
+          "abstentions": 87,
+          "precision": 0.9466666666666667,
+          "byLabel": {
+            "adult": {
+              "suggestions": 64,
+              "correct": 63
+            },
+            "juvenile": {
+              "suggestions": 11,
+              "correct": 8
+            }
+          }
+        },
+        {
+          "threshold": 0.76,
+          "photos": 162,
+          "suggestions": 73,
+          "correct": 69,
+          "incorrect": 4,
+          "abstentions": 89,
+          "precision": 0.9452054794520548,
+          "byLabel": {
+            "adult": {
+              "suggestions": 63,
+              "correct": 62
+            },
+            "juvenile": {
+              "suggestions": 10,
+              "correct": 7
+            }
+          }
+        },
+        {
+          "threshold": 0.77,
+          "photos": 162,
+          "suggestions": 72,
+          "correct": 69,
+          "incorrect": 3,
+          "abstentions": 90,
+          "precision": 0.9583333333333334,
+          "byLabel": {
+            "adult": {
+              "suggestions": 62,
+              "correct": 62
+            },
+            "juvenile": {
+              "suggestions": 10,
+              "correct": 7
+            }
+          }
+        },
+        {
+          "threshold": 0.78,
+          "photos": 162,
+          "suggestions": 72,
+          "correct": 69,
+          "incorrect": 3,
+          "abstentions": 90,
+          "precision": 0.9583333333333334,
+          "byLabel": {
+            "adult": {
+              "suggestions": 62,
+              "correct": 62
+            },
+            "juvenile": {
+              "suggestions": 10,
+              "correct": 7
+            }
+          }
+        },
+        {
+          "threshold": 0.79,
+          "photos": 162,
+          "suggestions": 68,
+          "correct": 65,
+          "incorrect": 3,
+          "abstentions": 94,
+          "precision": 0.9558823529411765,
+          "byLabel": {
+            "adult": {
+              "suggestions": 58,
+              "correct": 58
+            },
+            "juvenile": {
+              "suggestions": 10,
+              "correct": 7
+            }
+          }
+        },
+        {
+          "threshold": 0.8,
+          "photos": 162,
+          "suggestions": 64,
+          "correct": 62,
+          "incorrect": 2,
+          "abstentions": 98,
+          "precision": 0.96875,
+          "byLabel": {
+            "adult": {
+              "suggestions": 56,
+              "correct": 56
+            },
+            "juvenile": {
+              "suggestions": 8,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.81,
+          "photos": 162,
+          "suggestions": 64,
+          "correct": 62,
+          "incorrect": 2,
+          "abstentions": 98,
+          "precision": 0.96875,
+          "byLabel": {
+            "adult": {
+              "suggestions": 56,
+              "correct": 56
+            },
+            "juvenile": {
+              "suggestions": 8,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.82,
+          "photos": 162,
+          "suggestions": 63,
+          "correct": 61,
+          "incorrect": 2,
+          "abstentions": 99,
+          "precision": 0.9682539682539683,
+          "byLabel": {
+            "adult": {
+              "suggestions": 55,
+              "correct": 55
+            },
+            "juvenile": {
+              "suggestions": 8,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.83,
+          "photos": 162,
+          "suggestions": 61,
+          "correct": 59,
+          "incorrect": 2,
+          "abstentions": 101,
+          "precision": 0.9672131147540983,
+          "byLabel": {
+            "adult": {
+              "suggestions": 53,
+              "correct": 53
+            },
+            "juvenile": {
+              "suggestions": 8,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.84,
+          "photos": 162,
+          "suggestions": 53,
+          "correct": 52,
+          "incorrect": 1,
+          "abstentions": 109,
+          "precision": 0.9811320754716981,
+          "byLabel": {
+            "adult": {
+              "suggestions": 46,
+              "correct": 46
+            },
+            "juvenile": {
+              "suggestions": 7,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.85,
+          "photos": 162,
+          "suggestions": 48,
+          "correct": 47,
+          "incorrect": 1,
+          "abstentions": 114,
+          "precision": 0.9791666666666666,
+          "byLabel": {
+            "adult": {
+              "suggestions": 41,
+              "correct": 41
+            },
+            "juvenile": {
+              "suggestions": 7,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.86,
+          "photos": 162,
+          "suggestions": 45,
+          "correct": 44,
+          "incorrect": 1,
+          "abstentions": 117,
+          "precision": 0.9777777777777777,
+          "byLabel": {
+            "adult": {
+              "suggestions": 38,
+              "correct": 38
+            },
+            "juvenile": {
+              "suggestions": 7,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.87,
+          "photos": 162,
+          "suggestions": 41,
+          "correct": 40,
+          "incorrect": 1,
+          "abstentions": 121,
+          "precision": 0.975609756097561,
+          "byLabel": {
+            "adult": {
+              "suggestions": 35,
+              "correct": 35
+            },
+            "juvenile": {
+              "suggestions": 6,
+              "correct": 5
+            }
+          }
+        },
+        {
+          "threshold": 0.88,
+          "photos": 162,
+          "suggestions": 35,
+          "correct": 34,
+          "incorrect": 1,
+          "abstentions": 127,
+          "precision": 0.9714285714285714,
+          "byLabel": {
+            "adult": {
+              "suggestions": 29,
+              "correct": 29
+            },
+            "juvenile": {
+              "suggestions": 6,
+              "correct": 5
+            }
+          }
+        },
+        {
+          "threshold": 0.89,
+          "photos": 162,
+          "suggestions": 32,
+          "correct": 31,
+          "incorrect": 1,
+          "abstentions": 130,
+          "precision": 0.96875,
+          "byLabel": {
+            "adult": {
+              "suggestions": 27,
+              "correct": 27
+            },
+            "juvenile": {
+              "suggestions": 5,
+              "correct": 4
+            }
+          }
+        },
+        {
+          "threshold": 0.9,
+          "photos": 162,
+          "suggestions": 30,
+          "correct": 29,
+          "incorrect": 1,
+          "abstentions": 132,
+          "precision": 0.9666666666666667,
+          "byLabel": {
+            "adult": {
+              "suggestions": 25,
+              "correct": 25
+            },
+            "juvenile": {
+              "suggestions": 5,
+              "correct": 4
+            }
+          }
+        },
+        {
+          "threshold": 0.91,
+          "photos": 162,
+          "suggestions": 29,
+          "correct": 28,
+          "incorrect": 1,
+          "abstentions": 133,
+          "precision": 0.9655172413793104,
+          "byLabel": {
+            "adult": {
+              "suggestions": 24,
+              "correct": 24
+            },
+            "juvenile": {
+              "suggestions": 5,
+              "correct": 4
+            }
+          }
+        },
+        {
+          "threshold": 0.92,
+          "photos": 162,
+          "suggestions": 26,
+          "correct": 25,
+          "incorrect": 1,
+          "abstentions": 136,
+          "precision": 0.9615384615384616,
+          "byLabel": {
+            "adult": {
+              "suggestions": 21,
+              "correct": 21
+            },
+            "juvenile": {
+              "suggestions": 5,
+              "correct": 4
+            }
+          }
+        },
+        {
+          "threshold": 0.93,
+          "photos": 162,
+          "suggestions": 23,
+          "correct": 22,
+          "incorrect": 1,
+          "abstentions": 139,
+          "precision": 0.9565217391304348,
+          "byLabel": {
+            "adult": {
+              "suggestions": 18,
+              "correct": 18
+            },
+            "juvenile": {
+              "suggestions": 5,
+              "correct": 4
+            }
+          }
+        },
+        {
+          "threshold": 0.94,
+          "photos": 162,
+          "suggestions": 18,
+          "correct": 17,
+          "incorrect": 1,
+          "abstentions": 144,
+          "precision": 0.9444444444444444,
+          "byLabel": {
+            "adult": {
+              "suggestions": 13,
+              "correct": 13
+            },
+            "juvenile": {
+              "suggestions": 5,
+              "correct": 4
+            }
+          }
+        },
+        {
+          "threshold": 0.95,
+          "photos": 162,
+          "suggestions": 16,
+          "correct": 15,
+          "incorrect": 1,
+          "abstentions": 146,
+          "precision": 0.9375,
+          "byLabel": {
+            "adult": {
+              "suggestions": 12,
+              "correct": 12
+            },
+            "juvenile": {
+              "suggestions": 4,
+              "correct": 3
+            }
+          }
+        },
+        {
+          "threshold": 0.96,
+          "photos": 162,
+          "suggestions": 15,
+          "correct": 14,
+          "incorrect": 1,
+          "abstentions": 147,
+          "precision": 0.9333333333333333,
+          "byLabel": {
+            "adult": {
+              "suggestions": 11,
+              "correct": 11
+            },
+            "juvenile": {
+              "suggestions": 4,
+              "correct": 3
+            }
+          }
+        },
+        {
+          "threshold": 0.97,
+          "photos": 162,
+          "suggestions": 10,
+          "correct": 9,
+          "incorrect": 1,
+          "abstentions": 152,
+          "precision": 0.9,
+          "byLabel": {
+            "adult": {
+              "suggestions": 6,
+              "correct": 6
+            },
+            "juvenile": {
+              "suggestions": 4,
+              "correct": 3
+            }
+          }
+        },
+        {
+          "threshold": 0.98,
+          "photos": 162,
+          "suggestions": 4,
+          "correct": 4,
+          "incorrect": 0,
+          "abstentions": 158,
+          "precision": 1.0,
+          "byLabel": {
+            "adult": {
+              "suggestions": 3,
+              "correct": 3
+            },
+            "juvenile": {
+              "suggestions": 1,
+              "correct": 1
+            }
+          }
+        },
+        {
+          "threshold": 0.99,
+          "photos": 162,
+          "suggestions": 1,
+          "correct": 1,
+          "incorrect": 0,
+          "abstentions": 161,
+          "precision": 1.0,
+          "byLabel": {
+            "adult": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "juvenile": {
+              "suggestions": 1,
+              "correct": 1
+            }
+          }
+        }
+      ],
+      "cohorts": {
+        "validation": {
+          "photos": 162,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 162,
+          "precision": null,
+          "byLabel": {
+            "adult": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "juvenile": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        "test": {
+          "photos": 94,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 94,
+          "precision": null,
+          "byLabel": {
+            "adult": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "juvenile": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        "additional": {
+          "photos": 0,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 0,
+          "precision": null,
+          "byLabel": {}
+        },
+        "internet": {
+          "photos": 6,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 6,
+          "precision": null,
+          "byLabel": {
+            "adult": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "juvenile": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        "freshStage": {
+          "photos": 29,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 29,
+          "precision": null,
+          "byLabel": {
+            "adult": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "juvenile": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        }
+      }
+    },
+    "sex": {
+      "selectedThreshold": 1.0,
+      "validationPassed": false,
+      "deploymentApproved": false,
+      "validationThresholds": [
+        {
+          "threshold": 0.5,
+          "photos": 107,
+          "suggestions": 92,
+          "correct": 65,
+          "incorrect": 27,
+          "abstentions": 15,
+          "precision": 0.7065217391304348,
+          "byLabel": {
+            "female": {
+              "suggestions": 45,
+              "correct": 35
+            },
+            "male": {
+              "suggestions": 47,
+              "correct": 30
+            }
+          }
+        },
+        {
+          "threshold": 0.51,
+          "photos": 107,
+          "suggestions": 79,
+          "correct": 59,
+          "incorrect": 20,
+          "abstentions": 28,
+          "precision": 0.7468354430379747,
+          "byLabel": {
+            "female": {
+              "suggestions": 37,
+              "correct": 29
+            },
+            "male": {
+              "suggestions": 42,
+              "correct": 30
+            }
+          }
+        },
+        {
+          "threshold": 0.52,
+          "photos": 107,
+          "suggestions": 69,
+          "correct": 53,
+          "incorrect": 16,
+          "abstentions": 38,
+          "precision": 0.7681159420289855,
+          "byLabel": {
+            "female": {
+              "suggestions": 33,
+              "correct": 27
+            },
+            "male": {
+              "suggestions": 36,
+              "correct": 26
+            }
+          }
+        },
+        {
+          "threshold": 0.53,
+          "photos": 107,
+          "suggestions": 59,
+          "correct": 46,
+          "incorrect": 13,
+          "abstentions": 48,
+          "precision": 0.7796610169491526,
+          "byLabel": {
+            "female": {
+              "suggestions": 28,
+              "correct": 22
+            },
+            "male": {
+              "suggestions": 31,
+              "correct": 24
+            }
+          }
+        },
+        {
+          "threshold": 0.54,
+          "photos": 107,
+          "suggestions": 45,
+          "correct": 35,
+          "incorrect": 10,
+          "abstentions": 62,
+          "precision": 0.7777777777777778,
+          "byLabel": {
+            "female": {
+              "suggestions": 19,
+              "correct": 15
+            },
+            "male": {
+              "suggestions": 26,
+              "correct": 20
+            }
+          }
+        },
+        {
+          "threshold": 0.55,
+          "photos": 107,
+          "suggestions": 34,
+          "correct": 25,
+          "incorrect": 9,
+          "abstentions": 73,
+          "precision": 0.7352941176470589,
+          "byLabel": {
+            "female": {
+              "suggestions": 15,
+              "correct": 11
+            },
+            "male": {
+              "suggestions": 19,
+              "correct": 14
+            }
+          }
+        },
+        {
+          "threshold": 0.56,
+          "photos": 107,
+          "suggestions": 26,
+          "correct": 18,
+          "incorrect": 8,
+          "abstentions": 81,
+          "precision": 0.6923076923076923,
+          "byLabel": {
+            "female": {
+              "suggestions": 11,
+              "correct": 7
+            },
+            "male": {
+              "suggestions": 15,
+              "correct": 11
+            }
+          }
+        },
+        {
+          "threshold": 0.57,
+          "photos": 107,
+          "suggestions": 21,
+          "correct": 16,
+          "incorrect": 5,
+          "abstentions": 86,
+          "precision": 0.7619047619047619,
+          "byLabel": {
+            "female": {
+              "suggestions": 9,
+              "correct": 7
+            },
+            "male": {
+              "suggestions": 12,
+              "correct": 9
+            }
+          }
+        },
+        {
+          "threshold": 0.58,
+          "photos": 107,
+          "suggestions": 14,
+          "correct": 11,
+          "incorrect": 3,
+          "abstentions": 93,
+          "precision": 0.7857142857142857,
+          "byLabel": {
+            "female": {
+              "suggestions": 7,
+              "correct": 5
+            },
+            "male": {
+              "suggestions": 7,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.59,
+          "photos": 107,
+          "suggestions": 11,
+          "correct": 10,
+          "incorrect": 1,
+          "abstentions": 96,
+          "precision": 0.9090909090909091,
+          "byLabel": {
+            "female": {
+              "suggestions": 5,
+              "correct": 4
+            },
+            "male": {
+              "suggestions": 6,
+              "correct": 6
+            }
+          }
+        },
+        {
+          "threshold": 0.6,
+          "photos": 107,
+          "suggestions": 8,
+          "correct": 8,
+          "incorrect": 0,
+          "abstentions": 99,
+          "precision": 1.0,
+          "byLabel": {
+            "female": {
+              "suggestions": 3,
+              "correct": 3
+            },
+            "male": {
+              "suggestions": 5,
+              "correct": 5
+            }
+          }
+        },
+        {
+          "threshold": 0.61,
+          "photos": 107,
+          "suggestions": 5,
+          "correct": 5,
+          "incorrect": 0,
+          "abstentions": 102,
+          "precision": 1.0,
+          "byLabel": {
+            "female": {
+              "suggestions": 1,
+              "correct": 1
+            },
+            "male": {
+              "suggestions": 4,
+              "correct": 4
+            }
+          }
+        },
+        {
+          "threshold": 0.62,
+          "photos": 107,
+          "suggestions": 4,
+          "correct": 4,
+          "incorrect": 0,
+          "abstentions": 103,
+          "precision": 1.0,
+          "byLabel": {
+            "female": {
+              "suggestions": 1,
+              "correct": 1
+            },
+            "male": {
+              "suggestions": 3,
+              "correct": 3
+            }
+          }
+        },
+        {
+          "threshold": 0.63,
+          "photos": 107,
+          "suggestions": 3,
+          "correct": 3,
+          "incorrect": 0,
+          "abstentions": 104,
+          "precision": 1.0,
+          "byLabel": {
+            "female": {
+              "suggestions": 1,
+              "correct": 1
+            },
+            "male": {
+              "suggestions": 2,
+              "correct": 2
+            }
+          }
+        },
+        {
+          "threshold": 0.64,
+          "photos": 107,
+          "suggestions": 3,
+          "correct": 3,
+          "incorrect": 0,
+          "abstentions": 104,
+          "precision": 1.0,
+          "byLabel": {
+            "female": {
+              "suggestions": 1,
+              "correct": 1
+            },
+            "male": {
+              "suggestions": 2,
+              "correct": 2
+            }
+          }
+        },
+        {
+          "threshold": 0.65,
+          "photos": 107,
+          "suggestions": 1,
+          "correct": 1,
+          "incorrect": 0,
+          "abstentions": 106,
+          "precision": 1.0,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 1,
+              "correct": 1
+            }
+          }
+        },
+        {
+          "threshold": 0.66,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.67,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.68,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.69,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.7,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.71,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.72,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.73,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.74,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.75,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.76,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.77,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.78,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.79,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.8,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.81,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.82,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.83,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.84,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.85,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.86,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.87,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.88,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.89,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.9,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.91,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.92,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.93,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.94,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.95,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.96,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.97,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.98,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        {
+          "threshold": 0.99,
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        }
+      ],
+      "cohorts": {
+        "validation": {
+          "photos": 107,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 107,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        "test": {
+          "photos": 47,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 47,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        "additional": {
+          "photos": 0,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 0,
+          "precision": null,
+          "byLabel": {}
+        },
+        "internet": {
+          "photos": 4,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 4,
+          "precision": null,
+          "byLabel": {
+            "female": {
+              "suggestions": 0,
+              "correct": 0
+            },
+            "male": {
+              "suggestions": 0,
+              "correct": 0
+            }
+          }
+        },
+        "freshStage": {
+          "photos": 0,
+          "suggestions": 0,
+          "correct": 0,
+          "incorrect": 0,
+          "abstentions": 0,
+          "precision": null,
+          "byLabel": {}
+        }
+      }
+    }
+  },
+  "nativeRuntimeSeconds": {
+    "fp16": {
+      "median": 0.14923510599999282,
+      "max": 0.30535509300000013
+    },
+    "q8": {
+      "median": 0.0817303350000002,
+      "max": 0.170075425
+    }
+  },
+  "adultOnlyTrial": {
+    "threshold": 0.8,
+    "selection": "Selected from original validation results before evaluating that threshold on test and before collecting fresh-stage photos; both-label stage trial failed.",
+    "limitations": "Community labels; four juveniles in fresh cohort is limited negative coverage. Attribution-string exclusion cannot certify observer independence. No exact-age inference.",
+    "cohorts": {
+      "validation": {
+        "photos": 162,
+        "sourceAdults": 121,
+        "sourceJuveniles": 41,
+        "suggestions": 56,
+        "correct": 56,
+        "incorrect": 0,
+        "abstentions": 106
+      },
+      "test": {
+        "photos": 94,
+        "sourceAdults": 57,
+        "sourceJuveniles": 37,
+        "suggestions": 20,
+        "correct": 19,
+        "incorrect": 1,
+        "abstentions": 74
+      },
+      "additional": {
+        "photos": 0,
+        "sourceAdults": 0,
+        "sourceJuveniles": 0,
+        "suggestions": 0,
+        "correct": 0,
+        "incorrect": 0,
+        "abstentions": 0
+      },
+      "internet": {
+        "photos": 6,
+        "sourceAdults": 4,
+        "sourceJuveniles": 2,
+        "suggestions": 3,
+        "correct": 3,
+        "incorrect": 0,
+        "abstentions": 3
+      },
+      "freshStage": {
+        "photos": 29,
+        "sourceAdults": 25,
+        "sourceJuveniles": 4,
+        "suggestions": 10,
+        "correct": 10,
+        "incorrect": 0,
+        "abstentions": 19
+      }
+    }
+  }
+}

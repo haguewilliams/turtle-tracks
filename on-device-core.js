@@ -35,13 +35,21 @@
   const turtleClasses=['eastern','other_box_turtle','other_turtle'];
   const turtleScore=turtleClasses.every(c=>head.classes.includes(c))?turtleClasses.reduce((sum,c)=>sum+scores[head.classes.indexOf(c)],0):0;
   const turtleDetected=possible||turtleScore>=.95;
+  let lifeStage={value:'unknown',confidence:'unknown'};
+  const stage=model.heads.life_stage;
+  if(stage?.enabled){
+   if(stage.mode!=='adult-only'||!Number.isFinite(stage.threshold)||stage.threshold<.8||stage.threshold>1||!stage.classes.includes('adult')||!stage.classes.includes('juvenile'))throw Error('Unsupported life-stage classifier.');
+   // Only the adult label passed the narrower trial. A low adult score is not
+   // evidence of a juvenile, and another turtle species must not use this head.
+   if(possible&&probabilities(features,stage)[stage.classes.indexOf('adult')]>=stage.threshold)lifeStage={value:'adult',confidence:'moderate'};
+  }
   // A species classifier cannot certify anatomy or exact age. Never invent
   // visible evidence from a class score, or treat unvalidated heads as active.
   return {turtlePresent:turtleDetected,imageQuality:'limited',
    species:{commonName:possible?'Possible Eastern box turtle':turtleDetected?'Turtle detected — species uncertain':'Unable to identify confidently',scientificName:possible?'Terrapene carolina carolina':'',confidence:possible?'moderate':'unknown'},
-   sex:{value:'unknown',confidence:'unknown'},lifeStage:{value:'unknown',confidence:'unknown'},evidence:[],
+   sex:{value:'unknown',confidence:'unknown'},lifeStage,evidence:[],
    limitations:[possible?'Experimental species suggestion; similar turtles can be mistaken for Eastern box turtles. Please compare with the field guide.':turtleDetected?'This model recognizes a likely turtle but cannot reliably identify its species. Compare the photo with the field guide.':'This model cannot confidently identify this photo. This does not mean no turtle is present.',
-     'Male/female and life-stage photo models are not validated yet. Exact age cannot be determined from this result.'],
+     stage?.enabled?'Sex estimates are not available yet. The life-stage trial can suggest likely adult; it cannot reliably identify younger stages.':'Sex and life-stage estimates are not available in this model.'],
    photoAdvice:'Photograph only what is naturally visible; leave the turtle where it is.'};
  }
  return {unit,probabilities,decide};

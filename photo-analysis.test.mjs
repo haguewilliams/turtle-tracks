@@ -13,6 +13,12 @@ test('juvenile sex is unknown even with multiple alleged diagnostic clues',()=>{
 test('two distinct adult clues allow only a cautious suggestion',()=>{const r=result();r.evidence.push({feature:'plastron',description:'Concavity visible naturally',supportsSex:true});assert.deepEqual(core.normalize(r).sex,{value:'male',confidence:'moderate'})});
 test('non-turtles and unusable photos cannot produce species sex or stage claims',()=>{for(const patch of [{turtlePresent:false},{imageQuality:'unusable'}]){const r=core.normalize({...result(),...patch});assert.equal(r.species.confidence,'unknown');assert.equal(r.sex.value,'unknown');assert.equal(r.lifeStage.value,'unknown')}});
 test('unknown extra properties such as exact ages are discarded',()=>{assert.equal(core.normalize({...result(),exactAge:17}).exactAge,undefined)});
+test('unavailable capability labels survive journal import and cannot turn into estimates',()=>{
+ const a={...result(),capabilities:{species:'experimental',sex:'unavailable',lifeStage:'adult-only'},accepted:true,model:'trial',analyzedAt:'2026-11-15T02:00:00Z'};
+ const [saved]=journal.validateRecords([{id:'capability_test',date:'2026-11-14',photo,photoAnalysis:a}]);
+ assert.equal(saved.photoAnalysis.capabilities.sex,'unavailable');assert.equal(saved.photoAnalysis.sex.value,'unknown');assert.equal(saved.photoAnalysis.lifeStage.value,'adult');
+ assert.equal(core.normalize({...a,lifeStage:{value:'juvenile',confidence:'high'}}).lifeStage.value,'unknown');
+});
 test('photo endpoint rejects remote sources, huge payloads and disguised files',()=>{assert.equal(validatePhoto(photo),photo);for(const p of ['https://evil.test/a.jpg','data:image/svg+xml;base64,PHN2Zz4=',photo.replace('png','jpeg'),'x'.repeat(1200000)])assert.throws(()=>validatePhoto(p))});
 test('no credential means a clear unavailable result, not a fabricated analysis',()=>running({apiKey:''},async url=>{const status=await(await fetch(url+'/api/status')).json();assert.equal(status.photoAnalysis,false);const r=await request(url,{image:photo,consent:true});assert.equal(r.status,503)}));
 test('requires explicit photo consent and rejects cross-origin requests',()=>running({apiKey:'test-only-not-real',fetchImpl:()=>{throw Error('must not call')}},async url=>{assert.equal((await request(url,{image:photo})).status,400);assert.equal((await request(url,{image:photo,consent:true},{Origin:'https://evil.test'})).status,403)}));

@@ -29,3 +29,11 @@ test('uncertain species preserves a detected turtle through journal validation',
  assert.equal(r.sex.value,'unknown');assert.equal(r.lifeStage.value,'unknown');
  const negative=core.decide([0,1],m);assert.equal(negative.turtlePresent,false);
 });
+test('adult-only stage trial abstains for other species and never turns a low adult score into juvenile',()=>{
+ const m=model();m.heads.life_stage={enabled:true,mode:'adult-only',threshold:.8,classes:['adult','juvenile'],coefficients:[[-10,10]],intercepts:[0]};
+ assert.equal(core.decide([1,0],m).lifeStage.value,'adult');
+ assert.equal(core.decide([0,1],m).lifeStage.value,'unknown');
+ m.heads.life_stage.coefficients=[[10,-10]];
+ assert.equal(core.decide([1,0],m).lifeStage.value,'unknown');
+ m.heads.life_stage.threshold=.5;assert.throws(()=>core.decide([1,0],m));
+});

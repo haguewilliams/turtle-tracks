@@ -52,3 +52,7 @@ Official references:
 See `RELEASE_CHECKLIST.md` for verified work and outstanding release checks.
 
 See [INATURALIST_PLAN.md](INATURALIST_PLAN.md) for the parallel account-approval plan and the prepared app-owner application description.
+
+## Current photo trial: November 14, 2026
+
+The public on-device trial now uses BioCLIP Q8 with a cautious adult-only stage check. Sex and younger-stage estimates remain unfinished. See [the current model card](models/eastern-box-v2/README.md) for results, download size, and phone-verification limits. Earlier MobileNet results describe the previous trial.

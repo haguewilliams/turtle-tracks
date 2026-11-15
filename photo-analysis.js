@@ -14,8 +14,15 @@ function refreshAnalysisControls(){
   const button=document.getElementById('analyzePhotoButton');if(!button)return;
   button.disabled=!analysisAvailable||!photoData||analysisBusy||!hasAnalysisConsent()||photoJobs>0;
   button.textContent=analysisBusy?'Looking at your photo…':'Analyze photo';
+  const cancel=document.getElementById('cancelAnalysisButton');if(cancel)cancel.hidden=!analysisBusy;
   document.getElementById('analysisConsentRow').hidden=onDeviceAnalysis||!analysisAvailable;
   document.getElementById('analysisStatus').textContent=analysisBusy?'Checking your photo. You can still save without waiting.':analysisAvailable?(onDeviceAnalysis?'Experimental check on this device. Your photo is not uploaded. Review the suggestion before saving.':'Review the suggestion before adding it to your sighting.'):'Photo analysis is not available yet. You can save now or use the field guide below.';
+}
+function cancelPhotoAnalysis(){
+  if(!analysisBusy)return;
+  analysisJob++;analysisController?.abort();analysisController=null;analysisBusy=false;
+  pendingPhotoAnalysis=null;refreshAnalysisControls();
+  document.getElementById('photoEstimate').textContent='Photo check cancelled. Your photo is still here.';
 }
 async function checkAnalysisAvailability(){
   try{const r=await fetch(onDeviceAnalysis?'model-manifest.json':(window.TurtleTracksConfig?.apiBase||'')+'/api/status',{cache:'no-store'});if(!r.ok)throw Error();const data=await r.json();analysisAvailable=onDeviceAnalysis?data.enabled===true&&typeof Worker==='function'&&typeof WebAssembly==='object':data.photoAnalysis===true}catch{analysisAvailable=false}
@@ -23,8 +30,8 @@ async function checkAnalysisAvailability(){
 }
 async function analyzePhoto(){
   if(!photoData||!analysisAvailable||analysisBusy||!hasAnalysisConsent()||photoJobs)return;
-  const job=++analysisJob,epoch=photoEpoch,image=photoData;analysisBusy=true;pendingPhotoAnalysis=null;refreshAnalysisControls();
-  const controller=new AbortController();analysisController=controller;const timeout=setTimeout(()=>controller.abort(),onDeviceAnalysis?95000:50000);
+  const job=++analysisJob,epoch=photoEpoch,image=photoData;analysisBusy=true;pendingPhotoAnalysis=null;currentPhotoAnalysis=null;document.getElementById('photoEstimate').replaceChildren();refreshAnalysisControls();
+  const controller=new AbortController();analysisController=controller;const timeout=setTimeout(()=>controller.abort(),onDeviceAnalysis?185000:50000);
   try{
     let data;
     if(onDeviceAnalysis){data=await TurtleDevicePhoto.analyze(image,{signal:controller.signal,onProgress:message=>{if(job===analysisJob)document.getElementById('analysisStatus').textContent=message}})}
@@ -41,8 +48,9 @@ async function analyzePhoto(){
 }
 function analysisHTML(result){
   const a=TurtlePhotoCore.normalize(result),value=v=>v==='unknown'?'Unable to tell':v[0].toUpperCase()+v.slice(1);
+  const fieldValue=(field,result)=>a.capabilities?.[field]==='unavailable'?'Not yet available':field==='lifeStage'&&a.capabilities?.lifeStage==='adult-only'&&result.value==='adult'?'Likely adult':value(result.value);
   return '<p class="analysis-label">AI suggestion · not independently verified</p><h3>'+esc(a.species.commonName||'Unable to identify')+'</h3>'+(a.species.scientificName?'<p><em>'+esc(a.species.scientificName)+'</em></p>':'')+
-    '<dl class="analysis-facts"><div><dt>Species confidence</dt><dd>'+value(a.species.confidence)+'</dd></div><div><dt>Sex</dt><dd>'+value(a.sex.value)+(a.sex.value!=='unknown'?' · '+value(a.sex.confidence)+' confidence':'')+'</dd></div><div><dt>Life stage</dt><dd>'+value(a.lifeStage.value)+'</dd></div></dl>'+
+    '<dl class="analysis-facts"><div><dt>Species confidence</dt><dd>'+value(a.species.confidence)+'</dd></div><div><dt>Sex</dt><dd>'+fieldValue('sex',a.sex)+(a.sex.value!=='unknown'?' · '+value(a.sex.confidence)+' confidence':'')+'</dd></div><div><dt>Life stage</dt><dd>'+fieldValue('lifeStage',a.lifeStage)+'</dd></div></dl>'+
     (a.evidence.length?'<p><b>Visible clues</b></p><ul>'+a.evidence.map(e=>'<li>'+esc(e.description)+'</li>').join('')+'</ul>':'')+
     (a.limitations.length?'<p>'+a.limitations.map(esc).join(' ')+'</p>':'')+'<p class="tt-small">Exact age cannot be determined from a photo. Confidence is a model judgment, not a measured accuracy score.</p>'+(a.photoAdvice?'<p>'+esc(a.photoAdvice)+'</p>':'');
 }

@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "test": "node --test journal-core.test.cjs photo-analysis.test.mjs inaturalist.test.mjs citizen-science.test.cjs on-device-core.test.cjs"
+    "test": "node --test journal-core.test.cjs photo-analysis.test.mjs inaturalist.test.mjs citizen-science.test.cjs on-device-core.test.cjs photo-preprocess.test.cjs"
   },
   "engines": {
     "node": ">=22"
